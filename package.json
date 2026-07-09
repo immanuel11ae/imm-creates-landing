@@ -4,9 +4,7 @@
   "description": "Static landing page for imm.creates",
   "main": "index.html",
   "scripts": {
-    "start": "serve ."
+    "start": "node server.js"
   },
-  "dependencies": {
-    "serve": "^14.2.4"
-  }
+  "dependencies": {}
 }
