@@ -311,6 +311,42 @@
   .work-body h4{font-size:1.02rem; margin-bottom:.4rem;}
   .work-body p{font-size:.85rem; color:var(--paper-dim);}
 
+  /* Volume toggle button */
+  .vol-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    z-index: 3;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(21, 42, 61, 0.6);
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--line-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    transition: background 0.2s, transform 0.2s;
+    padding: 0;
+    opacity: 0;
+  }
+  .work-card:hover .vol-btn {
+    opacity: 1;
+  }
+  .vol-btn:hover {
+    background: rgba(21, 42, 61, 0.85);
+    transform: scale(1.1);
+  }
+  .vol-btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  .vol-btn .unmute-icon { display: none; }
+  .vol-btn.is-unmuted .unmute-icon { display: block; }
+  .vol-btn.is-unmuted .mute-icon { display: none; }
+
 
   .case{border-top:1px solid var(--line); padding-top:1.4rem;}
   .case .stage{font-family:'JetBrains Mono'; font-size:.72rem; color:var(--teal); display:block; margin-bottom:.6rem;}
@@ -558,6 +594,10 @@
             <source src="assets/videos/jersey-ugc-campaign.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>Jersey UGC Campaign</h4><p>Video UGC produk jersey — dari konsep sampai hasil siap posting.</p></div>
       </div>
@@ -570,6 +610,10 @@
             <source src="assets/videos/hotel-review-ugc-lombok.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>Hotel Review UGC — Lombok</h4><p>Video review UGC untuk properti hospitality di Lombok.</p></div>
       </div>
@@ -582,6 +626,10 @@
             <source src="assets/videos/ugc-parfum.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>UGC Parfum</h4><p>Video UGC produk parfum dengan pendekatan visual yang elegan.</p></div>
       </div>
@@ -594,6 +642,10 @@
             <source src="assets/videos/ugc-sepatu-nike.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>UGC Sepatu Nike</h4><p>Showcase produk sepatu Nike melalui video UGC dinamis.</p></div>
       </div>
@@ -606,6 +658,10 @@
             <source src="assets/videos/ugc-kahf.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>Kahf</h4><p>Konten UGC untuk produk perawatan pria Kahf.</p></div>
       </div>
@@ -618,6 +674,10 @@
             <source src="assets/videos/ugc-brewday-coffee.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>Brewday Coffee</h4><p>Visual storytelling untuk produk Brewday Coffee.</p></div>
       </div>
@@ -630,6 +690,10 @@
             <source src="assets/videos/ugc-versace-eros.mp4" type="video/mp4">
           </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
         </div>
         <div class="work-body"><h4>Parfum Versace Eros</h4><p>Video UGC sinematik untuk parfum Versace Eros.</p></div>
       </div>
@@ -855,7 +919,7 @@
       <div class="step reveal"><h5>Brief</h5><p>Ceritain bisnis dan kebutuhan kamu lewat WhatsApp.</p></div>
       <div class="step reveal"><h5>Desain</h5><p>Konsep visual & copywriting disiapkan sesuai brand kamu.</p></div>
       <div class="step reveal"><h5>Revisi</h5><p>Penyesuaian sampai kamu benar-benar puas dengan hasilnya.</p></div>
-      <div class="step reveal"><h5>Live</h5><p>Website online dan siap dipakai jualan.</p></div>
+      <div class="step reveal"><h5>Live</h5><p>Website online and siap dipakai jualan.</p></div>
     </div>
 
     <div class="contact-panel reveal">
@@ -1106,9 +1170,11 @@
     });
   });
 
-  // Hover-play logic for vertical videos
+  // Hover-play logic and volume toggle
   document.querySelectorAll('.work-card').forEach(card => {
     const video = card.querySelector('video');
+    const volBtn = card.querySelector('.vol-btn');
+
     if (video) {
       card.addEventListener('mouseenter', () => {
         video.play().catch(e => console.warn('Video play blocked:', e));
@@ -1116,6 +1182,14 @@
       card.addEventListener('mouseleave', () => {
         video.pause();
         video.currentTime = 0;
+      });
+    }
+
+    if (volBtn && video) {
+      volBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent card hover logic if needed, though they don't conflict here
+        video.muted = !video.muted;
+        volBtn.classList.toggle('is-unmuted', !video.muted);
       });
     }
   });
