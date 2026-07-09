@@ -275,18 +275,19 @@
     font-family:'Inter'; transition:all .25s;
   }
   .filter-btn.active, .filter-btn:hover{background:var(--ink); color:var(--paper); border-color:var(--ink);}
-  .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin-bottom:4rem;}
+  .gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem; margin-bottom:4rem;}
   .work-card{
     background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
     overflow:hidden; transition:transform .35s ease, border-color .35s ease;
   }
   .work-card:hover{transform:translateY(-6px); border-color:var(--teal);}
   .work-thumb{
-    aspect-ratio:4/3; background:
+    aspect-ratio:9/16; background:
       repeating-linear-gradient(135deg, var(--panel-2) 0 2px, transparent 2px 14px),
       linear-gradient(160deg, var(--panel-2), var(--panel));
     position:relative;
     display:flex; align-items:flex-end; padding:1rem;
+    overflow:hidden;
   }
   .work-thumb .cat{
     font-family:'JetBrains Mono'; font-size:.7rem; padding:.3rem .6rem; border-radius:100px;
@@ -309,47 +310,6 @@
   .work-body{padding:1.3rem 1.4rem 1.6rem;}
   .work-body h4{font-size:1.02rem; margin-bottom:.4rem;}
   .work-body p{font-size:.85rem; color:var(--paper-dim);}
-
-  .ig-showcase{
-    display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
-    gap:1.6rem; margin:2rem 0 4rem;
-  }
-  .ig-item{
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-    padding:1rem; transition:transform .3s ease, border-color .3s ease;
-  }
-  .ig-item:hover{transform:translateY(-4px); border-color:var(--teal);}
-  .ig-embed-wrap{border-radius:10px; overflow:hidden; margin-bottom:.9rem; display:flex; justify-content:center; min-height:280px; background:var(--panel-2); position:relative;}
-  .ig-embed-wrap iframe, .ig-embed-wrap blockquote{width:100% !important; margin:0 !important; position:relative; z-index:1;}
-  .ig-fallback{
-    position:absolute; inset:0; z-index:2;
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.9rem;
-    background:
-      repeating-linear-gradient(135deg, var(--panel-2) 0 2px, transparent 2px 14px),
-      linear-gradient(160deg, var(--panel-2), var(--panel));
-    text-decoration:none; transition:opacity .35s ease, transform .35s ease;
-    overflow:hidden;
-  }
-  .ig-fallback:hover{transform:scale(1.015);}
-  .ig-thumb{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;}
-  .ig-fallback .play-circle{
-    width:56px; height:56px; border-radius:50%; background:rgba(21,42,61,.85);
-    display:flex; align-items:center; justify-content:center;
-    transition:background .25s ease; position:relative; z-index:1;
-  }
-  .ig-fallback:hover .play-circle{background:var(--amber);}
-  .ig-fallback .play-circle svg{width:18px; height:18px; margin-left:2px;}
-  .ig-fallback-label{
-    font-family:'JetBrains Mono'; font-size:.74rem; color:var(--paper-dim);
-    display:flex; align-items:center; gap:.4rem; position:relative; z-index:1;
-  }
-  .ig-fallback:has(.ig-thumb) .play-circle{background:rgba(21,42,61,.6); backdrop-filter:blur(1px);}
-  .ig-fallback:has(.ig-thumb) .ig-fallback-label{
-    background:rgba(21,42,61,.55); color:#E9F1FB; padding:.3rem .7rem; border-radius:100px;
-  }
-  .ig-embed-wrap.embed-ready .ig-fallback{opacity:0; pointer-events:none;}
-  .ig-title{font-size:.92rem; font-weight:600; margin-bottom:.4rem;}
-  .ig-caption{font-size:.78rem; color:var(--paper-dim); font-style:italic;}
 
 
   .case{border-top:1px solid var(--line); padding-top:1.4rem;}
@@ -590,89 +550,88 @@
     </div>
 
     <div class="gallery">
+      <!-- Jersey UGC Campaign -->
       <div class="work-card reveal" data-cat="ugc">
         <div class="work-thumb">
           <span class="cat mono">UGC</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/jersey-ugc-campaign.mp4" type="video/mp4">
+          </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <div class="work-body"><h4>Jersey UGC Campaign</h4><p>Video UGC produk jersey — dari konsep sampai edit CapCut, siap posting.</p></div>
+        <div class="work-body"><h4>Jersey UGC Campaign</h4><p>Video UGC produk jersey — dari konsep sampai hasil siap posting.</p></div>
       </div>
-      <div class="work-card reveal" data-cat="ads">
-        <div class="work-thumb">
-          <span class="cat mono">SPEC ADS</span>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        </div>
-        <div class="work-body"><h4>Fragrance Spec Ad — Bleu de Chanel</h4><p>Video iklan konsep untuk kategori fragrance, dibuat sebagai spec ad portfolio.</p></div>
-      </div>
-      <div class="work-card reveal" data-cat="avatar">
-        <div class="work-thumb">
-          <span class="cat mono">AVATAR</span>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        </div>
-        <div class="work-body"><h4>Tactical-Suit Character Series</h4><p>Multi-scene AI video dengan karakter konsisten menggunakan character-lock prompting.</p></div>
-      </div>
-      <div class="work-card reveal" data-cat="ads">
-        <div class="work-thumb">
-          <span class="cat mono">SPEC ADS</span>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-        </div>
-        <div class="work-body"><h4>iCar Dealership Concept</h4><p>Video konsep dealership bergaya sinematik untuk showcase kendaraan.</p></div>
-      </div>
+      
+      <!-- Hotel Review UGC — Lombok -->
       <div class="work-card reveal" data-cat="ugc">
         <div class="work-thumb">
-          <span class="cat mono">FOOD</span>
+          <span class="cat mono">TRAVEL</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/hotel-review-ugc-lombok.mp4" type="video/mp4">
+          </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <div class="work-body"><h4>Bakso ASMR</h4><p>Video ASMR makanan dengan pendekatan sensory storytelling untuk konten kuliner.</p></div>
+        <div class="work-body"><h4>Hotel Review UGC — Lombok</h4><p>Video review UGC untuk properti hospitality di Lombok.</p></div>
       </div>
-      <div class="work-card reveal" data-cat="web">
+
+      <!-- UGC Parfum -->
+      <div class="work-card reveal" data-cat="ugc">
         <div class="work-thumb">
-          <span class="cat mono">WEB</span>
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-parfum.mp4" type="video/mp4">
+          </video>
           <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <div class="work-body"><h4>Hotel Review UGC — Lombok</h4><p>Video review UGC untuk properti hospitality, dari brief sampai hasil siap tayang.</p></div>
+        <div class="work-body"><h4>UGC Parfum</h4><p>Video UGC produk parfum dengan pendekatan visual yang elegan.</p></div>
       </div>
-    </div>
 
-    <div class="timecode reveal" style="margin-top:1rem;"><div class="bar"></div><span>CONTOH HASIL — AI GENERATED</span></div>
-    <p class="reveal" style="max-width:640px; color:var(--paper-dim); font-size:.92rem; margin-bottom:.5rem;">Video UGC hasil generate AI yang sudah dipublikasikan sebagai konsep/spec ad. Klik untuk lihat langsung di Instagram.</p>
+      <!-- UGC Sepatu Nike -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">FASHION</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-sepatu-nike.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+        </div>
+        <div class="work-body"><h4>UGC Sepatu Nike</h4><p>Showcase produk sepatu Nike melalui video UGC dinamis.</p></div>
+      </div>
 
-    <div class="ig-showcase reveal">
-      <div class="ig-item">
-        <div class="ig-embed-wrap">
-          <a class="ig-fallback" href="https://www.instagram.com/p/DZZ5WxSjMRJ/" target="_blank" rel="noopener" aria-label="Lihat postingan di Instagram">
-            <img class="ig-thumb" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAcFBQYFBAcGBgYIBwcICxILCwoKCxYPEA0SGhYbGhkWGRgcICgiHB4mHhgZIzAkJiorLS4tGyIyNTEsNSgsLSz/2wBDAQcICAsJCxULCxUsHRkdLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCwsLCz/wAARCAL6AZkDASIAAhEBAxEB/8QAHAAAAQUBAQEAAAAAAAAAAAAAAgABAwQFBgcI/8QAUhAAAQMCBAQDAwgECwYEBQUAAQACAwQRBRIhmOEHFWGRoZIVMTNScXLR4VNXgpLR8BRVGCMyYqKk8RclN0JjZXSzwdImN0RDstP/xAAbAQACAwEBAAAAAAAAAAAAAAABAgADBAUG/8QAOREAAgIBAwMCBAUDAwMEAwAAAAECEQMSBCExE0FRBSIyFGFxkRUjgaEzQtE0UrHwFkNiwSRT4f/aAAwDAQACEQMRAD8As/hTh3lt/CHDNv8AlI/yUL+FeHwf9hYZ/hI/yW3mvG30ULyvB7Zb9vT1iw38MYBfTA8N/wAKz8lE7hnAf2Jh3+FZ+S2X7qJyueVv7T1jGdw1gf7Fw7/DM/JRv4bwQD/Y2H/4Zn5LZcoJT4Stccs9shZGPFw/goOmEUAr/wDrDPyUPKBg/wCyqH/Ds/JanLcKUnNbeX6ztu9M/qA6GfI+p/8ADsz/AALmXkLCP2VRf4dn5I3QfD2pYnUvLId7X7S6/C6zS/Ff7Y3Z6XmX6vV/8L/0z78Cwj9lUX+HZ/kvSOHOAsKfg1L76z6yP7V88WOnXovpD4X7Z6PgrY77mZ9rR8FqX4X6e7D6Y0814mF8V6VjZ4Ewj9lUX9wz8kjwFhH7Kov7hn5K92SstXpnnNlA8BYR+yqL+4Z8kk8BYR+yqL+4Z8SvsidG6Wmeof8BYR+yqL+4Z8SX6BYR+yqL+4Z8st0vSm1T9Aw/Y8FUX+HZ+ScYDhP/ZVF/h2fkttK6L0xtTMT9AsJ/ZVF/h2fkhdgWEX/wBl0X/hu/Jbb6pY6Z6ZqGfHAsI/ZVF/h2fkiHAsI/ZVF/cM/JXN7pX90fTPUZP6BYR+yqL+4Z8kl/qJhH7Kov7hn5LRaF62qemDqfomI8BYR+yqL+4Z8klS8BYR+yqL+4Z8kt0vSm1T9EyP6BYR+yqL+4Z8kkf6BYR+yqL+4Z8kt9krpemp+p7MT4Cwj9lUX9wz8kv0Cwj9lUX+HZ+S23KUn1S1T9N+6Yg+AYR+yqL+4Z8kkfAWEfsqi/uGfkr7Ej6Wj6f7mRjfAWEfsqi/uGfkkOBYR+yqL+4Z8ktHJKXp6Ppt7mR/QfCP/ZVF/h2fkl+geEf+zKL/wANv5LRuS9T9R+r+p7M0eBYSf8A4XR/3Df9FH+HMLH/AOH0n2QN/Jbuvui7R9P9A9Q57/D+Ffs2k/uG/on/ACRhf7No/wC4b+Sv9Ej9S6Xqfg6vq+pU8jYX+zaP+4b+Sn+RML/ZpJ/cN/0V/v6v9S9R8Dt+lUfV+ge/S99ep/U+h+p9B7pX2pfUfBvU7pX90fUvU/BPVPVfA/UepfaiPqn6v0vqd0B5on1S9U9S6h9X6B36XpX2pfUfBuqet9K+1L1PwS9X6X2oXUfq/Sr6v0n9U/6S6n6n4N/qS9UvU/At+k9S9U9U/Arv8AqRf9L1L1PwN9U9S9S+p+Bf9S9S+p+Gf9Sf8ApU9T8H//2Q==" alt="Thumbnail UGC Warisan Jamu" onerror="this.remove()">
-            <span class="play-circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="ig-fallback-label">Lihat di Instagram ↗</span>
-          </a>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYnrxILkqRj/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DYnrxILkqRj/" target="_blank" rel="noopener">Lihat di Instagram</a></blockquote>
+      <!-- Kahf -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-kahf.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <p class="ig-title">Warisan — Short Film Jamu</p>
-        <p class="ig-caption">AI Short Film concept for traditional herbal drink.</p>
+        <div class="work-body"><h4>Kahf</h4><p>Konten UGC untuk produk perawatan pria Kahf.</p></div>
       </div>
-      <div class="ig-item">
-        <div class="ig-embed-wrap">
-          <a class="ig-fallback" href="https://www.instagram.com/p/DYmIPCyHfUT/" target="_blank" rel="noopener" aria-label="Lihat postingan di Instagram">
-            <img class="ig-thumb" src="data:image/jpeg;base64,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" alt="Thumbnail UGC Parfum" onerror="this.remove()">
-            <span class="play-circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="ig-fallback-label">Lihat di Instagram ↗</span>
-          </a>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYmIPCyHfUT/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DYmIPCyHfUT/" target="_blank" rel="noopener">Lihat di Instagram</a></blockquote>
+
+      <!-- Brewday Coffee -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">COFFEE</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-brewday-coffee.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <p class="ig-title">UGC Parfum</p>
-        <p class="ig-caption">This is a concept/spec ad — not affiliated with Versace.</p>
+        <div class="work-body"><h4>Brewday Coffee</h4><p>Visual storytelling untuk produk Brewday Coffee.</p></div>
       </div>
-      <div class="ig-item">
-        <div class="ig-embed-wrap">
-          <a class="ig-fallback" href="https://www.instagram.com/p/DYeZwX_EUP0/" target="_blank" rel="noopener" aria-label="Lihat postingan di Instagram">
-            <img class="ig-thumb" src="data:image/jpeg;base64,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" alt="Thumbnail UGC Parfum" onerror="this.remove()">
-            <span class="play-circle"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-            <span class="ig-fallback-label">Lihat di Instagram ↗</span>
-          </a>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DYmIPCyHfUT/" data-instgrm-version="14"><a href="https://www.instagram.com/p/DYmIPCyHfUT/" target="_blank" rel="noopener">Lihat di Instagram</a></blockquote>
+
+      <!-- Parfum Versace Eros -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-versace-eros.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
         </div>
-        <p class="ig-title">UGC Parfum</p>
-        <p class="ig-caption">This is a concept/spec ad — not affiliated with Versace.</p>
+        <div class="work-body"><h4>Parfum Versace Eros</h4><p>Video UGC sinematik untuk parfum Versace Eros.</p></div>
       </div>
     </div>
 
@@ -1135,6 +1094,7 @@
     if(el) spy.observe(el);
   });
 
+  // Portfolio filter and hover-play logic
   document.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
@@ -1144,6 +1104,20 @@
         c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
       });
     });
+  });
+
+  // Hover-play logic for vertical videos
+  document.querySelectorAll('.work-card').forEach(card => {
+    const video = card.querySelector('video');
+    if (video) {
+      card.addEventListener('mouseenter', () => {
+        video.play().catch(e => console.warn('Video play blocked:', e));
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    }
   });
 
   document.querySelectorAll('.faq-item').forEach(item=>{
@@ -1160,6 +1134,5 @@
     });
   });
 </script>
-<script async src="//www.instagram.com/embed.js"></script>
 </body>
 </html>
