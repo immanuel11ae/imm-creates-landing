@@ -1,0 +1,12 @@
+{
+  "name": "imm-creates",
+  "version": "1.0.0",
+  "description": "Static landing page for imm.creates",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve ."
+  },
+  "dependencies": {
+    "serve": "^14.2.4"
+  }
+}
