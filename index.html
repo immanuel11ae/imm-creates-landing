@@ -323,32 +323,16 @@
     bottom: 1rem;
     right: 1rem;
     z-index: 3;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(21, 42, 61, 0.6);
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--line-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #fff;
-    transition: background 0.2s, transform 0.2s;
-    padding: 0;
-    opacity: 0;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(21, 42, 61, 0.6); backdrop-filter: blur(4px);
+    border: 1px solid var(--line-strong); display: flex;
+    align-items: center; justify-content: center;
+    cursor: pointer; color: #fff;
+    transition: background 0.2s, transform 0.2s; padding: 0; opacity: 0;
   }
-  .work-card:hover .vol-btn {
-    opacity: 1;
-  }
-  .vol-btn:hover {
-    background: rgba(21, 42, 61, 0.85);
-    transform: scale(1.1);
-  }
-  .vol-btn svg {
-    width: 16px;
-    height: 16px;
-  }
+  .work-card:hover .vol-btn { opacity: 1; }
+  .vol-btn:hover { background: rgba(21, 42, 61, 0.85); transform: scale(1.1); }
+  .vol-btn svg { width: 16px; height: 16px; }
   .vol-btn .unmute-icon { display: none; }
   .vol-btn.is-unmuted .unmute-icon { display: block; }
   .vol-btn.is-unmuted .mute-icon { display: none; }
@@ -373,7 +357,7 @@
   }
   .product-card .badge{
     display:inline-block; font-family:'JetBrains Mono'; font-size:.72rem;
-    color:var(--amber); border:1px solid var(--amber); padding:.3rem .7rem; border-radius:100px; margin-bottom:12rem;
+    color:var(--amber); border:1px solid var(--amber); padding:.3rem .7rem; border-radius:100px; margin-bottom:1.2rem;
   }
   .product-card h3{font-size:1.6rem; margin-bottom:.6rem;}
   .price{font-family:'Space Grotesk'; font-size:2rem; color:var(--amber); margin:1rem 0;}
@@ -418,6 +402,7 @@
   .pkg{
     border:1px solid var(--line); border-radius:var(--radius); padding:2rem 1.6rem;
     transition:border-color .3s, transform .3s, background .3s, box-shadow .3s;
+    display: flex; flex-direction: column;
   }
   .pkg:hover{
     transform:translateY(-6px); border-color:var(--amber); background:var(--panel);
@@ -426,8 +411,15 @@
   .pkg .ptag{font-family:'JetBrains Mono'; font-size:.72rem; color:var(--teal);}
   .pkg h4{font-size:1.15rem; margin:.7rem 0 .5rem;}
   .pkg .prange{font-family:'Space Grotesk'; font-size:1.3rem; margin-bottom:1rem;}
-  .pkg ul{list-style:none; font-size:.85rem; color:var(--paper-dim);}
+  .pkg ul{list-style:none; font-size:.85rem; color:var(--paper-dim); flex-grow: 1;}
   .pkg ul li{padding:.4rem 0; border-top:1px solid var(--line);}
+  
+  .pkg-demo {
+    display: block; margin-top: 1rem; padding-top: 0.8rem;
+    border-top: 1px solid var(--line); font-size: 0.82rem;
+    color: var(--amber); font-weight: 600; transition: color 0.25s;
+  }
+  .pkg-demo:hover { color: var(--teal); }
 
   .process-row{display:flex; gap:0; margin:2.5rem 0 4rem; flex-wrap:wrap;}
   .step{flex:1; min-width:160px; padding:1.4rem 1.4rem 1.4rem 0; position:relative;}
@@ -825,6 +817,7 @@
           <li>Copywriting lengkap per halaman</li>
           <li>SEO dasar & mobile-friendly</li>
         </ul>
+        <a href="https://immanuel11ae.github.io/kopi-ranting/index.html" target="_blank" rel="noopener" class="pkg-demo">Lihat Contoh ↗</a>
       </div>
       <div class="pkg reveal">
         <h4>Toko Digital + Checkout</h4>
