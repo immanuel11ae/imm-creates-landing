@@ -495,8 +495,8 @@
   <a href="index.html" class="logo"><img src="assets/images/logo-navbar-fixed.png" alt="imm.creates logo"></a>
   <nav>
     <ul>
-      <li><a href="index.html" class="nav-link active">Home</a></li>
-      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
       <li><a href="store.html" class="nav-link">Store</a></li>
       <li><a href="jasa.html" class="nav-link">Jasa &amp; Kontak</a></li>
     </ul>
@@ -504,83 +504,168 @@
   <a class="nav-wa" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya-tanya" target="_blank" rel="noopener">Chat WA</a>
 </header>
 
-<!-- ============ HOME ============ -->
-<section id="home" class="hero">
+<!-- ============ PORTFOLIO ============ -->
+<section id="portfolio">
   <div class="section-inner">
-    <p class="eyebrow reveal">AI Content Production Studio — Surabaya, Indonesia</p>
-    <h1 class="reveal">Konten AI yang <span class="accent">kelihatan hasilnya</span>,<br>bukan cuma janji manis.</h1>
-    <p class="lead reveal">imm.creates bikin video UGC, spec ads, dan avatar video pakai AI production pipeline — plus jual produk digital siap pakai dan bangun website yang siap jualan sejak hari pertama live.</p>
-    <div class="cta-row reveal">
-      <a href="portfolio.html" class="btn btn-primary">Lihat Portfolio</a>
-      <a href="jasa.html" class="btn btn-outline">Order Jasa Website</a>
-    </div>
-  </div>
-  <div class="filmstrip reveal">
-    <div class="frame"><span class="flabel">UGC Video</span></div>
-    <div class="frame"><span class="flabel">Spec Ads</span></div>
-    <div class="frame"><span class="flabel">Avatar Video</span></div>
-    <div class="frame"><span class="flabel">Product Ads</span></div>
-  </div>
-</section>
+    <div class="timecode reveal"><div class="bar"></div><span>OUR WORK</span></div>
+    <p class="eyebrow reveal">Portfolio</p>
+    <h2 class="reveal" style="font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:680px; margin-bottom:2.5rem;">Bukti kerja, bukan pitch deck.</h2>
 
-<!-- Value proposition -->
-<section>
-  <div class="section-inner">
-    <div class="timecode reveal"><div class="bar"></div><span>KENAPA PERCAYA IMM.CREATES</span></div>
-    <div class="value-grid">
-      <div class="value-item reveal">
-        <h4>Portfolio nyata, bukan mock-up</h4>
-        <p>Semua yang dipajang adalah project yang benar-benar sudah dikerjakan dan dipakai klien — bukan template kosong.</p>
+    <div class="filters reveal">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="ugc">UGC</button>
+      <button class="filter-btn" data-filter="ads">Spec Ads</button>
+      <button class="filter-btn" data-filter="avatar">Avatar Video</button>
+      <button class="filter-btn" data-filter="web">Website</button>
+    </div>
+
+    <div class="gallery">
+      <!-- Jersey UGC Campaign -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">UGC</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/jersey-ugc-campaign.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>Jersey UGC Campaign</h4><p>Video UGC produk jersey — dari konsep sampai hasil siap posting.</p></div>
       </div>
-      <div class="value-item reveal">
-        <h4>Produk siap pakai, checkout sendiri</h4>
-        <p>Beli, bayar, langsung dipakai. Tidak perlu menunggu balasan admin untuk mulai belajar atau produksi konten.</p>
+      
+      <!-- Hotel Review UGC — Lombok -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">TRAVEL</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/hotel-review-ugc-lombok.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>Hotel Review UGC — Lombok</h4><p>Video review UGC untuk properti hospitality di Lombok.</p></div>
       </div>
-      <div class="value-item reveal">
-        <h4>Website yang paham konten & marketing</h4>
-        <p>Dikerjakan oleh orang yang juga bikin konten AI dan strategi digital — hasilnya website yang siap dipakai jualan, bukan cuma "jadi".</p>
+
+      <!-- UGC Parfum -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-parfum.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>UGC Parfum</h4><p>Video UGC produk parfum dengan pendekatan visual yang elegan.</p></div>
+      </div>
+
+      <!-- UGC Sepatu Nike -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">FASHION</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-sepatu-nike.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>UGC Sepatu Nike</h4><p>Showcase produk sepatu Nike melalui video UGC dinamis.</p></div>
+      </div>
+
+      <!-- Kahf -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-kahf.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>Kahf</h4><p>Konten UGC untuk produk perawatan pria Kahf.</p></div>
+      </div>
+
+      <!-- Brewday Coffee -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">COFFEE</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-brewday-coffee.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>Brewday Coffee</h4><p>Visual storytelling untuk produk Brewday Coffee.</p></div>
+      </div>
+
+      <!-- Parfum Versace Eros -->
+      <div class="work-card reveal" data-cat="ugc">
+        <div class="work-thumb">
+          <span class="cat mono">BEAUTY</span>
+          <video class="work-video" muted loop playsinline preload="metadata">
+            <source src="assets/videos/ugc-versace-eros.mp4" type="video/mp4">
+          </video>
+          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
+          <button class="vol-btn" aria-label="Toggle Volume">
+            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
+            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+          </button>
+        </div>
+        <div class="work-body"><h4>Parfum Versace Eros</h4><p>Video UGC sinematik for parfum Versace Eros.</p></div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- 3 Pintu Utama -->
-<section>
-  <div class="section-inner">
-    <div class="timecode reveal"><div class="bar"></div><span>MULAI DARI MANA</span></div>
-    <div class="doors">
-      <div class="door reveal">
-        <h3>Lihat Karya</h3>
-        <p>Galeri UGC video, spec ads, avatar video, dan product ads yang sudah rilis dan dipakai klien asli.</p>
-        <a href="portfolio.html">Buka portfolio →</a>
+    <div class="timecode reveal"><div class="bar"></div><span>STUDI KASUS</span></div>
+    <div class="case-studies">
+      <div class="case reveal">
+        <span class="stage mono">BRIEF → PROSES → HASIL</span>
+        <h4>Warisan — Short Film Jamu</h4>
+        <p>Konsep short film sinematik bertema jamu tradisional. Dikerjakan lengkap dari prompt architecture, seed image, sampai rangkaian scene menggunakan Google Flow/Veo.</p>
       </div>
-      <div class="door reveal">
-        <h3>Beli Produk Digital</h3>
-        <p>Storyboard Maker AI Prompt dan produk digital lain — instant delivery setelah bayar, bisa dipakai langsung.</p>
-        <a href="store.html">Buka store →</a>
+      <div class="case reveal">
+        <span class="stage mono">BRIEF → PROSES → HASIL</span>
+        <h4>Fragrance Series — Versace & Chanel</h4>
+        <p>Dua project spec ad fragrance berturut-turut, membangun konsistensi visual dan kualitas komposisi untuk kategori premium beauty.</p>
       </div>
-      <div class="door reveal">
-        <h3>Order Website</h3>
-        <p>Butuh website yang siap jualan? Konsultasi paket dan harga langsung lewat WhatsApp.</p>
-        <a href="jasa.html">Order sekarang →</a>
+      <div class="case reveal">
+        <span class="stage mono">BRIEF → PROSES → HASIL</span>
+        <h4>Product Ads — Coca-Cola Zero Sugar</h4>
+        <p>Konsep iklan produk minuman dengan pendekatan product-hero shot dan motion dinamis ala TVC modern.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- Social proof preview -->
-<section>
-  <div class="section-inner">
-    <div class="timecode reveal"><div class="bar"></div><span>KATA MEREKA</span></div>
-    <div class="case-studies" style="margin-bottom:0;">
-      <div class="testi reveal" style="grid-column:span 1;">
-        <p>"Video UGC dari imm.creates naikin engagement Instagram toko aku, prosesnya juga cepat."</p>
-        <span>— Sarah, pemilik brand skincare lokal</span>
-      </div>
-      <div class="testi reveal" style="grid-column:span 1;">
-        <p>"Storyboard Maker-nya beneran ngebantu, gak perlu mikir alur video dari nol lagi."</p>
-        <span>— Deni, content creator TikTok</span>
-      </div>
+    <div class="timecode reveal"><div class="bar"></div><span>BEHIND THE PROCESS</span></div>
+    <p class="reveal" style="max-width:640px; color:var(--paper-dim); font-size:.92rem;">Setiap project dikerjakan dengan structured prompt engineering dan tools produksi yang konsisten:</p>
+    <div class="tools-row reveal">
+      <span class="tool-chip">Google Flow / Veo</span>
+      <span class="tool-chip">Dreamina Seedance</span>
+      <span class="tool-chip">Suno AI</span>
+      <span class="tool-chip">CapCut Desktop</span>
+      <span class="tool-chip">Adobe Photoshop</span>
+    </div>
+
+    <div class="cta-row reveal" style="margin-top:3rem;">
+      <a href="https://www.instagram.com/imm.creates/" target="_blank" rel="noopener" class="btn btn-outline">Follow @imm.creates di Instagram</a>
+      <a href="store.html" class="btn btn-outline">Cek produk digitalnya</a>
+      <a href="jasa.html" class="btn btn-primary">Suka gaya kerjanya? Order Jasa Website</a>
     </div>
   </div>
 </section>
@@ -796,5 +881,43 @@
 
 
 </script>
+<script>
+  // Portfolio filter and hover-play logic
+  document.querySelectorAll('.filter-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      document.querySelectorAll('.work-card').forEach(c=>{
+        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+
+  // Hover-play logic and volume toggle
+  document.querySelectorAll('.work-card').forEach(card => {
+    const video = card.querySelector('video');
+    const volBtn = card.querySelector('.vol-btn');
+
+    if (video) {
+      card.addEventListener('mouseenter', () => {
+        video.play().catch(e => console.warn('Video play blocked:', e));
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    }
+
+    if (volBtn && video) {
+      volBtn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent card hover logic if needed, though they don't conflict here
+        video.muted = !video.muted;
+        volBtn.classList.toggle('is-unmuted', !video.muted);
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
