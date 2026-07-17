@@ -970,6 +970,24 @@
       });
     }
   });
+
+  // mobile burger menu
+  (function(){
+    const btn = document.getElementById('burgerBtn');
+    const panel = document.getElementById('mobileNav');
+    if(!btn || !panel) return;
+    btn.addEventListener('click', ()=>{
+      const isOpen = panel.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.classList.toggle('is-open', isOpen);
+    });
+    panel.querySelectorAll('a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        panel.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  })();
 </script>
 
 </body>
