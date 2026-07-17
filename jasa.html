@@ -517,6 +517,26 @@
   @media (max-width:640px){
     .blob{opacity:.85; filter:blur(70px);}
   }
+
+  /* ---------- floating 3D heading (adaptasi teknik SVGator) ---------- */
+  @keyframes float3D{
+    0%{transform:translateY(0) rotateX(6deg) rotateY(-3deg);}
+    50%{transform:translateY(-9px) rotateX(-3deg) rotateY(4deg);}
+    100%{transform:translateY(0) rotateX(6deg) rotateY(-3deg);}
+  }
+  .heading-3d{perspective:1200px;}
+  .heading-3d-inner{
+    display:inline-block; transform-style:preserve-3d;
+    animation:float3D 7s ease-in-out infinite;
+    text-shadow:
+      1.5px 1.5px 0 rgba(196,106,31,.35),
+      3px 3px 0 rgba(196,106,31,.22),
+      4.5px 4.5px 0 rgba(14,124,140,.16),
+      6px 8px 14px rgba(21,42,61,.18);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .heading-3d-inner{animation:none !important; text-shadow:none !important;}
+  }
 </style>
 </head>
 <body>
@@ -562,7 +582,7 @@
   <div class="section-inner">
     <div class="timecode reveal"><div class="bar"></div><span>WEB SERVICE</span></div>
     <p class="eyebrow reveal">Jasa Pembuatan Website</p>
-    <h2 class="reveal" style="font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:680px; margin-bottom:1rem;">Butuh website yang siap jualan?</h2>
+    <h2 class="reveal heading-3d" style="font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:680px; margin-bottom:1rem;"><span class="heading-3d-inner">Butuh website yang siap jualan?</span></h2>
     <p class="reveal" style="max-width:600px; color:var(--paper-dim); margin-bottom:2.5rem;">Desain, copywriting, sampai integrasi checkout — dikerjakan oleh orang yang juga bikin konten AI dan strategi digital, jadi hasilnya bukan cuma "website jadi".</p>
 
     <div class="packages">
