@@ -479,24 +479,35 @@
   }
 
   .burger{
+    position:relative; z-index:1001;
     display:none; background:none; border:none; cursor:pointer;
     width:38px; height:38px; align-items:center; justify-content:center;
     flex-direction:column; gap:5px;
   }
-  .burger span{width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .25s, opacity .25s;}
+  .burger span{width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .3s ease, opacity .2s ease;}
+  .burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .burger.is-open span:nth-child(2){opacity:0;}
+  .burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
   .mobile-nav{
-    position:fixed; top:0; left:0; right:0; z-index:997;
-    background:rgba(233,241,251,0.97); backdrop-filter:blur(14px);
-    border-bottom:1px solid var(--line);
-    padding:5.2rem 6vw 2rem; display:flex; flex-direction:column; gap:1.2rem;
-    transform:translateY(-100%); opacity:0; pointer-events:none;
-    transition:transform .3s ease, opacity .3s ease;
+    position:fixed; inset:0; z-index:996;
+    background:rgba(233,241,251,0.98); backdrop-filter:blur(16px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.2rem;
+    clip-path:circle(0% at calc(100% - 2.6rem) 2.6rem);
+    transition:clip-path .55s cubic-bezier(.65,0,.35,1);
+    pointer-events:none;
   }
-  .mobile-nav.open{transform:translateY(0); opacity:1; pointer-events:auto;}
+  .mobile-nav.open{clip-path:circle(150% at calc(100% - 2.6rem) 2.6rem); pointer-events:auto;}
   .mobile-nav a{
-    font-size:1.05rem; font-weight:600; color:var(--ink);
-    padding-bottom:.8rem; border-bottom:1px solid var(--line);
+    font-size:1.9rem; font-weight:700; color:var(--ink); font-family:'Space Grotesk';
+    opacity:0; transform:translateY(14px);
+    transition:opacity .4s ease, transform .4s ease;
   }
+  .mobile-nav.open a{opacity:1; transform:translateY(0);}
+  .mobile-nav.open a:nth-child(1){transition-delay:.12s;}
+  .mobile-nav.open a:nth-child(2){transition-delay:.18s;}
+  .mobile-nav.open a:nth-child(3){transition-delay:.24s;}
+  .mobile-nav.open a:nth-child(4){transition-delay:.30s;}
   .mobile-nav a.active{color:var(--amber);}
   @media (max-width: 860px){
     .burger{display:flex;}
