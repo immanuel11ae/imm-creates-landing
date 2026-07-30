@@ -3,1012 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>imm.creates — AI Content Production, Produk Digital & Jasa Website</title>
-<meta name="description" content="Portfolio AI content production, toko produk digital, dan jasa pembuatan website oleh imm.creates.">
-
-<link rel="icon" href="assets/images/favicon.ico" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon-180.png">
-<link rel="icon" type="image/png" sizes="512x512" href="assets/images/favicon-512.png">
-
+<title>Portfolio Website — imm.creates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 <style>
-  :root{
-    --paper:#E9F1FB;
-    --panel:#FFFFFF;
-    --panel-2:#D3E4F5;
-    --ink:#152A3D;
-    --paper-dim:#33475A;
-    --amber:#C46A1F;
-    --teal:#0E7C8C;
-    --purple: #a855f7;
-    --cyan: #06b6d4;
-    --line: rgba(21,42,61,0.12);
-    --line-strong: rgba(21,42,61,0.24);
-    --radius: 14px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Inter',sans-serif;
-    line-height:1.55;
-    overflow-x:hidden;
-  }
-  .mono{font-family:'JetBrains Mono',monospace;}
-  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif;font-weight:600;letter-spacing:-0.01em;}
-  a{color:inherit;text-decoration:none;}
-  img{max-width:100%;display:block;}
-  ::selection{background:var(--amber);color:#0E1013;}
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation:none !important; transition:none !important;}
-    html{scroll-behavior:auto;}
-  }
-
-  /* ---------- sprocket / filmstrip motif ---------- */
-  .sprockets{
-    height:14px;
-    background-image: radial-gradient(circle, var(--line-strong) 2px, transparent 2.2px);
-    background-size: 22px 14px;
-    background-position: 8px center;
-    opacity:.7;
-  }
-
-  /* ---------- scroll progress / playhead ---------- */
-  .scrub-track{
-    position:fixed; top:0; left:0; right:0; height:3px;
-    background:var(--line); z-index:1000;
-  }
-  .scrub-fill{
-    height:100%; width:0%;
-    background:linear-gradient(90deg,var(--amber),var(--teal));
-    transition:width .1s linear;
-  }
-
-  /* ---------- nav ---------- */
-  header{
-    position:fixed; top:3px; left:0; right:0; z-index:999;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:12px 6vw;
-    backdrop-filter:blur(10px);
-    background:rgba(233,241,251,0.78);
-    border-bottom:1px solid var(--line);
-  }
-  .logo img {
-    height: 38px;
-    width: auto;
-    display: block;
-  }
-  nav ul{list-style:none;display:flex;gap:2.2rem;}
-  nav a{
-    font-size:.85rem; text-transform:uppercase; letter-spacing:.06em;
-    color:var(--paper-dim); position:relative; padding-bottom:4px;
-    transition:color .25s;
-  }
-  nav a::after{
-    content:""; position:absolute; left:0; bottom:0; width:0; height:1px;
-    background:var(--amber); transition:width .3s ease;
-  }
-  nav a.active, nav a:hover{color:var(--ink);}
-  nav a.active::after{width:100%;}
-  .nav-wa{
-    background:var(--ink); color:var(--paper) !important;
-    padding:.5rem 1.1rem; border-radius:100px; font-size:.8rem; font-weight:600;
-  }
-  .burger{display:none;}
-
-  /* ---------- layout helpers ---------- */
-  section{padding:7.5rem 6vw; position:relative; background:transparent;}
-  footer{
-    background:rgba(233,241,251,0.85); backdrop-filter:blur(14px);
-    border-top:1px solid var(--line-strong);
-  }
-  .section-inner{max-width:1180px; margin:0 auto;}
-  .timecode{
-    display:flex; align-items:center; gap:.9rem; margin-bottom:2.8rem;
-    color:var(--paper-dim); font-size:.8rem;
-  }
-  .timecode .num{color:var(--amber);}
-  .timecode .bar{flex:0 0 46px; height:1px; background:var(--line-strong);}
-  .eyebrow{
-    font-family:'JetBrains Mono'; font-size:.78rem; letter-spacing:.08em;
-    color:var(--teal); text-transform:uppercase; margin-bottom:1rem;
-  }
-  .reveal{opacity:0; transform:translateY(26px); transition:opacity .7s ease, transform .7s ease;}
-  .reveal.is-visible{opacity:1; transform:translateY(0);}
-
-  /* ---------- hero ---------- */
-  .hero{
-    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
-    padding-top:9rem;
-  }
-  .hero h1{
-    font-size:clamp(2.3rem, 5.4vw, 4.4rem);
-    line-height:1.06; max-width:920px; margin-bottom:1.6rem;
-  }
-  .hero h1 .accent{color:var(--amber);}
-  .hero p.lead{
-    max-width:560px; color:var(--paper-dim); font-size:1.05rem; margin-bottom:2.4rem;
-  }
-  .cta-row{display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:4.5rem;}
-  .btn{
-    display:inline-flex; align-items:center; gap:.5rem;
-    padding:.9rem 1.6rem; border-radius:100px; font-weight:600; font-size:.92rem;
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
-    cursor:pointer; border:1px solid transparent;
-  }
-  .btn-primary{background:var(--amber); color:#1a1204;}
-  .btn-primary:hover{transform:translateY(-3px); box-shadow:0 12px 28px -10px rgba(232,163,61,.55);}
-  .btn-outline{border-color:var(--line-strong); color:var(--ink);}
-  .btn-outline:hover{transform:translateY(-3px); border-color:var(--teal); color:var(--teal);}
-
-  /* hero filmstrip */
-  .filmstrip{
-    display:flex; gap:0; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
-  }
-  .frame{
-    flex:1; min-width:0; padding:1.3rem 1.4rem; border-right:1px solid var(--line);
-    position:relative; overflow:hidden;
-  }
-  .frame:last-child{border-right:none;}
-  .frame .flabel{font-size:.92rem; font-weight:600;}
-  .frame::before{
-    content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
-    background:var(--teal); transition:width .4s ease;
-  }
-  .frame:hover::before{width:100%;}
-
-  /* ---------- 3 pintu ---------- */
-  .doors{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem;}
-  .door{
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-    padding:2.2rem 1.8rem; transition:border-color .3s, transform .3s;
-  }
-  .door:hover{border-color:var(--amber); transform:translateY(-6px);}
-  .door .dnum{font-family:'JetBrains Mono'; color:var(--teal); font-size:.78rem;}
-  .door h3{margin:.9rem 0 .7rem; font-size:1.25rem;}
-  .door p{color:var(--paper-dim); font-size:.92rem; margin-bottom:1.3rem;}
-  .door a{font-size:.85rem; font-weight:600; color:var(--amber);}
-
-  /* ---------- value grid ---------- */
-  .value-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2rem;}
-  .value-item{padding:1.6rem 0; border-top:1px solid var(--line);}
-  .value-item h4{font-size:1rem; margin-bottom:.5rem;}
-  .value-item p{color:var(--paper-dim); font-size:.88rem;}
-
-  /* ---------- ambient blob background ---------- */
-  .wave-bg{
-    position:fixed; inset:0; z-index:-2; pointer-events:none; overflow:hidden;
-  }
-  .blob{position:absolute; border-radius:50%; filter:blur(110px); will-change:transform; opacity: 0.6;}
-  .blob-1{
-    width:42vw; height:42vw; top:-8%; left:-10%;
-    background:radial-gradient(circle, rgba(168, 85, 247, 0.25), transparent 70%);
-    animation:driftA 26s ease-in-out infinite alternate;
-  }
-  .blob-2{
-    width:36vw; height:36vw; top:28%; right:-12%;
-    background:radial-gradient(circle, rgba(6, 182, 212, 0.18), transparent 70%);
-    animation:driftB 32s ease-in-out infinite alternate;
-  }
-  .blob-3{
-    width:48vw; height:48vw; bottom:-16%; left:18%;
-    background:radial-gradient(circle, rgba(196,106,31,.12), transparent 70%);
-    animation:driftC 40s ease-in-out infinite alternate;
-  }
-  @keyframes driftA{from{transform:translate(0,0) scale(1);} to{transform:translate(6vw,8vh) scale(1.1);}}
-  @keyframes driftB{from{transform:translate(0,0) scale(1);} to{transform:translate(-7vw,6vh) scale(1.06);}}
-  @keyframes driftC{from{transform:translate(0,0) scale(1);} to{transform:translate(5vw,-7vh) scale(1.12);}}
-
-  /* ---------- webgl 3d wave background ---------- */
-  #webglBg{
-    position:absolute; inset:0; width:100%; height:100%;
-    filter: saturate(1.2);
-    opacity:0; transition:opacity 1.4s ease;
-  }
-  #webglBg.is-ready{opacity:.95;}
-  .wave-bg.webgl-active .blob{display:none;}
-  .wave-bg.bg-off #webglBg,
-  .wave-bg.bg-off .blob{opacity:0 !important;}
-
-  /* ---------- 3D background toggle button ---------- */
-  .bg-toggle{
-    position:fixed; right:1.4rem; bottom:1.4rem; z-index:998;
-    display:none; align-items:center; gap:.55rem;
-    padding:.65rem 1.1rem; border-radius:100px;
-    background:rgba(233,241,251,0.85); backdrop-filter:blur(10px);
-    border:1px solid var(--line-strong); color:var(--ink);
-    font-family:'JetBrains Mono',monospace; font-size:.72rem; letter-spacing:.04em;
-    cursor:pointer; transition:transform .25s ease, border-color .25s ease;
-  }
-  .bg-toggle:hover{transform:translateY(-3px); border-color:var(--teal);}
-  .bg-toggle .dot{width:7px; height:7px; border-radius:50%; background:var(--teal); transition:background .2s;}
-  .bg-toggle.is-off .dot{background:var(--paper-dim);}
-  @media (max-width:640px){
-    .bg-toggle{right:1rem; bottom:1rem; padding:.55rem .9rem; font-size:.68rem;}
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    .blob{animation:none !important;}
-  }
-
-
-  .cursor-glow{
-    position:fixed; top:0; left:0; width:560px; height:560px;
-    pointer-events:none; z-index:-1; opacity:0;
-    background:radial-gradient(circle, rgba(168, 85, 247, 0.12), rgba(6, 182, 212, 0.08) 45%, transparent 70%);
-    filter:blur(30px);
-    transform:translate(-50%,-50%) scale(1);
-    transition:opacity .5s ease, transform .6s ease;
-  }
-  .cursor-glow.is-active{opacity:1;}
-
-  /* ---------- ugc pricing table ---------- */
-  .table-wrap{overflow-x:auto; margin-top:1rem; border:1px solid var(--line); border-radius:var(--radius); background:var(--panel);}
-  table.ugc-table{width:100%; border-collapse:collapse; min-width:640px; font-size:.88rem;}
-  .ugc-table th, .ugc-table td{
-    padding:1rem 1.2rem; text-align:left; border-bottom:1px solid var(--line); vertical-align:top;
-  }
-  .ugc-table thead th{
-    font-family:'Space Grotesk'; font-size:.95rem; color:var(--ink);
-    background:var(--panel-2); border-bottom:1px solid var(--line-strong);
-  }
-  .ugc-table thead th:first-child{border-top-left-radius:var(--radius);}
-  .ugc-table thead th:last-child{border-top-right-radius:var(--radius);}
-  .ugc-table tbody th{
-    font-family:'JetBrains Mono'; font-weight:500; font-size:.78rem; color:var(--paper-dim);
-    white-space:nowrap; background:transparent;
-  }
-  .ugc-table td{color:var(--paper-dim);}
-  .ugc-table td.price-cell{font-family:'Space Grotesk'; font-weight:600; color:var(--amber); font-size:1rem;}
-  .ugc-table tbody tr:last-child th, .ugc-table tbody tr:last-child td{border-bottom:none;}
-  .ugc-table .yes{color:var(--teal); font-weight:600;}
-  .ugc-table .no{color:var(--paper-dim);}
-  .addon-list{list-style:none; margin-top:1.6rem;}
-  .addon-list li{
-    padding:.7rem 0; border-top:1px solid var(--line); font-size:.9rem; color:var(--paper-dim);
-    display:flex; justify-content:space-between; gap:1rem;
-  }
-  .addon-list li span:last-child{color:var(--ink); font-weight:600; white-space:nowrap;}
-  .footnote{font-size:.82rem; color:var(--paper-dim); margin-top:1.4rem; max-width:680px;}
-
-
-  .filters{display:flex; gap:.6rem; flex-wrap:wrap; margin-bottom:2.4rem;}
-  .filter-btn{
-    padding:.5rem 1rem; border-radius:100px; border:1px solid var(--line-strong);
-    font-size:.8rem; color:var(--paper-dim); background:transparent; cursor:pointer;
-    font-family:'Inter'; transition:all .25s;
-  }
-  .filter-btn.active, .filter-btn:hover{background:var(--ink); color:var(--paper); border-color:var(--ink);}
-  .gallery{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:1.2rem; margin-bottom:4rem;}
-  .work-card{
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-    overflow:hidden; transition:transform .35s ease, border-color .35s ease;
-  }
-  .work-card:hover{transform:translateY(-6px); border-color:var(--teal);}
-  .work-thumb{
-    aspect-ratio:9/16; background:
-      repeating-linear-gradient(135deg, var(--panel-2) 0 2px, transparent 2px 14px),
-      linear-gradient(160deg, var(--panel-2), var(--panel));
-    position:relative;
-    display:flex; align-items:flex-end; padding:1rem;
-    overflow:hidden;
-  }
-  .work-thumb .cat{
-    font-family:'JetBrains Mono'; font-size:.7rem; padding:.3rem .6rem; border-radius:100px;
-    background:rgba(21,42,61,.82); color:#E9F1FB; border:1px solid var(--line-strong);
-    position:relative; z-index:2;
-  }
-  .work-video{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1;
-  }
-  .play-badge{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:52px; height:52px; border-radius:50%; z-index:2;
-    background:rgba(21,42,61,.75); display:flex; align-items:center; justify-content:center;
-    opacity:1; transition:opacity .3s ease, transform .3s ease;
-    pointer-events:none;
-  }
-  .work-card:hover .play-badge{opacity:0; transform:translate(-50%,-50%) scale(.8);}
-  .play-badge svg{width:16px; height:16px; margin-left:2px;}
-  .work-thumb.no-video .play-badge{display:none;}
-  .work-body{padding:1.3rem 1.4rem 1.6rem;}
-  .work-body h4{font-size:1.02rem; margin-bottom:.4rem;}
-  .work-body p{font-size:.85rem; color:var(--paper-dim);}
-
-  /* Volume toggle button */
-  .vol-btn {
-    position: absolute;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 3;
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(21, 42, 61, 0.6);
-    backdrop-filter: blur(4px);
-    border: 1px solid var(--line-strong);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    color: #fff;
-    transition: background 0.2s, transform 0.2s;
-    padding: 0;
-    opacity: 0;
-  }
-  .work-card:hover .vol-btn {
-    opacity: 1;
-  }
-  .vol-btn:hover {
-    background: rgba(21, 42, 61, 0.85);
-    transform: scale(1.1);
-  }
-  .vol-btn svg {
-    width: 16px;
-    height: 16px;
-  }
-  .vol-btn .unmute-icon { display: none; }
-  .vol-btn.is-unmuted .unmute-icon { display: block; }
-  .vol-btn.is-unmuted .mute-icon { display: none; }
-
-
-  .case{border-top:1px solid var(--line); padding-top:1.4rem;}
-  .case .stage{font-family:'JetBrains Mono'; font-size:.72rem; color:var(--teal); display:block; margin-bottom:.6rem;}
-  .case h4{font-size:1.05rem; margin-bottom:.6rem;}
-  .case p{font-size:.87rem; color:var(--paper-dim);}
-
-  .tools-row{display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.6rem;}
-  .tool-chip{
-    font-family:'JetBrains Mono'; font-size:.75rem; padding:.45rem .8rem;
-    border:1px solid var(--line-strong); border-radius:6px; color:var(--paper-dim);
-  }
-
-  /* ---------- store ---------- */
-  .store-layout{display:grid; grid-template-columns:1.1fr 1fr; gap:3rem; align-items:start; margin-bottom:3.5rem;}
-  .product-card{
-    background:linear-gradient(160deg, var(--panel-2), var(--panel));
-    border:1px solid var(--line-strong); border-radius:var(--radius); padding:2.4rem;
-  }
-  .product-card .badge{
-    display:inline-block; font-family:'JetBrains Mono'; font-size:.72rem;
-    color:var(--amber); border:1px solid var(--amber); padding:.3rem .7rem; border-radius:100px; margin-bottom:12rem;
-  }
-  .product-card h3{font-size:1.6rem; margin-bottom:.6rem;}
-  .price{font-family:'Space Grotesk'; font-size:2rem; color:var(--amber); margin:1rem 0;}
-  .price span{font-size:.9rem; color:var(--paper-dim); font-family:'Inter'; font-weight:400;}
-  .feature-list{list-style:none; margin:1.4rem 0 1.8rem;}
-  .feature-list li{
-    padding:.6rem 0; border-top:1px solid var(--line); font-size:.9rem; color:var(--paper-dim);
-    display:flex; gap:.6rem;
-  }
-  .feature-list li::before{content:"→"; color:var(--teal);}
-  .who-for{font-size:.85rem; color:var(--paper-dim); margin-top:1.2rem;}
-
-  .store-side .item{border-top:1px solid var(--line); padding:1.6rem 0;}
-  .store-side h5{font-size:1rem; margin-bottom:.4rem;}
-  .store-side p{font-size:.87rem; color:var(--paper-dim);}
-  .soon{
-    display:inline-block; margin-top:.6rem; font-family:'JetBrains Mono'; font-size:.7rem;
-    color:var(--paper-dim); border:1px dashed var(--line-strong); padding:.25rem .6rem; border-radius:100px;
-  }
-
-  .faq{margin-top:2.5rem;}
-  .faq-item{border-top:1px solid var(--line);}
-  .faq-q{
-    width:100%; text-align:left; background:none; border:none; color:var(--ink);
-    font-family:'Space Grotesk'; font-size:1rem; padding:1.3rem 0; cursor:pointer;
-    display:flex; justify-content:space-between; align-items:center;
-  }
-  .faq-q .plus{color:var(--amber); font-family:'JetBrains Mono'; transition:transform .3s;}
-  .faq-item.open .plus{transform:rotate(45deg);}
-  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .faq-a p{color:var(--paper-dim); font-size:.9rem; padding-bottom:1.3rem; max-width:640px;}
-
-  .testi{
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-    padding:1.8rem; margin-top:1rem;
-  }
-  .testi p{font-style:italic; color:var(--ink); margin-bottom:1rem;}
-  .testi span{font-size:.82rem; color:var(--paper-dim);}
-
-  /* ---------- jasa ---------- */
-  .packages{display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; margin:2.5rem 0 3.5rem;}
-  .pkg{
-    border:1px solid var(--line); border-radius:var(--radius); padding:2rem 1.6rem;
-    transition:border-color .3s, transform .3s, background .3s, box-shadow .3s;
-    display: flex; flex-direction: column;
-  }
-  .pkg:hover{
-    transform:translateY(-6px); border-color:var(--amber); background:var(--panel);
-    box-shadow:0 24px 44px -26px rgba(26,29,34,0.22);
-  }
-  .pkg .ptag{font-family:'JetBrains Mono'; font-size:.72rem; color:var(--teal);}
-  .pkg h4{font-size:1.15rem; margin:.7rem 0 .5rem;}
-  .pkg .prange{font-family:'Space Grotesk'; font-size:1.3rem; margin-bottom:1rem;}
-  .pkg ul{list-style:none; font-size:.85rem; color:var(--paper-dim); flex-grow: 1;}
-  .pkg ul li{padding:.4rem 0; border-top:1px solid var(--line);}
-
-  .pkg-demo {
-    display: block; margin-top: 1rem; padding-top: 0.8rem;
-    border-top: 1px solid var(--line); font-size: 0.82rem;
-    color: var(--amber); font-weight: 600; transition: color 0.25s;
-  }
-  .pkg-demo:hover { color: var(--teal); }
-
-  .process-row{display:flex; gap:0; margin:2.5rem 0 4rem; flex-wrap:wrap;}
-  .step{flex:1; min-width:160px; padding:1.4rem 1.4rem 1.4rem 0; position:relative;}
-  .step .snum{font-family:'JetBrains Mono'; color:var(--amber); font-size:.8rem;}
-  .step h5{margin:.6rem 0 .4rem; font-size:.98rem;}
-  .step p{font-size:.83rem; color:var(--paper-dim);}
-
-  .contact-panel{
-    display:grid; grid-template-columns:1fr 1fr; gap:2rem;
-    background:var(--panel); border:1px solid var(--line); border-radius:var(--radius);
-    padding:3rem; align-items:center;
-  }
-  .contact-panel h3{font-size:1.7rem; margin-bottom:1rem;}
-  .contact-panel p{color:var(--paper-dim); margin-bottom:1.8rem; max-width:420px;}
-  .contact-links{display:flex; flex-direction:column; gap:1rem;}
-  .contact-links a{
-    display:flex; justify-content:space-between; align-items:center;
-    border-top:1px solid var(--line); padding:1rem 0; font-size:.95rem; font-weight:600;
-  }
-  .contact-links a:hover{color:var(--amber);}
-  .avail{font-family:'JetBrains Mono'; font-size:.8rem; color:var(--teal);}
-
-  footer{
-    padding:3rem 6vw 2.5rem; border-top:1px solid var(--line);
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;
-  }
-  footer .fnav{display:flex; gap:1.6rem; flex-wrap:wrap;}
-  footer a{color:var(--paper-dim); font-size:.85rem;}
-  footer a:hover{color:var(--ink);}
-  footer .copy{font-size:.78rem; color:var(--paper-dim); font-family:'JetBrains Mono';}
-
-  @media (max-width: 860px){
-    nav{display:none;}
-    .doors, .value-grid, .gallery, .case-studies, .store-layout, .packages{grid-template-columns:1fr;}
-    .filmstrip{flex-direction:column;}
-    .frame{border-right:none; border-bottom:1px solid var(--line);}
-    .contact-panel{grid-template-columns:1fr; padding:2rem;}
-  }
-
-  .burger{
-    position:relative; z-index:1001;
-    display:none; background:none; border:none; cursor:pointer;
-    width:38px; height:38px; align-items:center; justify-content:center;
-    flex-direction:column; gap:5px;
-  }
-  .burger span{width:22px; height:2px; background:var(--ink); border-radius:2px; transition:transform .3s ease, opacity .2s ease;}
-  .burger.is-open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
-  .burger.is-open span:nth-child(2){opacity:0;}
-  .burger.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
-
-  .mobile-nav{
-    position:fixed; inset:0; z-index:996;
-    background:rgba(233,241,251,0.98); backdrop-filter:blur(16px);
-    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2.2rem;
-    clip-path:circle(0% at calc(100% - 2.6rem) 2.6rem);
-    transition:clip-path .55s cubic-bezier(.65,0,.35,1);
-    pointer-events:none;
-  }
-  .mobile-nav.open{clip-path:circle(150% at calc(100% - 2.6rem) 2.6rem); pointer-events:auto;}
-  .mobile-nav a{
-    font-size:1.9rem; font-weight:700; color:var(--ink); font-family:'Space Grotesk';
-    opacity:0; transform:translateY(14px);
-    transition:opacity .4s ease, transform .4s ease;
-  }
-  .mobile-nav.open a{opacity:1; transform:translateY(0);}
-  .mobile-nav.open a:nth-child(1){transition-delay:.12s;}
-  .mobile-nav.open a:nth-child(2){transition-delay:.18s;}
-  .mobile-nav.open a:nth-child(3){transition-delay:.24s;}
-  .mobile-nav.open a:nth-child(4){transition-delay:.30s;}
-  .mobile-nav a.active{color:var(--amber);}
-  @media (max-width: 860px){
-    .burger{display:flex;}
-    .nav-wa{padding:.45rem .9rem; font-size:.74rem;}
-  }
-
-  @media (max-width:640px){
-    .blob{opacity:.85; filter:blur(70px);}
-  }
-
-  /* ---------- floating 3D heading (adaptasi teknik SVGator) ---------- */
-  @keyframes float3D{
-    0%{transform:translateY(0) rotateX(6deg) rotateY(-3deg);}
-    50%{transform:translateY(-9px) rotateX(-3deg) rotateY(4deg);}
-    100%{transform:translateY(0) rotateX(6deg) rotateY(-3deg);}
-  }
-  .heading-3d{perspective:1200px;}
-  .heading-3d-inner{
-    display:inline-block; transform-style:preserve-3d;
-    animation:float3D 7s ease-in-out infinite;
-    text-shadow:
-      1.5px 1.5px 0 rgba(196,106,31,.35),
-      3px 3px 0 rgba(196,106,31,.22),
-      4.5px 4.5px 0 rgba(14,124,140,.16),
-      6px 8px 14px rgba(21,42,61,.18);
-  }
-  @media (prefers-reduced-motion: reduce){
-    .heading-3d-inner{animation:none !important; text-shadow:none !important;}
-  }
+  .case{background:var(--card);border:1px solid var(--card-line);border-radius:var(--radius-lg);padding:28px;margin-bottom:20px;}
+  .case-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+  .case-flow{display:flex;gap:0;flex-wrap:wrap;font-size:12.5px;color:var(--ink-soft);margin-bottom:10px;}
+  .case-flow span{padding:0 10px 0 0;}
+  .case-flow span:not(:last-child)::after{content:"→";margin-left:10px;color:var(--dot);}
 </style>
 </head>
 <body>
 
-<div class="wave-bg" id="waveBg">
-  <canvas id="webglBg"></canvas>
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-</div>
-<button class="bg-toggle" id="bgToggle" type="button" aria-pressed="true">
-  <span class="dot"></span><span class="bg-toggle-label">3D BG: ON</span>
-</button>
-<div class="scrub-track"><div class="scrub-fill" id="scrubFill"></div></div>
-<div class="cursor-glow" id="cursorGlow"></div>
-
-
-<header>
-  <a href="index.html" class="logo"><img src="assets/images/logo-navbar-fixed.png" alt="imm.creates logo"></a>
-  <nav>
-    <ul>
-      <li><a href="index.html" class="nav-link">Home</a></li>
-      <li><a href="portfolio.html" class="nav-link active">Portfolio</a></li>
-      <li><a href="store.html" class="nav-link">Store</a></li>
-      <li><a href="jasa.html" class="nav-link">Jasa &amp; Kontak</a></li>
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="assets/images/logo-navbar-fixed.png" alt="imm.creates logo">imm.creates</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html" class="active">Portfolio</a></li>
+      <li><a href="layanan.html">Layanan & Harga</a></li>
+      <li><a href="ai-ugc.html">AI-UGC Ads</a></li>
+      <li><a href="tentang.html">Tentang & Kontak</a></li>
     </ul>
-  </nav>
-  <a class="nav-wa" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya-tanya" target="_blank" rel="noopener">Chat WA</a>
-
-  <button class="burger" id="burgerBtn" aria-label="Buka menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</header>
-<div class="mobile-nav" id="mobileNav">
-    <a href="index.html" class="">Home</a>
-    <a href="portfolio.html" class="active">Portfolio</a>
-    <a href="store.html" class="">Store</a>
-    <a href="jasa.html" class="">Jasa &amp; Kontak</a>
+    <a class="nav-cta" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20order%20website" target="_blank">Chat WA</a>
   </div>
+</nav>
 
-<!-- ============ PORTFOLIO ============ -->
-<section id="portfolio">
-  <div class="section-inner">
-    <div class="timecode reveal"><div class="bar"></div><span>OUR WORK</span></div>
-    <p class="eyebrow reveal">Portfolio</p>
-    <h2 class="reveal heading-3d" style="font-size:clamp(1.8rem,3.4vw,2.6rem); max-width:680px; margin-bottom:2.5rem;"><span class="heading-3d-inner">Bukti kerja, bukan pitch deck.</span></h2>
+<header class="hero" style="padding-bottom:20px;">
+  <div class="wrap">
+    <span class="eyebrow">Bukti Kerja, Bukan Pitch Deck</span>
+    <h1 style="font-size:clamp(26px,4vw,38px);">Portfolio Website</h1>
+    <p class="lede">Contoh website yang sudah dibangun — desain, struktur, sampai copy.</p>
+  </div>
+</header>
 
-    <div class="filters reveal">
-      <button class="filter-btn active" data-filter="all">Semua</button>
-      <button class="filter-btn" data-filter="ugc">UGC</button>
-      <button class="filter-btn" data-filter="ads">Spec Ads</button>
-      <button class="filter-btn" data-filter="avatar">Avatar Video</button>
-      <button class="filter-btn" data-filter="web">Website</button>
-    </div>
-
-    <div class="gallery">
-      <!-- Jersey UGC Campaign -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">UGC</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/jersey-ugc-campaign.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
+<section class="section" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="grid grid-2">
+      <div class="card" style="padding:0;overflow:hidden;position:relative;">
+        <span class="demo-label">Showcase</span>
+        <div class="mockup"><div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-body"><img src="assets/images/cruzo-rental-hero.png" alt="Tampilan hero Cruzo Rental"></div>
         </div>
-        <div class="work-body"><h4>Jersey UGC Campaign</h4><p>Video UGC produk jersey — dari konsep sampai hasil siap posting.</p></div>
+        <div style="padding:22px 24px;">
+          <span class="badge">Landing Page</span>
+          <h4 style="font-size:16px;margin:10px 0 6px;">Cruzo Rental</h4>
+          <p style="font-size:13px;color:var(--ink-soft);margin-bottom:16px;">1 halaman, fokus konversi untuk bisnis rental kendaraan. Desain custom + animasi, terhubung langsung ke WhatsApp.</p>
+          <a class="btn btn-ghost btn-sm" href="https://immanuel11ae.github.io/cruzo-rental/" target="_blank">Lihat Live ↗</a>
+        </div>
       </div>
-      
-      <!-- Hotel Review UGC — Lombok -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">TRAVEL</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/hotel-review-ugc-lombok.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
+      <div class="card" style="padding:0;overflow:hidden;position:relative;">
+        <span class="demo-label">Showcase</span>
+        <div class="mockup"><div class="mockup-bar"><span></span><span></span><span></span></div>
+          <div class="mockup-body"><img src="assets/images/kopi-ranting-hero.png" alt="Tampilan hero Kopi Ranting"></div>
         </div>
-        <div class="work-body"><h4>Hotel Review UGC — Lombok</h4><p>Video review UGC untuk properti hospitality di Lombok.</p></div>
-      </div>
-
-      <!-- UGC Parfum -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">BEAUTY</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/ugc-parfum.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
+        <div style="padding:22px 24px;">
+          <span class="badge">Company Profile</span>
+          <h4 style="font-size:16px;margin:10px 0 6px;">Kopi Ranting</h4>
+          <p style="font-size:13px;color:var(--ink-soft);margin-bottom:16px;">Multi-halaman untuk brand kopi lokal — profil, produk, dan cerita brand disusun dalam satu alur.</p>
+          <a class="btn btn-ghost btn-sm" href="https://immanuel11ae.github.io/kopi-ranting/index.html" target="_blank">Lihat Live ↗</a>
         </div>
-        <div class="work-body"><h4>UGC Parfum</h4><p>Video UGC produk parfum dengan pendekatan visual yang elegan.</p></div>
-      </div>
-
-      <!-- UGC Sepatu Nike -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">FASHION</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/ugc-sepatu-nike.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
-        </div>
-        <div class="work-body"><h4>UGC Sepatu Nike</h4><p>Showcase produk sepatu Nike melalui video UGC dinamis.</p></div>
-      </div>
-
-      <!-- Kahf -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">BEAUTY</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/ugc-kahf.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
-        </div>
-        <div class="work-body"><h4>Kahf</h4><p>Konten UGC untuk produk perawatan pria Kahf.</p></div>
-      </div>
-
-      <!-- Brewday Coffee -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">COFFEE</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/ugc-brewday-coffee.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
-        </div>
-        <div class="work-body"><h4>Brewday Coffee</h4><p>Visual storytelling untuk produk Brewday Coffee.</p></div>
-      </div>
-
-      <!-- Parfum Versace Eros -->
-      <div class="work-card reveal" data-cat="ugc">
-        <div class="work-thumb">
-          <span class="cat mono">BEAUTY</span>
-          <video class="work-video" muted loop playsinline preload="metadata">
-            <source src="assets/videos/ugc-versace-eros.mp4" type="video/mp4">
-          </video>
-          <span class="play-badge"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
-          <button class="vol-btn" aria-label="Toggle Volume">
-            <svg class="mute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zM3 9v6h4l5 5V4L7 9H3z"/></svg>
-            <svg class="unmute-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
-          </button>
-        </div>
-        <div class="work-body"><h4>Parfum Versace Eros</h4><p>Video UGC sinematik for parfum Versace Eros.</p></div>
       </div>
     </div>
+    <p style="font-size:12px;color:var(--ink-soft);margin-top:14px;">*Project di atas adalah demo/showcase untuk menunjukkan kualitas kerja, bukan project klien berbayar.</p>
+  </div>
+</section>
 
-    <div class="timecode reveal"><div class="bar"></div><span>STUDI KASUS</span></div>
-    <div class="case-studies">
-      <div class="case reveal">
-        <span class="stage mono">BRIEF → PROSES → HASIL</span>
-        <h4>Warisan — Short Film Jamu</h4>
-        <p>Konsep short film sinematik bertema jamu tradisional. Dikerjakan lengkap dari prompt architecture, seed image, sampai rangkaian scene menggunakan Google Flow/Veo.</p>
-      </div>
-      <div class="case reveal">
-        <span class="stage mono">BRIEF → PROSES → HASIL</span>
-        <h4>Fragrance Series — Versace & Chanel</h4>
-        <p>Dua project spec ad fragrance berturut-turut, membangun konsistensi visual dan kualitas komposisi untuk kategori premium beauty.</p>
-      </div>
-      <div class="case reveal">
-        <span class="stage mono">BRIEF → PROSES → HASIL</span>
-        <h4>Product Ads — Coca-Cola Zero Sugar</h4>
-        <p>Konsep iklan produk minuman dengan pendekatan product-hero shot dan motion dinamis ala TVC modern.</p>
-      </div>
+<section class="section" style="padding-top:10px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Studi Kasus</span>
+      <h2>Brief → Proses → Hasil</h2>
     </div>
-
-    <div class="timecode reveal"><div class="bar"></div><span>BEHIND THE PROCESS</span></div>
-    <p class="reveal" style="max-width:640px; color:var(--paper-dim); font-size:.92rem;">Setiap project dikerjakan dengan structured prompt engineering dan tools produksi yang konsisten:</p>
-    <div class="tools-row reveal">
-      <span class="tool-chip">Google Flow / Veo</span>
-      <span class="tool-chip">Dreamina Seedance</span>
-      <span class="tool-chip">Suno AI</span>
-      <span class="tool-chip">CapCut Desktop</span>
-      <span class="tool-chip">Adobe Photoshop</span>
+    <div class="case">
+      <div class="case-head">
+        <div>
+          <h4 style="font-size:16px;margin-bottom:6px;">Cruzo Rental — Landing Page Konversi</h4>
+          <div class="case-flow"><span>Brief: butuh 1 halaman buat iklan</span><span>Proses: struktur + copy fokus CTA</span><span>Hasil: live, terhubung WhatsApp</span></div>
+        </div>
+        <span class="badge badge-ok">Landing Page</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">Brief awal cuma "butuh halaman buat iklan Instagram". Disusun jadi 1 halaman dengan hierarki jelas: hero, keunggulan, dan CTA WhatsApp yang selalu terlihat.</p>
     </div>
-
-    <div class="cta-row reveal" style="margin-top:3rem;">
-      <a href="https://www.instagram.com/imm.creates/" target="_blank" rel="noopener" class="btn btn-outline">Follow @imm.creates di Instagram</a>
-      <a href="store.html" class="btn btn-outline">Cek produk digitalnya</a>
-      <a href="jasa.html" class="btn btn-primary">Suka gaya kerjanya? Order Jasa Website</a>
+    <div class="case">
+      <div class="case-head">
+        <div>
+          <h4 style="font-size:16px;margin-bottom:6px;">Kopi Ranting — Company Profile</h4>
+          <div class="case-flow"><span>Brief: profil brand lengkap</span><span>Proses: multi-halaman + copywriting</span><span>Hasil: live, siap dipakai jualan</span></div>
+        </div>
+        <span class="badge badge-ok">Company Profile</span>
+      </div>
+      <p style="font-size:13.5px;color:var(--ink-soft);">Brand kopi lokal butuh lebih dari 1 halaman buat cerita brand + produk. Disusun jadi beberapa halaman dengan alur navigasi yang gak bikin bingung pengunjung.</p>
     </div>
   </div>
 </section>
 
-
-
-<div class="sprockets"></div>
-<footer>
-  <div class="logo">imm<span class="dot">.</span>creates</div>
-  <div class="fnav">
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="store.html">Store</a>
-    <a href="jasa.html">Jasa & Kontak</a>
+<section class="section" style="padding-top:0;">
+  <div class="wrap" style="text-align:center;">
+    <a class="btn btn-primary" href="layanan.html">Cek Paket & Harga →</a>
   </div>
-  <span class="copy">© 2026 IMM.CREATES — AI CONTENT PRODUCTION STUDIO</span>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="copyright">© 2026 imm.creates — Jasa Pembuatan Website</span>
+    <ul class="footer-links">
+      <li><a href="https://wa.me/6287888865680" target="_blank">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/imm.creates/" target="_blank">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/immcreates/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script>
-  // Dynamic 3D Matrix/Mesh Ambient Background (Three.js)
-  // Refined to match the "purple/blue points mesh" style from the reference.
-  (function(){
-    const wave = document.getElementById('waveBg');
-    const canvas = document.getElementById('webglBg');
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduceMotion || !wave || !canvas || typeof THREE === 'undefined') return;
-
-    let renderer, scene, camera, points, uniforms;
-    let scrollFrac = 0, mouseX = 0, mouseY = 0, curMouseX = 0, curMouseY = 0;
-    let rafId = null, isRunning = false;
-    const clock = new THREE.Clock();
-
-    function init(){
-      renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.setSize(window.innerWidth, window.innerHeight);
-
-      scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 0.1, 1000);
-      camera.position.set(0, 15, 25);
-      camera.lookAt(0, 0, 0);
-
-      // Create a grid of points
-      const count = 120;
-      const spacing = 0.8;
-      const geometry = new THREE.BufferGeometry();
-      const positions = new Float32Array(count * count * 3);
-      
-      for(let i = 0; i < count; i++) {
-        for(let j = 0; j < count; j++) {
-          const idx = (i * count + j) * 3;
-          positions[idx] = (i - count/2) * spacing;
-          positions[idx+1] = 0;
-          positions[idx+2] = (j - count/2) * spacing;
-        }
-      }
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-
-      uniforms = {
-        uTime:   { value: 0 },
-        uColorA: { value: new THREE.Color(0xa855f7) }, // purple
-        uColorB: { value: new THREE.Color(0x06b6d4) }, // cyan
-        uOpacity:{ value: 0.8 }
-      };
-
-      const material = new THREE.ShaderMaterial({
-        uniforms,
-        transparent: true,
-        vertexShader: `
-          uniform float uTime;
-          varying float vElevation;
-          void main() {
-            vec3 pos = position;
-            float e = sin(pos.x * 0.15 + uTime * 0.5) * 1.5 
-                    + cos(pos.z * 0.2 + uTime * 0.3) * 1.2;
-            pos.y += e;
-            vElevation = e;
-            
-            vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
-            gl_PointSize = 2.5 * (1.0 - mvPosition.z / 100.0);
-            gl_Position = projectionMatrix * mvPosition;
-          }
-        `,
-        fragmentShader: `
-          varying float vElevation;
-          uniform vec3 uColorA;
-          uniform vec3 uColorB;
-          uniform float uOpacity;
-          void main() {
-            float t = clamp((vElevation + 2.0) / 4.0, 0.0, 1.0);
-            vec3 color = mix(uColorA, uColorB, t);
-            // circular point
-            float dist = distance(gl_PointCoord, vec2(0.5));
-            if(dist > 0.5) discard;
-            float alpha = smoothstep(0.5, 0.3, dist) * uOpacity;
-            gl_FragColor = vec4(color, alpha);
-          }
-        `
-      });
-
-      points = new THREE.Points(geometry, material);
-      points.position.y = -8;
-      scene.add(points);
-
-      canvas.classList.add('is-ready');
-      wave.classList.add('webgl-active');
-    }
-
-    function onResize(){
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    }
-
-    function onScroll(){
-      const h = document.documentElement;
-      scrollFrac = h.scrollTop / Math.max(h.scrollHeight - h.clientHeight, 1);
-    }
-
-    function onMouseMove(e){
-      mouseX = (e.clientX / window.innerWidth) - 0.5;
-      mouseY = (e.clientY / window.innerHeight) - 0.5;
-    }
-
-    function animate(){
-      rafId = requestAnimationFrame(animate);
-      const t = clock.getElapsedTime();
-      uniforms.uTime.value = t;
-
-      curMouseX += (mouseX - curMouseX) * 0.05;
-      curMouseY += (mouseY - curMouseY) * 0.05;
-      
-      camera.position.x = curMouseX * 10;
-      camera.position.y = 15 - curMouseY * 5;
-      camera.position.z = 25 - scrollFrac * 10;
-      
-      points.rotation.y = t * 0.05 + scrollFrac * 0.5;
-
-      camera.lookAt(0, -2, 0);
-      renderer.render(scene, camera);
-    }
-
-    function startAnim(){
-      if(isRunning) return;
-      isRunning = true;
-      animate();
-    }
-    function stopAnim(){
-      isRunning = false;
-      if(rafId) cancelAnimationFrame(rafId);
-      rafId = null;
-    }
-
-    try {
-      init();
-      window.addEventListener('resize', onResize);
-      window.addEventListener('scroll', onScroll, { passive:true });
-      window.addEventListener('mousemove', onMouseMove, { passive:true });
-      onScroll();
-      startAnim();
-
-      const toggleBtn = document.getElementById('bgToggle');
-      if(toggleBtn){
-        toggleBtn.style.display = 'inline-flex';
-        toggleBtn.addEventListener('click', ()=>{
-          const turningOff = !wave.classList.contains('bg-off');
-          wave.classList.toggle('bg-off', turningOff);
-          toggleBtn.classList.toggle('is-off', turningOff);
-          toggleBtn.setAttribute('aria-pressed', String(!turningOff));
-          toggleBtn.querySelector('.bg-toggle-label').textContent = turningOff ? '3D BG: OFF' : '3D BG: ON';
-          if(turningOff){ stopAnim(); } else { startAnim(); }
-        });
-      }
-    } catch(err){
-      console.warn('3D background failed:', err);
-    }
-  })();
-
-  // rest of the interactions (cursor, reveal, spy, etc)
-  (function(){
-    const glow = document.getElementById('cursorGlow');
-    if(!glow) return;
-    let targetX = window.innerWidth/2, targetY = window.innerHeight/2;
-    let curX = targetX, curY = targetY;
-    window.addEventListener('mousemove', (e)=>{
-      targetX = e.clientX; targetY = e.clientY;
-      glow.classList.add('is-active');
-    });
-    function raf(){
-      curX += (targetX - curX) * 0.08;
-      curY += (targetY - curY) * 0.08;
-      glow.style.transform = `translate(${curX - 280}px, ${curY - 280}px)`;
-      requestAnimationFrame(raf);
-    }
-    requestAnimationFrame(raf);
-  })();
-
-  const fill = document.getElementById('scrubFill');
-  function updateScrub(){
-    const h = document.documentElement;
-    const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-    if(fill) fill.style.width = pct + '%';
-  }
-  document.addEventListener('scroll', updateScrub);
-
-  const revealEls = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
-  }, {threshold:.15});
-  revealEls.forEach(el=>io.observe(el));
-
-
-
-</script>
-<script>
-  // Portfolio filter and hover-play logic
-  document.querySelectorAll('.filter-btn').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      document.querySelectorAll('.work-card').forEach(c=>{
-        c.style.display = (f==='all' || c.dataset.cat===f) ? '' : 'none';
-      });
-    });
-  });
-
-  // Hover-play logic and volume toggle
-  document.querySelectorAll('.work-card').forEach(card => {
-    const video = card.querySelector('video');
-    const volBtn = card.querySelector('.vol-btn');
-
-    if (video) {
-      card.addEventListener('mouseenter', () => {
-        video.play().catch(e => console.warn('Video play blocked:', e));
-      });
-      card.addEventListener('mouseleave', () => {
-        video.pause();
-        video.currentTime = 0;
-      });
-    }
-
-    if (volBtn && video) {
-      volBtn.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent card hover logic if needed, though they don't conflict here
-        video.muted = !video.muted;
-        volBtn.classList.toggle('is-unmuted', !video.muted);
-      });
-    }
-  });
-
-  // mobile burger menu
-  (function(){
-    const btn = document.getElementById('burgerBtn');
-    const panel = document.getElementById('mobileNav');
-    if(!btn || !panel) return;
-    btn.addEventListener('click', ()=>{
-      const isOpen = panel.classList.toggle('open');
-      btn.setAttribute('aria-expanded', String(isOpen));
-      btn.classList.toggle('is-open', isOpen);
-    });
-    panel.querySelectorAll('a').forEach(a=>{
-      a.addEventListener('click', ()=>{
-        panel.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-      });
-    });
-  })();
-</script>
-
+<script src="assets/js/nav.js"></script>
 </body>
 </html>

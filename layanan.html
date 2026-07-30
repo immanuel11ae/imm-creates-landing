@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Layanan & Harga — imm.creates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+  /* calculator-specific */
+  .calc-step{margin-bottom:26px;}
+  .calc-step:last-of-type{margin-bottom:0;}
+  .calc-step-label{display:flex;align-items:baseline;gap:8px;font-family:'Sora',sans-serif;font-weight:700;font-size:14.5px;margin-bottom:12px;}
+  .calc-step-label .num{color:var(--dot);font-size:12px;font-weight:700;}
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .pill{flex:1 1 130px;text-align:left;cursor:pointer;border:1.5px solid var(--card-line);background:#fff;border-radius:14px;padding:14px 16px;transition:.15s ease;}
+  .pill strong{display:block;font-family:'Sora',sans-serif;font-size:14.5px;margin-bottom:2px;}
+  .pill span{display:block;font-size:11.5px;color:var(--ink-soft);}
+  .pill:hover{border-color:var(--dot);}
+  .pill.active{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 6px 18px -8px rgba(224,122,63,.45);}
+  .pill.active strong{color:var(--accent-ink);}
+  .feat-list{display:flex;flex-direction:column;gap:10px;}
+  .feat{display:flex;align-items:center;gap:14px;border:1.5px solid var(--card-line);background:#fff;border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s ease;}
+  .feat:hover{border-color:var(--dot);}
+  .feat.active{border-color:var(--ok);background:var(--ok-soft);}
+  .feat .box{width:20px;height:20px;flex:0 0 20px;border-radius:6px;border:1.5px solid #c7d2e0;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;}
+  .feat.active .box{background:var(--ok);border-color:var(--ok);}
+  .feat .txt{flex:1;}
+  .feat .txt strong{display:block;font-size:13.5px;font-family:'Sora',sans-serif;}
+  .feat .txt span{font-size:11.5px;color:var(--ink-soft);}
+  .feat .price{font-size:12.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
+  .feat.active .price{color:var(--ok);}
+  .calc-divider{height:1px;background:var(--card-line);margin:26px 0;}
+  .calc-result{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;}
+  .result-value{font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(24px,4vw,30px);}
+  .result-flag{display:none;margin-top:8px;font-size:11.5px;background:var(--accent-soft);color:var(--accent-ink);padding:5px 9px;border-radius:8px;font-weight:600;}
+  .result-flag.show{display:inline-block;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html"><img src="assets/images/logo-navbar-fixed.png" alt="imm.creates logo">imm.creates</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="layanan.html" class="active">Layanan & Harga</a></li>
+      <li><a href="ai-ugc.html">AI-UGC Ads</a></li>
+      <li><a href="tentang.html">Tentang & Kontak</a></li>
+    </ul>
+    <a class="nav-cta" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20order%20website" target="_blank">Chat WA</a>
+  </div>
+</nav>
+
+<header class="hero" style="padding-bottom:10px;">
+  <div class="wrap">
+    <span class="eyebrow">Layanan & Harga</span>
+    <h1 style="font-size:clamp(26px,4vw,38px);">Website yang siap jualan, harga jelas dari awal.</h1>
+  </div>
+</header>
+
+<!-- Trust strip -->
+<section class="section" style="padding-top:16px;padding-bottom:0;">
+  <div class="wrap">
+    <div class="trust-strip">
+      <div class="trust-item"><div class="val">&lt;2 jam</div><div class="lbl">respons chat di jam kerja</div></div>
+      <div class="trust-item"><div class="val">GitHub Pages</div><div class="lbl">+ custom domain, cepat & stabil</div></div>
+      <div class="trust-item"><div class="val">1× revisi besar</div><div class="lbl">gratis, termasuk sebelum live</div></div>
+      <div class="trust-item"><div class="val">Brief → Live</div><div class="lbl">proses jelas, bisa ditanya kapan saja</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Calculator -->
+<section class="section" style="padding-top:20px;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Estimasi Instan</span>
+      <h2>Berapa kira-kira budget website kamu?</h2>
+      <p>Pilih kebutuhan kamu, harga langsung ke-update. Harga final dikonfirmasi setelah brief singkat via WhatsApp.</p>
+    </div>
+
+    <div class="panel">
+      <div class="calc-step">
+        <div class="calc-step-label"><span class="num">01</span> Berapa halaman yang kamu butuh?</div>
+        <div class="pill-row" id="pages">
+          <div class="pill" data-price="1000000" data-label="1 halaman (Landing Page)">
+            <strong>1 halaman</strong><span>Landing page, fokus konversi</span>
+          </div>
+          <div class="pill" data-price="3000000" data-label="2–3 halaman">
+            <strong>2–3 halaman</strong><span>Profil bisnis ringkas</span>
+          </div>
+          <div class="pill" data-price="5500000" data-label="4–6 halaman">
+            <strong>4–6 halaman</strong><span>Company profile lengkap</span>
+          </div>
+          <div class="pill" data-price="8000000" data-label="7+ halaman">
+            <strong>7+ halaman</strong><span>Multi-produk / multi-layanan</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-step">
+        <div class="calc-step-label"><span class="num">02</span> Fitur tambahan</div>
+        <div class="feat-list" id="features">
+          <div class="feat" data-price="500000" data-label="Animasi & interaksi custom">
+            <div class="box"></div>
+            <div class="txt"><strong>Animasi & interaksi custom</strong><span>Scroll reveal, hover effect, transisi halaman</span></div>
+            <div class="price">+Rp500rb</div>
+          </div>
+          <div class="feat" data-price="300000" data-label="SEO dasar">
+            <div class="box"></div>
+            <div class="txt"><strong>SEO dasar</strong><span>Meta tag, struktur heading, sitemap</span></div>
+            <div class="price">+Rp300rb</div>
+          </div>
+          <div class="feat" data-price="perpage" data-per-page="150000" data-label="Copywriting profesional">
+            <div class="box"></div>
+            <div class="txt"><strong>Copywriting profesional</strong><span>Teks tiap halaman ditulis ulang, bukan draft kamu</span></div>
+            <div class="price">+Rp150rb/hal</div>
+          </div>
+          <div class="feat" data-price="flag" data-label="Checkout / payment gateway">
+            <div class="box"></div>
+            <div class="txt"><strong>Checkout / payment gateway</strong><span>Toko digital dengan pembayaran otomatis</span></div>
+            <div class="price">Konsultasi</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-divider"></div>
+
+      <div class="calc-result">
+        <div>
+          <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:6px;">Estimasi harga</div>
+          <div class="result-value" id="total">Pilih halaman dulu ↑</div>
+          <div class="result-flag" id="flag">Angka di atas belum termasuk biaya checkout/payment — harga bagian ini ditentukan setelah diskusi WA</div>
+          <div class="guarantee" style="margin-top:12px;display:inline-block;">Bayar setelah lihat draft desain — 1× revisi besar gratis sebelum live</div>
+        </div>
+        <a class="btn btn-primary" id="waBtn" href="#" target="_blank">Konsultasi via WhatsApp ↗</a>
+      </div>
+      <p style="font-size:11.5px;color:var(--ink-soft);margin-top:20px;">Estimasi bersifat starting from, belum termasuk domain & hosting bila diperlukan.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Package detail with compare columns -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Detail Paket</span>
+      <h2>Termasuk & tidak termasuk</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="price-card">
+        <h3>Landing Page</h3>
+        <div class="price">Rp1.000.000</div>
+        <div class="price-compare">
+          <div>
+            <div class="col-title">Termasuk</div>
+            <ul class="yes">
+              <li>1 halaman, fokus konversi</li>
+              <li>Desain custom</li>
+              <li>Terhubung WhatsApp/checkout</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-title">Tidak termasuk</div>
+            <ul class="no">
+              <li>Domain & hosting (beli terpisah)</li>
+              <li>Revisi di luar 1× kuota gratis</li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Landing%20Page%20Rp1jt" target="_blank">Tanya paket ini ↗</a>
+      </div>
+
+      <div class="price-card featured">
+        <span class="pill-badge">Paling banyak dipilih klien</span>
+        <h3>Company Profile</h3>
+        <div class="price">Rp3jt – 8jt</div>
+        <div class="price-compare">
+          <div>
+            <div class="col-title">Termasuk</div>
+            <ul class="yes">
+              <li>Multi-halaman (Home, Portfolio, dst)</li>
+              <li>Copywriting lengkap per halaman</li>
+              <li>SEO dasar & mobile-friendly</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-title">Tidak termasuk</div>
+            <ul class="no">
+              <li>Domain & hosting (beli terpisah)</li>
+              <li>Payment gateway (paket terpisah)</li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Company%20Profile" target="_blank">Tanya paket ini ↗</a>
+      </div>
+
+      <div class="price-card">
+        <h3>Toko Digital + Checkout</h3>
+        <div class="price">Konsultasi WA</div>
+        <div class="price-compare">
+          <div>
+            <div class="col-title">Termasuk</div>
+            <ul class="yes">
+              <li>Integrasi payment gateway</li>
+              <li>Delivery produk otomatis</li>
+            </ul>
+          </div>
+          <div>
+            <div class="col-title">Tidak termasuk</div>
+            <ul class="no">
+              <li>Harga final ditentukan setelah brief</li>
+            </ul>
+          </div>
+        </div>
+        <a class="btn btn-ghost btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Toko%20Digital" target="_blank">Tanya paket ini ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Proses Kerja</span>
+      <h2>Brief → Desain → Revisi → Live</h2>
+    </div>
+    <div class="grid grid-3" style="grid-template-columns:repeat(4,1fr);">
+      <div class="card"><h3 style="font-size:14.5px;">Brief</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Ceritain bisnis & kebutuhan kamu lewat WhatsApp.</p></div>
+      <div class="card"><h3 style="font-size:14.5px;">Desain</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Konsep visual & copywriting disiapkan sesuai brand.</p></div>
+      <div class="card"><h3 style="font-size:14.5px;">Revisi</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Penyesuaian sampai kamu puas dengan hasilnya.</p></div>
+      <div class="card"><h3 style="font-size:14.5px;">Live</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Website online dan siap dipakai jualan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pertanyaan Umum</span>
+      <h2>Sebelum kamu chat WA</h2>
+    </div>
+    <div class="panel" style="padding:8px 32px;">
+      <div class="faq-item">
+        <button class="faq-q">Berapa kali revisi yang termasuk? <span class="plus">+</span></button>
+        <div class="faq-a"><p>1× revisi besar gratis sebelum website live. Revisi di luar itu dikenakan biaya tambahan sesuai kompleksitas perubahan.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Siapa yang isi konten/teksnya? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Kamu kasih brief bahan mentah (produk, foto, info bisnis), lalu copy disusun & dipoles supaya enak dibaca dan fokus konversi.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Domain & hosting gimana? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Website di-hosting di GitHub Pages (gratis, cepat). Domain custom (.com/.id) dibeli terpisah — bisa dibantu proses setupnya.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Ada garansi kalau ada bug setelah live? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Ada — bug hasil pengerjaan diperbaiki tanpa biaya tambahan. Permintaan fitur baru di luar brief awal dihitung terpisah.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Berapa lama proses pengerjaan? <span class="plus">+</span></button>
+        <div class="faq-a"><p>Landing page biasanya 3-5 hari kerja, company profile 1-2 minggu tergantung jumlah halaman & kecepatan brief/feedback dari kamu.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="testi-pending">Testimoni klien website akan ditambahkan di sini setelah project berjalan.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <span class="copyright">© 2026 imm.creates — Jasa Pembuatan Website</span>
+    <ul class="footer-links">
+      <li><a href="https://wa.me/6287888865680" target="_blank">WhatsApp</a></li>
+      <li><a href="https://www.instagram.com/imm.creates/" target="_blank">Instagram</a></li>
+      <li><a href="https://www.linkedin.com/in/immcreates/" target="_blank">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="assets/js/nav.js"></script>
+<script>
+  const WA_NUMBER = "6287888865680";
+  let selectedPage = null;
+  let selectedFeatures = [];
+  const pageEls = document.querySelectorAll('#pages .pill');
+  const featEls = document.querySelectorAll('#features .feat');
+  const totalEl = document.getElementById('total');
+  const flagEl = document.getElementById('flag');
+  const waBtn = document.getElementById('waBtn');
+
+  function formatRupiah(n){ return 'Rp' + n.toLocaleString('id-ID'); }
+
+  function recalc(){
+    if(!selectedPage){ totalEl.textContent = 'Pilih halaman dulu ↑'; updateWA(); return; }
+    let total = parseInt(selectedPage.dataset.price, 10);
+    let hasFlag = false;
+    selectedFeatures.forEach(f => {
+      if(f.dataset.price === 'flag'){ hasFlag = true; }
+      else if(f.dataset.price === 'perpage'){
+        const tierPages = {1000000:1, 3000000:3, 5500000:6, 8000000:8}[parseInt(selectedPage.dataset.price,10)] || 1;
+        total += parseInt(f.dataset.perPage,10) * tierPages;
+      } else { total += parseInt(f.dataset.price,10); }
+    });
+    totalEl.textContent = formatRupiah(total) + (hasFlag ? '+' : '');
+    flagEl.classList.toggle('show', hasFlag);
+    updateWA(total, hasFlag);
+  }
+
+  function updateWA(total, hasFlag){
+    let msg = "Halo imm.creates, saya mau tanya soal website.";
+    if(selectedPage){ msg += ` Kebutuhan: ${selectedPage.dataset.label}.`; }
+    if(selectedFeatures.length){ msg += ` Fitur tambahan: ${selectedFeatures.map(f=>f.dataset.label).join(', ')}.`; }
+    if(total){ msg += ` Estimasi dari kalkulator: ${formatRupiah(total)}${hasFlag?'+':''}.`; }
+    waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  pageEls.forEach(el => {
+    el.addEventListener('click', () => {
+      pageEls.forEach(p => p.classList.remove('active'));
+      el.classList.add('active');
+      selectedPage = el;
+      recalc();
+    });
+  });
+  featEls.forEach(el => {
+    el.addEventListener('click', () => {
+      el.classList.toggle('active');
+      if(el.classList.contains('active')){ selectedFeatures.push(el); }
+      else { selectedFeatures = selectedFeatures.filter(f => f !== el); }
+      recalc();
+    });
+  });
+  updateWA();
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(o => {
+        o.classList.remove('open');
+        o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
