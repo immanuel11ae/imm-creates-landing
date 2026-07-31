@@ -7,7 +7,7 @@
 <meta name="description" content="Jasa pembuatan website custom, dari landing page sampai company profile — dikerjakan oleh orang yang juga paham konten & strategi digital.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@1,400;1,500;1,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
   .home-proof{display:flex;gap:18px;overflow-x:auto;padding-bottom:6px;}
@@ -41,16 +41,23 @@
   </div>
 </nav>
 
-<header class="hero">
-  <div class="wrap">
+<header class="spot-hero" id="spotHero">
+  <div class="spot-base"></div>
+  <div class="spot-reveal" id="spotReveal"></div>
+  <canvas id="spotCanvas" class="spot-canvas"></canvas>
+  <div class="spot-content wrap">
     <span class="eyebrow">Jasa Pembuatan Website — Surabaya</span>
-    <h1>Website yang siap jualan sejak hari pertama live, bukan cuma "jadi".</h1>
+    <h1>
+      <span class="display">Website yang siap jualan</span>
+      <span class="accent">sejak hari pertama live.</span>
+    </h1>
     <p class="lede">imm.creates bangun landing page & company profile custom — desain, copywriting, sampai koneksi WhatsApp/checkout — dikerjakan oleh orang yang juga paham konten & strategi digital.</p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="layanan.html">Cek Paket & Harga</a>
-      <a class="btn btn-ghost" href="portfolio.html">Lihat Portfolio Website</a>
+      <a class="btn btn-light" href="layanan.html">Cek Paket & Harga</a>
+      <a class="btn btn-outline-light" href="portfolio.html">Lihat Portfolio Website</a>
     </div>
   </div>
+  <div class="spot-hint">Gerakkan cursor untuk lihat lebih dekat ↝</div>
 </header>
 
 <section class="section">
@@ -143,5 +150,6 @@
 </footer>
 
 <script src="nav.js"></script>
+<script src="hero-spotlight.js"></script>
 </body>
 </html>
