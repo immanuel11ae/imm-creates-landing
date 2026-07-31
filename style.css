@@ -243,7 +243,7 @@ body.page-dark .mockup-bar span{background:#3a4666;}
 body.page-dark .panel{box-shadow:none;}
 
 /* opaque dark nav — prevents scrolled text from showing through/overlapping nav */
-body.page-dark .nav{background:rgba(11,18,32,.96);border-bottom-color:rgba(255,255,255,.08);}
+body.page-dark .nav{background:#0b1220;border-bottom-color:rgba(255,255,255,.08);backdrop-filter:none;-webkit-backdrop-filter:none;}
 body.page-dark .nav-logo{color:#fff;}
 body.page-dark .nav-links a{color:rgba(255,255,255,.68);}
 body.page-dark .nav-links a:hover,body.page-dark .nav-links a.active{color:#fff;}
@@ -254,6 +254,16 @@ body.page-dark .nav-toggle{color:#fff;}
   body.page-dark .nav-links{background:#0d1526;border-bottom-color:rgba(255,255,255,.08);}
   body.page-dark .nav-links a{border-bottom-color:rgba(255,255,255,.08);}
 }
+/* calculator pills/features on Layanan page */
+body.page-dark .pill{background:var(--card);border-color:var(--card-line);}
+body.page-dark .pill.active{background:var(--accent-soft);border-color:var(--accent);}
+body.page-dark .pill.active strong{color:#f3b98a;}
+body.page-dark .feat{background:var(--card);border-color:var(--card-line);}
+body.page-dark .feat.active{background:var(--ok-soft);border-color:var(--ok);}
+/* tool chips + contact rows on Tentang page */
+body.page-dark .tool-chip{background:var(--card);border-color:var(--card-line);color:var(--ink-soft);}
+body.page-dark .contact-row a{background:var(--card);border-color:var(--card-line);color:var(--ink);}
+body.page-dark .contact-row a:hover{border-color:rgba(255,255,255,.3);}
 
 .spot-hero{
   position:relative;width:100%;overflow:hidden;
