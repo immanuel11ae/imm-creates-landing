@@ -4,6 +4,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var canvas = document.getElementById('spotCanvas');
   if (!hero || !reveal || !canvas) return;
 
+  var navEl = document.querySelector('.nav');
+
+  function fitHeroToScreen() {
+    var navH = navEl ? navEl.offsetHeight : 0;
+    hero.style.minHeight = 'calc(100vh - ' + navH + 'px)';
+    hero.style.minHeight = 'calc(100dvh - ' + navH + 'px)';
+  }
+  fitHeroToScreen();
+  window.addEventListener('resize', fitHeroToScreen);
+
   var ctx = canvas.getContext('2d');
   var SPOTLIGHT_R = 260;
 
