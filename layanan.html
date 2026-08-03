@@ -40,6 +40,7 @@
 </style>
 </head>
 <body class="page-dark">
+<div id="cursorGlow"></div>
 
 <nav class="nav">
   <div class="nav-inner">
@@ -153,7 +154,7 @@
       <h2>Termasuk & tidak termasuk</h2>
     </div>
     <div class="grid grid-3">
-      <div class="price-card">
+      <div class="price-card tilt">
         <h3>Landing Page</h3>
         <div class="price">Rp1.000.000</div>
         <div class="price-compare">
@@ -175,7 +176,7 @@
         <a class="btn btn-ghost btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Landing%20Page%20Rp1jt" target="_blank">Tanya paket ini ↗</a>
       </div>
 
-      <div class="price-card featured">
+      <div class="price-card featured tilt">
         <span class="pill-badge">Paling banyak dipilih klien</span>
         <h3>Company Profile</h3>
         <div class="price">Rp3jt – 8jt</div>
@@ -199,7 +200,7 @@
         <a class="btn btn-primary btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Company%20Profile" target="_blank">Tanya paket ini ↗</a>
       </div>
 
-      <div class="price-card">
+      <div class="price-card tilt">
         <h3>Toko Digital + Checkout</h3>
         <div class="price">Konsultasi WA</div>
         <div class="price-compare">
@@ -289,6 +290,7 @@
 </footer>
 
 <script src="nav.js"></script>
+<script src="interactions.js"></script>
 <script>
   const WA_NUMBER = "6287888865680";
   let selectedPage = null;

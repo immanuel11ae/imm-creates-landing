@@ -210,7 +210,57 @@ img{max-width:100%;display:block;}
 .footer-links a:hover{color:var(--ink);}
 .copyright{font-size:12px;color:var(--ink-soft);}
 
-/* ---------- Availability dot ---------- */
+/* ---------- 3D buttons + click color flash ---------- */
+.btn{
+  transition:transform .12s ease, box-shadow .12s ease, color .15s ease;
+  transform:translateY(0);
+  will-change:transform;
+}
+.btn:hover{transform:translateY(-2px);}
+.btn:active{transform:translateY(1px);}
+
+.btn-primary{box-shadow:0 4px 0 0 #a85a26, 0 8px 18px -6px rgba(224,122,63,.4);}
+.btn-primary:hover{box-shadow:0 6px 0 0 #a85a26, 0 12px 24px -6px rgba(224,122,63,.5);}
+.btn-primary:active{box-shadow:0 1px 0 0 #a85a26, 0 3px 8px -4px rgba(224,122,63,.35);}
+
+.btn-ghost{box-shadow:0 3px 0 0 var(--card-line), 0 6px 14px -8px rgba(0,0,0,.3);}
+.btn-ghost:hover{box-shadow:0 5px 0 0 var(--card-line), 0 10px 18px -8px rgba(0,0,0,.35);}
+.btn-ghost:active{box-shadow:0 1px 0 0 var(--card-line), 0 2px 6px -4px rgba(0,0,0,.25);}
+
+.btn-light,.nav-cta{box-shadow:0 4px 0 0 #c7d2e0, 0 8px 16px -6px rgba(0,0,0,.3);}
+.btn-light:hover,.nav-cta:hover{box-shadow:0 6px 0 0 #c7d2e0, 0 12px 20px -6px rgba(0,0,0,.35);}
+.btn-light:active,.nav-cta:active{box-shadow:0 1px 0 0 #c7d2e0, 0 2px 6px -4px rgba(0,0,0,.25);}
+
+.btn-outline-light{box-shadow:0 3px 0 0 rgba(255,255,255,.18), 0 6px 14px -8px rgba(0,0,0,.4);}
+.btn-outline-light:hover{box-shadow:0 5px 0 0 rgba(255,255,255,.26), 0 10px 18px -8px rgba(0,0,0,.45);}
+.btn-outline-light:active{box-shadow:0 1px 0 0 rgba(255,255,255,.14), 0 2px 6px -4px rgba(0,0,0,.3);}
+
+body.page-dark .btn-ghost{box-shadow:0 3px 0 0 rgba(255,255,255,.14), 0 6px 14px -8px rgba(0,0,0,.4);}
+body.page-dark .btn-ghost:hover{box-shadow:0 5px 0 0 rgba(255,255,255,.22), 0 10px 18px -8px rgba(0,0,0,.45);}
+body.page-dark .btn-ghost:active{box-shadow:0 1px 0 0 rgba(255,255,255,.1), 0 2px 6px -4px rgba(0,0,0,.3);}
+
+@keyframes btnColorFlash{
+  0%{color:#ffd166;}
+  100%{color:#ffffff;}
+}
+.btn-flash{animation:btnColorFlash .5s ease;}
+
+/* ---------- Global cursor-reactive glow (all pages) ---------- */
+#cursorGlow{
+  position:fixed;top:0;left:0;
+  width:460px;height:460px;margin:-230px 0 0 -230px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(224,122,63,.18), rgba(139,124,232,.12) 45%, transparent 72%);
+  pointer-events:none;
+  transform:translate3d(-999px,-999px,0);
+  z-index:5;
+  mix-blend-mode:screen;
+  will-change:transform;
+}
+@media (max-width:760px){
+  #cursorGlow{display:none;}
+}
+
 .status{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--ok);}
 .status .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft);}
 
