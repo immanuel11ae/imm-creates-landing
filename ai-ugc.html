@@ -237,6 +237,20 @@ grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
 function toggleUgcVideo(i, btn) {
   var v = document.getElementById('ugc-video-' + i);
   if (v.paused) {
+    // Pause & unmute every other video first, so only one plays with sound at a time
+    document.querySelectorAll('#video-grid video').forEach(function (other) {
+      if (other !== v) {
+        other.pause();
+        other.muted = true;
+        other.currentTime = 0;
+      }
+    });
+    document.querySelectorAll('#video-grid button[onclick^="toggleUgcVideo"]').forEach(function (otherBtn) {
+      if (otherBtn !== btn) otherBtn.innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
+    });
+
+    v.muted = false;
+    v.volume = 1;
     v.play();
     btn.innerHTML = '<i data-lucide="pause" class="w-5 h-5"></i>';
   } else {
