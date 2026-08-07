@@ -15,6 +15,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="style.css">
+<style>
+  #package-grid .pkg-card {
+    transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
+  }
+  #package-grid .pkg-card:hover {
+    transform: translateY(-14px) scale(1.03);
+    border-color: #4d8eff !important;
+    box-shadow: 0 25px 50px rgba(77,142,255,0.35), 0 0 0 1px rgba(77,142,255,0.25);
+    z-index: 5;
+  }
+  #package-grid:has(.pkg-card:hover) .pkg-card:not(:hover) {
+    opacity: 0.5;
+    filter: saturate(0.6);
+    transform: translateY(0) scale(0.98) !important;
+  }
+</style>
 </head>
 <body class="page-dark" data-page="layanan" style="background:#0f131f;">
 
@@ -317,15 +333,10 @@ function getPackage(id) {
 function renderPackageGrid() {
   var grid = document.getElementById('package-grid');
   grid.innerHTML = SERVICE_PACKAGES.map(function (pkg) {
-    var popularClasses = pkg.popular
-      ? 'shadow-2xl lg:-translate-y-2'
-      : '';
-    var popularStyle = pkg.popular
-      ? 'border-color:#4d8eff;background:linear-gradient(180deg,#1b1f2c,#0f131f);'
-      : 'border-color:rgba(255,255,255,0.1);';
     var ribbon = pkg.popular
       ? '<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-white text-[10px] font-bold rounded-full uppercase tracking-wider shadow-md" style="background:linear-gradient(90deg,#4d8eff,#571bc1);">' + pkg.badge + '</div>'
       : '';
+
     var features = pkg.features.map(function (feat) {
       var color = feat.included ? (feat.highlight ? 'color:#fff;font-weight:600;' : 'color:#c2c6d6;') : 'color:rgba(140,144,159,0.4);text-decoration:line-through;';
       var icon = feat.included
@@ -336,7 +347,7 @@ function renderPackageGrid() {
     var waMsg = encodeURIComponent('Halo imm.creates! Saya tertarik dengan paket website: *' + pkg.name + '* (' + formatRupiah(pkg.price) + '). Bisa konsultasi langkah selanjutnya?');
     var btnClass = pkg.popular ? 'btn-primary-3d' : 'btn-secondary-3d';
 
-    return '<div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative ' + popularClasses + '" style="' + popularStyle + '">' +
+    return '<div class="glass-card pkg-card rounded-2xl p-6 flex flex-col justify-between relative cursor-pointer' + (pkg.popular ? ' lg:-translate-y-2 shadow-2xl' : '') + '" style="border:1px solid rgba(255,255,255,0.1);' + (pkg.popular ? 'background:linear-gradient(180deg,#1b1f2c,#0f131f);' : '') + '" onclick="selectPackage(\'' + pkg.id + '\')">' +
       ribbon +
       '<div>' +
         '<div class="flex flex-col gap-1 mb-4">' +
@@ -354,10 +365,10 @@ function renderPackageGrid() {
         '</div>' +
       '</div>' +
       '<div class="pt-4 border-t border-white/10 mt-6 flex flex-col gap-2">' +
-        '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
+        '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
           '<i data-lucide="message-circle" class="w-4 h-4"></i><span>Pilih Paket Ini</span>' +
         '</a>' +
-        '<button onclick="selectPackage(\'' + pkg.id + '\')" class="text-[11px] hover:underline text-center py-1" style="color:#adc6ff;">Sesuaikan di Kalkulator ↓</button>' +
+        '<button onclick="event.stopPropagation(); selectPackage(\'' + pkg.id + '\')" class="text-[11px] hover:underline text-center py-1" style="color:#adc6ff;">Sesuaikan di Kalkulator ↓</button>' +
       '</div>' +
     '</div>';
   }).join('');
