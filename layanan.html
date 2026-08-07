@@ -3,373 +3,486 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Harga Jasa Pembuatan Website — Landing Page mulai Rp1 Juta | imm.creates</title>
-<meta name="description" content="Paket harga jasa pembuatan website imm.creates: Landing Page Rp1 juta, Company Profile Rp3-8 juta, Toko Digital konsultasi. Hitung estimasi harga website kamu langsung.">
+<title>Layanan & Harga Pembuatan Website Surabaya | imm.creates</title>
+<meta name="description" content="Paket harga transparan jasa pembuatan website di Surabaya: Landing Page mulai Rp999rb, Company Profile, E-Commerce, hingga Custom Web App. Hitung estimasi biaya Anda dengan kalkulator interaktif.">
+<meta property="og:title" content="Layanan & Harga Pembuatan Website | imm.creates">
+<meta property="og:description" content="Paket harga transparan jasa pembuatan website di Surabaya. Hitung estimasi biaya proyek Anda dengan kalkulator interaktif.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://immcreates.my.id/layanan.html">
 <link rel="canonical" href="https://immcreates.my.id/layanan.html">
 <link rel="icon" href="logo-navbar-fixed.webp" type="image/webp">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Harga Jasa Pembuatan Website | imm.creates">
-<meta property="og:description" content="Landing Page mulai Rp1 juta, Company Profile Rp3-8 juta. Hitung estimasi harga website kamu langsung.">
-<meta property="og:url" content="https://immcreates.my.id/layanan.html">
-<meta property="og:image" content="https://immcreates.my.id/logo-navbar-fixed.webp">
-<meta property="og:locale" content="id_ID">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="style.css">
-<style>
-  /* calculator-specific */
-  .calc-step{margin-bottom:26px;}
-  .calc-step:last-of-type{margin-bottom:0;}
-  .calc-step-label{display:flex;align-items:baseline;gap:8px;font-weight:700;font-size:14.5px;margin-bottom:12px;}
-  .calc-step-label .num{color:var(--dot);font-size:12px;font-weight:700;}
-  .pill-row{display:flex;gap:10px;flex-wrap:wrap;}
-  .pill{flex:1 1 130px;text-align:left;cursor:pointer;border:1.5px solid var(--card-line);background:#fff;border-radius:14px;padding:14px 16px;transition:.15s ease;}
-  .pill strong{display:block;font-size:14.5px;margin-bottom:2px;}
-  .pill span{display:block;font-size:11.5px;color:var(--ink-soft);}
-  .pill:hover{border-color:var(--dot);}
-  .pill.active{border-color:var(--accent);background:var(--accent-soft);box-shadow:0 6px 18px -8px rgba(224,122,63,.45);}
-  .pill.active strong{color:var(--accent-ink);}
-  .feat-list{display:flex;flex-direction:column;gap:10px;}
-  .feat{display:flex;align-items:center;gap:14px;border:1.5px solid var(--card-line);background:#fff;border-radius:14px;padding:14px 16px;cursor:pointer;transition:.15s ease;}
-  .feat:hover{border-color:var(--dot);}
-  .feat.active{border-color:var(--ok);background:var(--ok-soft);}
-  .feat .box{width:20px;height:20px;flex:0 0 20px;border-radius:6px;border:1.5px solid #c7d2e0;background:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;color:#fff;}
-  .feat.active .box{background:var(--ok);border-color:var(--ok);}
-  .feat .txt{flex:1;}
-  .feat .txt strong{display:block;font-size:13.5px;}
-  .feat .txt span{font-size:11.5px;color:var(--ink-soft);}
-  .feat .price{font-size:12.5px;font-weight:600;color:var(--ink-soft);white-space:nowrap;}
-  .feat.active .price{color:var(--ok);}
-  .calc-divider{height:1px;background:var(--card-line);margin:26px 0;}
-  .calc-result{display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;}
-  .result-value{font-weight:800;font-size:clamp(24px,4vw,30px);}
-  .result-flag{display:none;margin-top:8px;font-size:11.5px;background:var(--accent-soft);color:var(--accent-ink);padding:5px 9px;border-radius:8px;font-weight:600;}
-  .result-flag.show{display:inline-block;}
-</style>
 </head>
-<body class="page-dark">
-<div id="cursorGlow"></div>
+<body class="page-dark" data-page="layanan" style="background:#0f131f;">
 
-<nav class="nav">
-  <div class="nav-inner">
-    <a class="nav-logo" href="index.html"><img src="logo-navbar-fixed.webp" alt="imm.creates logo">imm.creates</a>
-    <button class="nav-toggle" id="navToggle" aria-label="Menu">☰</button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="layanan.html" class="active">Layanan & Harga</a></li>
-      <li><a href="ai-ugc.html">AI-UGC Ads</a></li>
-      <li><a href="tentang.html">Tentang & Kontak</a></li>
-    </ul>
-    <a class="nav-cta" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20order%20website" target="_blank" rel="noopener">Chat WA</a>
-  </div>
-</nav>
+<!-- Wave background -->
+<div class="wave-bg-host">
+  <canvas id="wave-canvas"></canvas>
+  <div class="wave-bg-vignette"></div>
+</div>
 
-<header class="hero" style="padding-bottom:10px;">
-  <div class="wrap">
-    <span class="eyebrow">Layanan & Harga</span>
-    <h1 style="font-size:clamp(26px,4vw,38px);">Website yang siap jualan, harga jelas dari awal.</h1>
+<!-- Navbar -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 md:px-8 py-3">
+  <div id="site-navbar-bar" class="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 rounded-full border border-white/10">
+    <a href="index.html" class="flex items-center gap-3 group">
+      <span class="font-bold text-lg md:text-xl tracking-tight text-white flex items-center gap-1" style="font-family:'Outfit',sans-serif;">
+        <span style="color:#ec6a06;font-weight:800;">imm</span><span style="color:#adc6ff;">.creates</span>
+      </span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1.5 rounded-full border border-white/5 px-3 py-1.5" style="background:rgba(10,14,26,0.6);">
+      <a href="index.html" data-nav-link="home" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all">Home</a>
+      <a href="portfolio.html" data-nav-link="portfolio" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all">Portfolio</a>
+      <a href="layanan.html" data-nav-link="layanan" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5">
+        <span>Layanan & Harga</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase" style="background:rgba(77,142,255,0.3);color:#adc6ff;">Kalkulator</span>
+      </a>
+      <a href="ai-ugc.html" data-nav-link="ai-ugc" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5">
+        <span>AI-UGC Ads</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase animate-pulse" style="background:#ec6a06;color:white;">Baru</span>
+      </a>
+      <a href="tentang.html" data-nav-link="kontak" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all">Tentang & Kontak</a>
+    </nav>
+
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="https://wa.me/6287888865680?text=Halo%20imm.creates!%20Saya%20tertarik%20untuk%20konsultasi%20dan%20order%20pembuatan%20website%20untuk%20bisnis%20saya."
+         target="_blank" rel="noopener noreferrer"
+         class="btn-3d btn-primary-3d px-4 py-2 sm:px-6 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold flex items-center gap-2">
+        <i data-lucide="message-circle" class="w-4 h-4"></i>
+        <span>Chat WA</span>
+      </a>
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-full bg-white/5 hover:bg-white/10 text-[#dfe2f3] border border-white/10" aria-label="Buka Menu Navigasi">
+        <i data-lucide="menu" id="menu-icon-open" class="w-5 h-5"></i>
+        <i data-lucide="x" id="menu-icon-close" class="w-5 h-5" style="display:none;"></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- Trust strip -->
-<section class="section" style="padding-top:16px;padding-bottom:0;">
-  <div class="wrap">
-    <div class="trust-strip">
-      <div class="trust-item"><div class="val">&lt;2 jam</div><div class="lbl">respons chat di jam kerja</div></div>
-      <div class="trust-item"><div class="val">Custom Domain</div><div class="lbl">hosting cepat & profesional</div></div>
-      <div class="trust-item"><div class="val">1× revisi besar</div><div class="lbl">gratis, termasuk sebelum live</div></div>
-      <div class="trust-item"><div class="val">Brief → Live</div><div class="lbl">proses jelas, bisa ditanya kapan saja</div></div>
+<!-- Mobile drawer -->
+<div id="mobile-drawer-overlay" class="fixed inset-0 z-40 bg-black/70 backdrop-blur-md lg:hidden" style="display:none;">
+  <div id="mobile-drawer" class="fixed top-20 left-4 right-4 rounded-3xl p-6 shadow-2xl flex flex-col gap-3 border border-white/15" style="background:rgba(23,27,40,0.95);backdrop-filter:blur(24px);">
+    <div class="flex items-center justify-between pb-3 border-b border-white/10">
+      <span class="text-xs font-semibold text-[#8c909f] uppercase tracking-wider">Navigasi Menu</span>
     </div>
+    <a href="index.html" data-nav-link="home" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-[#dfe2f3] hover:bg-white/5">Home</a>
+    <a href="portfolio.html" data-nav-link="portfolio" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-[#dfe2f3] hover:bg-white/5">Portfolio</a>
+    <a href="layanan.html" data-nav-link="layanan" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-[#dfe2f3] hover:bg-white/5">Layanan & Harga</a>
+    <a href="ai-ugc.html" data-nav-link="ai-ugc" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-[#dfe2f3] hover:bg-white/5">AI-UGC Ads</a>
+    <a href="tentang.html" data-nav-link="kontak" class="mobile-nav-link px-4 py-3 rounded-xl text-sm font-medium text-[#dfe2f3] hover:bg-white/5">Tentang & Kontak</a>
+    <a href="https://wa.me/6287888865680?text=Halo%20imm.creates!%20Saya%20ingin%20konsultasi%20proyek%20website."
+       target="_blank" rel="noopener noreferrer"
+       class="btn-3d btn-primary-3d w-full py-3 rounded-xl text-sm font-bold text-center flex items-center justify-center gap-2 mt-2">
+      <i data-lucide="message-circle" class="w-4 h-4"></i><span>Konsultasi via WhatsApp</span>
+    </a>
   </div>
-</section>
+</div>
 
-<!-- Calculator -->
-<section class="section" style="padding-top:20px;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Estimasi Instan</span>
-      <h2>Berapa kira-kira budget website kamu?</h2>
-      <p>Pilih kebutuhan kamu, harga langsung ke-update. Harga final dikonfirmasi setelah brief singkat via WhatsApp.</p>
+<main class="flex flex-col gap-20 md:gap-28 pt-32 pb-24 px-4 sm:px-6 md:px-8 max-w-7xl mx-auto w-full">
+
+  <!-- Header -->
+  <div class="text-center max-w-3xl mx-auto flex flex-col items-center gap-4">
+    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold" style="border:1px solid rgba(77,142,255,0.3);background:rgba(23,27,40,0.7);color:#adc6ff;">
+      <i data-lucide="calculator" class="w-3.5 h-3.5"></i>
+      <span>Harga Transparan Tanpa Biaya Tersembunyi</span>
+    </div>
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight" style="font-family:'Outfit',sans-serif;">
+      Pilih Paket atau Hitung Sesuai Kebutuhan Bisnis.
+    </h1>
+    <p class="text-sm sm:text-base text-[#94A3B8] max-w-2xl leading-relaxed">
+      Semua paket sudah termasuk desain responsif kustom, copywriting terarah, kecepatan loading optimal, dan tombol 1-Click WhatsApp konversi.
+    </p>
+  </div>
+
+  <!-- Package grid -->
+  <div id="package-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch"></div>
+
+  <!-- Interactive calculator -->
+  <section id="interactive-calculator" class="glass-card rounded-3xl p-6 sm:p-10 shadow-2xl" style="border:1px solid rgba(77,142,255,0.3);background:linear-gradient(180deg,#1b1f2c,#171b28,#0f131f);">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-8 border-b border-white/10">
+      <div>
+        <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider mb-1" style="color:#ec6a06;">
+          <i data-lucide="sparkles" class="w-4 h-4"></i>
+          <span>Kalkulator Kustom Real-Time</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-white" style="font-family:'Outfit',sans-serif;">Hitung Estimasi Biaya & Add-on Sesuai Kebutuhan</h2>
+      </div>
+      <div class="text-xs text-[#8c909f] max-w-sm">
+        Centang opsi fitur tambahan yang Anda perlukan. Nilai estimasi dan pesan WhatsApp otomatis tersusun di bawah.
+      </div>
     </div>
 
-    <div class="panel">
-      <div class="calc-step">
-        <div class="calc-step-label"><span class="num">01</span> Berapa halaman yang kamu butuh?</div>
-        <div class="pill-row" id="pages">
-          <div class="pill" data-price="1000000" data-label="1 halaman (Landing Page)">
-            <strong>1 halaman</strong><span>Landing page, fokus konversi</span>
-          </div>
-          <div class="pill" data-price="3000000" data-label="2–3 halaman">
-            <strong>2–3 halaman</strong><span>Profil bisnis ringkas</span>
-          </div>
-          <div class="pill" data-price="5500000" data-label="4–6 halaman">
-            <strong>4–6 halaman</strong><span>Company profile lengkap</span>
-          </div>
-          <div class="pill" data-price="8000000" data-label="7+ halaman">
-            <strong>7+ halaman</strong><span>Multi-produk / multi-layanan</span>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
+      <div class="lg:col-span-2 flex flex-col gap-8">
+
+        <!-- Step 1 -->
+        <div class="flex flex-col gap-3">
+          <label class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2" style="font-family:'Outfit',sans-serif;">
+            <span class="w-5 h-5 rounded-full text-white text-xs flex items-center justify-center" style="background:#4d8eff;">1</span>
+            <span>Pilih Tipe Website Utama:</span>
+          </label>
+          <div id="calc-package-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col gap-3">
+          <label class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2" style="font-family:'Outfit',sans-serif;">
+            <span class="w-5 h-5 rounded-full text-white text-xs flex items-center justify-center" style="background:#4d8eff;">2</span>
+            <span>Pilih Layanan Tambahan (Add-On):</span>
+          </label>
+          <div id="calc-addon-options" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col gap-3">
+          <label class="text-sm font-bold text-white uppercase tracking-wider flex items-center gap-2" style="font-family:'Outfit',sans-serif;">
+            <span class="w-5 h-5 rounded-full text-white text-xs flex items-center justify-center" style="background:#4d8eff;">3</span>
+            <span>Prioritas Kecepatan Pengerjaan:</span>
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div id="urgency-standard" class="p-3.5 rounded-xl border cursor-pointer transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold">Standard Sesuai Paket</span>
+                <span class="text-xs font-bold" style="color:#adc6ff;">Termasuk</span>
+              </div>
+              <span class="text-[11px] text-[#8c909f] block mt-0.5">Proses reguler berkualitas dengan sesi review terjadwal.</span>
+            </div>
+            <div id="urgency-express" class="p-3.5 rounded-xl border cursor-pointer transition-all">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold flex items-center gap-1" style="color:#ffb690;">
+                  <i data-lucide="zap" class="w-3.5 h-3.5" style="color:#ec6a06;"></i>
+                  <span>Express Kilat (Siap 48 Jam)</span>
+                </span>
+                <span class="text-xs font-bold" style="color:#ffb690;">+ Rp 500.000</span>
+              </div>
+              <span class="text-[11px] text-[#8c909f] block mt-0.5">Pengerjaan prioritas khusus untuk peluncuran segera.</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="calc-step">
-        <div class="calc-step-label"><span class="num">02</span> Fitur tambahan</div>
-        <div class="feat-list" id="features">
-          <div class="feat" data-price="500000" data-label="Animasi & interaksi custom">
-            <div class="box"></div>
-            <div class="txt"><strong>Animasi & interaksi custom</strong><span>Scroll reveal, hover effect, transisi halaman</span></div>
-            <div class="price">+Rp500rb</div>
-          </div>
-          <div class="feat" data-price="300000" data-label="SEO dasar">
-            <div class="box"></div>
-            <div class="txt"><strong>SEO dasar</strong><span>Meta tag, struktur heading, sitemap</span></div>
-            <div class="price">+Rp300rb</div>
-          </div>
-          <div class="feat" data-price="perpage" data-per-page="150000" data-label="Copywriting profesional">
-            <div class="box"></div>
-            <div class="txt"><strong>Copywriting profesional</strong><span>Teks tiap halaman ditulis ulang, bukan draft kamu</span></div>
-            <div class="price">+Rp150rb/hal</div>
-          </div>
-          <div class="feat" data-price="flag" data-label="Checkout / payment gateway">
-            <div class="box"></div>
-            <div class="txt"><strong>Checkout / payment gateway</strong><span>Toko digital dengan pembayaran otomatis</span></div>
-            <div class="price">Konsultasi</div>
-          </div>
+      <!-- Right: Summary -->
+      <div class="flex flex-col gap-6 p-6 rounded-2xl border border-white/15 h-fit shadow-xl" style="background:#0f131f;">
+        <div class="flex items-center justify-between pb-3 border-b border-white/10">
+          <h3 class="text-base font-bold text-white" style="font-family:'Outfit',sans-serif;">Ringkasan Penawaran</h3>
+          <span class="text-[10px] px-2 py-0.5 rounded border" style="color:#adc6ff;background:rgba(77,142,255,0.1);border-color:rgba(77,142,255,0.2);">Promo Bulan Ini</span>
+        </div>
+
+        <div id="calc-summary-lines" class="flex flex-col gap-3 text-xs text-[#c2c6d6]"></div>
+
+        <div class="flex flex-col gap-2 pt-2">
+          <a id="calc-whatsapp-btn" href="#" target="_blank" rel="noopener noreferrer"
+             class="btn-3d btn-primary-3d w-full py-3.5 rounded-xl text-xs sm:text-sm font-bold text-center flex items-center justify-center gap-2">
+            <i data-lucide="message-circle" class="w-4 h-4"></i>
+            <span>Kirim Brief & Order via WA</span>
+          </a>
+          <p class="text-[10px] text-center text-[#8c909f] leading-tight">
+            Pesan WA akan terisi otomatis dengan rincian paket di atas. Pembayaran DP 50% setelah konsultasi deal.
+          </p>
         </div>
       </div>
-
-      <div class="calc-divider"></div>
-
-      <div class="calc-result">
-        <div>
-          <div style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:6px;">Estimasi harga</div>
-          <div class="result-value" id="total">Pilih halaman dulu ↑</div>
-          <div class="result-flag" id="flag">Angka di atas belum termasuk biaya checkout/payment — harga bagian ini ditentukan setelah diskusi WA</div>
-          <div class="guarantee" style="margin-top:12px;display:inline-block;">Bayar setelah lihat draft desain — 1× revisi besar gratis sebelum live</div>
-        </div>
-        <a class="btn btn-primary" id="waBtn" href="#" target="_blank" rel="noopener">Konsultasi via WhatsApp ↗</a>
-      </div>
-      <p style="font-size:11.5px;color:var(--ink-soft);margin-top:20px;">Estimasi bersifat starting from, belum termasuk domain & hosting bila diperlukan.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Package detail with compare columns -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Detail Paket</span>
-      <h2>Termasuk & tidak termasuk</h2>
+  <!-- Comparison table -->
+  <section class="flex flex-col gap-6">
+    <div>
+      <span class="text-xs font-bold tracking-wider uppercase block mb-1" style="color:#ffb690;font-family:'Outfit',sans-serif;">Perbandingan Lengkap</span>
+      <h2 class="text-2xl sm:text-3xl font-bold text-white" style="font-family:'Outfit',sans-serif;">Tabel Fitur & Komparasi Antar Paket</h2>
     </div>
-    <div class="grid grid-3">
-      <div class="price-card tilt">
-        <h3>Landing Page</h3>
-        <div class="price">Rp1.000.000</div>
-        <div class="price-compare">
-          <div>
-            <div class="col-title">Include</div>
-            <ul class="yes">
-              <li>1 halaman, fokus konversi</li>
-              <li>Desain custom</li>
-              <li>Domain & hosting</li>
-            </ul>
-          </div>
-          <div>
-            <div class="col-title">Exclude</div>
-            <ul class="no">
-              <li>Revisi 1x</li>
-            </ul>
-          </div>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Landing%20Page%20Rp1jt" target="_blank" rel="noopener">Tanya paket ini ↗</a>
-      </div>
 
-      <div class="price-card featured tilt">
-        <span class="pill-badge">Paling banyak dipilih klien</span>
-        <h3>Company Profile</h3>
-        <div class="price">Rp3jt – 8jt</div>
-        <div class="price-compare">
-          <div>
-            <div class="col-title">Include</div>
-            <ul class="yes">
-              <li>Multi-halaman (Home, Portfolio, dst)</li>
-              <li>Copywriting lengkap per halaman</li>
-              <li>SEO dasar & mobile-friendly</li>
-              <li>Domain & hosting</li>
-            </ul>
-          </div>
-          <div>
-            <div class="col-title">Exclude</div>
-            <ul class="no">
-              <li>Payment gateway (paket terpisah)</li>
-            </ul>
-          </div>
-        </div>
-        <a class="btn btn-primary btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Company%20Profile" target="_blank" rel="noopener">Tanya paket ini ↗</a>
-      </div>
+    <div class="glass-card rounded-2xl overflow-x-auto border border-white/10">
+      <table class="w-full text-left text-xs text-[#c2c6d6]" style="min-width:640px;">
+        <thead class="text-white uppercase text-[10px] font-bold border-b border-white/10" style="background:#171b28;">
+          <tr>
+            <th class="p-4">Fitur & Spesifikasi</th>
+            <th class="p-4">Landing Page Turbo</th>
+            <th class="p-4" style="color:#adc6ff;">Company Profile PRO</th>
+            <th class="p-4">E-Commerce & Katalog</th>
+            <th class="p-4">Custom Web App</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5">
+          <tr>
+            <td class="p-4 font-semibold text-white">Jumlah Halaman</td>
+            <td class="p-4">1 Halaman Panjang</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">Hingga 5 Halaman</td>
+            <td class="p-4">Multi-Halaman & Katalog</td>
+            <td class="p-4">Sesuai Kebutuhan</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold text-white">Target Waktu Live</td>
+            <td class="p-4">3 - 4 Hari</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">5 - 7 Hari</td>
+            <td class="p-4">7 - 10 Hari</td>
+            <td class="p-4">10 - 18 Hari</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold text-white">Copywriting Persuasif</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Termasuk</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">✓ Termasuk Lengkap</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Termasuk</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Termasuk</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold text-white">WhatsApp 1-Click Order</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Auto Prefill</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">✓ Multi Admin Router</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Cart to WA Auto List</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Custom Webhook</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold text-white">SEO & Google Index</td>
+            <td class="p-4">Basic Meta</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">✓ On-Page Pro + Schema</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Product Schema</td>
+            <td class="p-4" style="color:#adc6ff;">✓ Full SEO Architecture</td>
+          </tr>
+          <tr>
+            <td class="p-4 font-semibold text-white">Garansi & Maintenance</td>
+            <td class="p-4">30 Hari</td>
+            <td class="p-4 font-bold" style="color:#adc6ff;">60 Hari</td>
+            <td class="p-4">90 Hari</td>
+            <td class="p-4">6 Bulan Prioritas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
 
-      <div class="price-card tilt">
-        <h3>Toko Digital + Checkout</h3>
-        <div class="price">Konsultasi WA</div>
-        <div class="price-compare">
-          <div>
-            <div class="col-title">Include</div>
-            <ul class="yes">
-              <li>Integrasi payment gateway</li>
-              <li>Delivery produk otomatis</li>
-            </ul>
-          </div>
-          <div>
-            <div class="col-title">Exclude</div>
-            <ul class="no">
-              <li>Harga final ditentukan setelah brief</li>
-            </ul>
-          </div>
-        </div>
-        <a class="btn btn-ghost btn-sm" href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20mau%20tanya%20paket%20Toko%20Digital" target="_blank" rel="noopener">Tanya paket ini ↗</a>
-      </div>
-    </div>
-  </div>
-</section>
+</main>
 
-<!-- Process -->
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Proses Kerja</span>
-      <h2>Brief → Desain → Revisi → Live</h2>
-    </div>
-    <div class="grid grid-3" style="grid-template-columns:repeat(4,1fr);">
-      <div class="card"><h3 style="font-size:14.5px;">Brief</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Ceritain bisnis & kebutuhan kamu lewat WhatsApp.</p></div>
-      <div class="card"><h3 style="font-size:14.5px;">Desain</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Konsep visual & copywriting disiapkan sesuai brand.</p></div>
-      <div class="card"><h3 style="font-size:14.5px;">Revisi</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Penyesuaian sampai kamu puas dengan hasilnya.</p></div>
-      <div class="card"><h3 style="font-size:14.5px;">Live</h3><p style="font-size:12.5px;color:var(--ink-soft);margin-top:6px;">Website online dan siap dipakai jualan.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Pertanyaan Umum</span>
-      <h2>Sebelum kamu chat WA</h2>
-    </div>
-    <div class="panel" style="padding:8px 32px;">
-      <div class="faq-item">
-        <button class="faq-q">Berapa kali revisi yang termasuk? <span class="plus">+</span></button>
-        <div class="faq-a"><p>1× revisi besar gratis sebelum website live. Revisi di luar itu dikenakan biaya tambahan sesuai kompleksitas perubahan.</p></div>
+<!-- Footer -->
+<footer class="w-full border-t border-white/10 pt-16 pb-8 px-4 sm:px-6 md:px-12 relative z-10" style="background:#0a0e1a;">
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-white/10">
+      <div class="flex flex-col gap-3">
+        <span class="font-bold text-xl text-white" style="font-family:'Outfit',sans-serif;">
+          <span style="color:#ec6a06;">imm</span><span style="color:#adc6ff;">.creates</span>
+        </span>
+        <p class="text-sm text-[#94A3B8] leading-relaxed max-w-sm">
+          Jasa pembuatan landing page & company profile custom di Surabaya, fokus mendatangkan konversi penjualan sejak hari pertama live.
+        </p>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">Siapa yang isi konten/teksnya? <span class="plus">+</span></button>
-        <div class="faq-a"><p>Kamu kasih brief bahan mentah (produk, foto, info bisnis), lalu copy disusun & dipoles supaya enak dibaca dan fokus konversi.</p></div>
+      <div class="flex flex-col gap-2 text-sm text-[#94A3B8]">
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Navigasi</h4>
+        <a href="index.html" class="hover:text-[#adc6ff] transition-colors w-fit">Home</a>
+        <a href="portfolio.html" class="hover:text-[#adc6ff] transition-colors w-fit">Portfolio</a>
+        <a href="layanan.html" class="hover:text-[#adc6ff] transition-colors w-fit">Layanan & Harga</a>
+        <a href="ai-ugc.html" class="hover:text-[#adc6ff] transition-colors w-fit">AI-UGC Ads</a>
+        <a href="tentang.html" class="hover:text-[#adc6ff] transition-colors w-fit">Tentang & Kontak</a>
       </div>
-      <div class="faq-item">
-        <button class="faq-q">Domain & hosting gimana? <span class="plus">+</span></button>
-        <div class="faq-a"><p>Website pakai hosting profesional dengan domain custom (.com/.id) — proses setup domain dibantu penuh.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Ada garansi kalau ada bug setelah live? <span class="plus">+</span></button>
-        <div class="faq-a"><p>Ada — bug hasil pengerjaan diperbaiki tanpa biaya tambahan. Permintaan fitur baru di luar brief awal dihitung terpisah.</p></div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q">Berapa lama proses pengerjaan? <span class="plus">+</span></button>
-        <div class="faq-a"><p>Landing page biasanya 3-5 hari kerja, company profile 1-2 minggu tergantung jumlah halaman & kecepatan brief/feedback dari kamu.</p></div>
+      <div class="flex flex-col gap-2 text-xs text-[#94A3B8]">
+        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Standar imm.creates</h4>
+        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>100% Desain Custom</span></div>
+        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>Google PageSpeed Score 95+</span></div>
+        <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>WhatsApp 1-Click Auto Order</span></div>
       </div>
     </div>
-  </div>
-</section>
-
-<section class="section" style="padding-top:0;">
-  <div class="wrap">
-    <div class="testi-pending">Testimoni klien website akan ditambahkan di sini setelah project berjalan.</div>
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="wrap footer-inner">
-    <span class="copyright">© 2026 imm.creates — Jasa Pembuatan Website</span>
-    <ul class="footer-links">
-      <li><a href="https://wa.me/6287888865680" target="_blank" rel="noopener">WhatsApp</a></li>
-      <li><a href="https://www.instagram.com/imm.creates/" target="_blank" rel="noopener">Instagram</a></li>
-      <li><a href="https://www.linkedin.com/in/immcreates/" target="_blank" rel="noopener">LinkedIn</a></li>
-    </ul>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8c909f]">
+      <div>© <span id="footer-year"></span> <strong class="text-white font-medium">imm.creates</strong> — Jasa Pembuatan Website Surabaya.</div>
+      <a href="https://wa.me/6287888865680" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1 font-semibold" style="color:#ec6a06;">
+        <span>Hubungi WA: +62 878-8886-5680</span>
+        <i data-lucide="arrow-up-right" class="w-3 h-3"></i>
+      </a>
+    </div>
   </div>
 </footer>
 
+<script src="https://unpkg.com/lucide@latest"></script>
+<script src="wave-background.js"></script>
 <script src="nav.js"></script>
-<script src="interactions.js"></script>
+<script src="services-data.js"></script>
 <script>
-  const WA_NUMBER = "6287888865680";
-  let selectedPage = null;
-  let selectedFeatures = [];
-  const pageEls = document.querySelectorAll('#pages .pill');
-  const featEls = document.querySelectorAll('#features .feat');
-  const totalEl = document.getElementById('total');
-  const flagEl = document.getElementById('flag');
-  const waBtn = document.getElementById('waBtn');
+document.getElementById('footer-year').textContent = new Date().getFullYear();
 
-  function formatRupiah(n){ return 'Rp' + n.toLocaleString('id-ID'); }
+function formatRupiah(num) {
+  return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+}
 
-  function recalc(){
-    if(!selectedPage){ totalEl.textContent = 'Pilih halaman dulu ↑'; updateWA(); return; }
-    let total = parseInt(selectedPage.dataset.price, 10);
-    let hasFlag = false;
-    selectedFeatures.forEach(f => {
-      if(f.dataset.price === 'flag'){ hasFlag = true; }
-      else if(f.dataset.price === 'perpage'){
-        const tierPages = {1000000:1, 3000000:3, 5500000:6, 8000000:8}[parseInt(selectedPage.dataset.price,10)] || 1;
-        total += parseInt(f.dataset.perPage,10) * tierPages;
-      } else { total += parseInt(f.dataset.price,10); }
-    });
-    totalEl.textContent = formatRupiah(total) + (hasFlag ? '+' : '');
-    flagEl.classList.toggle('show', hasFlag);
-    updateWA(total, hasFlag);
+var state = {
+  packageId: 'company-profile',
+  addonIds: ['addon-domain-hosting'],
+  urgency: 'standard'
+};
+
+function getPackage(id) {
+  return SERVICE_PACKAGES.filter(function (p) { return p.id === id; })[0] || SERVICE_PACKAGES[1];
+}
+
+function renderPackageGrid() {
+  var grid = document.getElementById('package-grid');
+  grid.innerHTML = SERVICE_PACKAGES.map(function (pkg) {
+    var popularClasses = pkg.popular
+      ? 'shadow-2xl lg:-translate-y-2'
+      : '';
+    var popularStyle = pkg.popular
+      ? 'border-color:#4d8eff;background:linear-gradient(180deg,#1b1f2c,#0f131f);'
+      : 'border-color:rgba(255,255,255,0.1);';
+    var ribbon = pkg.popular
+      ? '<div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 text-white text-[10px] font-bold rounded-full uppercase tracking-wider shadow-md" style="background:linear-gradient(90deg,#4d8eff,#571bc1);">' + pkg.badge + '</div>'
+      : '';
+    var features = pkg.features.map(function (feat) {
+      var color = feat.included ? (feat.highlight ? 'color:#fff;font-weight:600;' : 'color:#c2c6d6;') : 'color:rgba(140,144,159,0.4);text-decoration:line-through;';
+      var icon = feat.included
+        ? '<i data-lucide="check" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:' + (feat.highlight ? '#ec6a06' : '#adc6ff') + ';"></i>'
+        : '<i data-lucide="x" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:rgba(140,144,159,0.4);"></i>';
+      return '<li class="flex items-start gap-2 text-xs" style="' + color + '">' + icon + '<span>' + feat.text + '</span></li>';
+    }).join('');
+    var waMsg = encodeURIComponent('Halo imm.creates! Saya tertarik dengan paket website: *' + pkg.name + '* (' + formatRupiah(pkg.price) + '). Bisa konsultasi langkah selanjutnya?');
+    var btnClass = pkg.popular ? 'btn-primary-3d' : 'btn-secondary-3d';
+
+    return '<div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative ' + popularClasses + '" style="' + popularStyle + '">' +
+      ribbon +
+      '<div>' +
+        '<div class="flex flex-col gap-1 mb-4">' +
+          '<h3 class="text-xl font-bold text-white" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h3>' +
+          '<p class="text-xs text-[#94A3B8] min-h-[32px]">' + pkg.tagline + '</p>' +
+        '</div>' +
+        '<div class="py-4 border-y border-white/10 flex flex-col gap-1">' +
+          '<span class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:\'Outfit\',sans-serif;">' + formatRupiah(pkg.price) + '</span>' +
+          '<span class="text-xs text-[#8c909f]" style="text-decoration:line-through;">Normal ' + formatRupiah(pkg.originalPrice) + '</span>' +
+          '<div class="flex items-center gap-1 text-[11px] mt-1 font-medium" style="color:#adc6ff;"><i data-lucide="clock" class="w-3 h-3"></i><span>Waktu: ' + pkg.duration + '</span></div>' +
+        '</div>' +
+        '<div class="py-4 flex flex-col gap-2.5">' +
+          '<span class="text-[11px] font-bold text-[#c2c6d6] uppercase tracking-wider">Termasuk:</span>' +
+          '<ul class="flex flex-col gap-2">' + features + '</ul>' +
+        '</div>' +
+      '</div>' +
+      '<div class="pt-4 border-t border-white/10 mt-6 flex flex-col gap-2">' +
+        '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
+          '<i data-lucide="message-circle" class="w-4 h-4"></i><span>Pilih Paket Ini</span>' +
+        '</a>' +
+        '<button onclick="selectPackage(\'' + pkg.id + '\')" class="text-[11px] hover:underline text-center py-1" style="color:#adc6ff;">Sesuaikan di Kalkulator ↓</button>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function renderCalcPackages() {
+  var wrap = document.getElementById('calc-package-options');
+  wrap.innerHTML = SERVICE_PACKAGES.map(function (pkg) {
+    var isSelected = state.packageId === pkg.id;
+    var style = isSelected
+      ? 'background:rgba(77,142,255,0.15);border-color:#4d8eff;color:#fff;'
+      : 'background:rgba(23,27,40,0.6);border-color:rgba(255,255,255,0.1);color:#c2c6d6;';
+    var dot = isSelected
+      ? '<div class="w-4 h-4 rounded-full flex items-center justify-center" style="border:1px solid #4d8eff;background:#4d8eff;"><i data-lucide="check" class="w-2.5 h-2.5 text-white"></i></div>'
+      : '<div class="w-4 h-4 rounded-full" style="border:1px solid rgba(255,255,255,0.3);"></div>';
+    return '<div onclick="selectPackage(\'' + pkg.id + '\')" class="p-4 rounded-xl border cursor-pointer transition-all" style="' + style + '">' +
+      '<div class="flex items-center justify-between">' +
+        '<h4 class="text-sm font-bold" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h4>' + dot +
+      '</div>' +
+      '<div class="text-xs font-bold mt-1" style="color:#adc6ff;">' + formatRupiah(pkg.price) + '</div>' +
+      '<div class="text-[11px] text-[#8c909f] mt-1">Estimasi ' + pkg.duration + '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function renderCalcAddons() {
+  var wrap = document.getElementById('calc-addon-options');
+  wrap.innerHTML = SERVICE_ADDONS.map(function (addon) {
+    var isChecked = state.addonIds.indexOf(addon.id) !== -1;
+    var style = isChecked
+      ? 'background:rgba(87,27,193,0.2);border-color:rgba(208,188,255,0.6);color:#fff;'
+      : 'background:rgba(23,27,40,0.5);border-color:rgba(255,255,255,0.05);color:#c2c6d6;';
+    var box = isChecked
+      ? '<div class="w-4 h-4 rounded shrink-0 mt-0.5 flex items-center justify-center" style="background:#d0bcff;border:1px solid #d0bcff;"><i data-lucide="check" class="w-3 h-3" style="color:#0f131f;"></i></div>'
+      : '<div class="w-4 h-4 rounded shrink-0 mt-0.5" style="border:1px solid rgba(255,255,255,0.3);"></div>';
+    return '<div onclick="toggleAddon(\'' + addon.id + '\')" class="p-3.5 rounded-xl border cursor-pointer transition-all flex items-start gap-3" style="' + style + '">' +
+      box +
+      '<div class="flex flex-col gap-0.5">' +
+        '<span class="text-xs font-bold text-white">' + addon.name + '</span>' +
+        '<p class="text-[11px] text-[#94A3B8] leading-tight">' + addon.description + '</p>' +
+        '<span class="text-xs font-bold mt-1" style="color:#ffb690;">+ ' + formatRupiah(addon.price) + '</span>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function renderUrgency() {
+  var std = document.getElementById('urgency-standard');
+  var exp = document.getElementById('urgency-express');
+  std.style.cssText += state.urgency === 'standard' ? 'background:rgba(77,142,255,0.15);border-color:#4d8eff;color:#fff;' : 'background:rgba(23,27,40,0.5);border-color:rgba(255,255,255,0.05);color:#c2c6d6;';
+  exp.style.cssText += state.urgency === 'express' ? 'background:rgba(236,106,6,0.2);border-color:#ec6a06;color:#fff;' : 'background:rgba(23,27,40,0.5);border-color:rgba(255,255,255,0.05);color:#c2c6d6;';
+}
+
+function calcTotals() {
+  var pkg = getPackage(state.packageId);
+  var addonsTotal = 0;
+  state.addonIds.forEach(function (id) {
+    var addon = SERVICE_ADDONS.filter(function (a) { return a.id === id; })[0];
+    if (addon) addonsTotal += addon.price;
+  });
+  if (state.urgency === 'express') addonsTotal += 500000;
+
+  var totalPrice = pkg.price + addonsTotal;
+  var estimatedOriginal = (pkg.originalPrice || pkg.price * 1.3) + addonsTotal * 1.2;
+  var savings = Math.round(estimatedOriginal - totalPrice);
+
+  return { pkg: pkg, addonsTotal: addonsTotal, totalPrice: totalPrice, estimatedOriginal: estimatedOriginal, savings: savings };
+}
+
+function renderSummary() {
+  var calc = calcTotals();
+  var lines = '<div class="flex justify-between items-center"><span>Paket: ' + calc.pkg.name + '</span><span class="font-semibold text-white">' + formatRupiah(calc.pkg.price) + '</span></div>';
+
+  if (state.addonIds.length > 0) {
+    lines += '<div class="flex justify-between items-center" style="color:#d0bcff;"><span>' + state.addonIds.length + ' Layanan Tambahan</span><span class="font-semibold">' + formatRupiah(calc.addonsTotal - (state.urgency === 'express' ? 500000 : 0)) + '</span></div>';
+  }
+  if (state.urgency === 'express') {
+    lines += '<div class="flex justify-between items-center" style="color:#ffb690;"><span>Prioritas Express 48 Jam</span><span class="font-semibold">Rp 500.000</span></div>';
   }
 
-  function updateWA(total, hasFlag){
-    let msg = "Halo imm.creates, saya mau tanya soal website.";
-    if(selectedPage){ msg += ` Kebutuhan: ${selectedPage.dataset.label}.`; }
-    if(selectedFeatures.length){ msg += ` Fitur tambahan: ${selectedFeatures.map(f=>f.dataset.label).join(', ')}.`; }
-    if(total){ msg += ` Estimasi dari kalkulator: ${formatRupiah(total)}${hasFlag?'+':''}.`; }
-    waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
-  }
+  lines += '<div class="pt-3 border-t border-white/10 flex flex-col gap-1">' +
+    '<div class="flex justify-between items-baseline"><span class="text-sm font-bold text-white">Total Estimasi:</span><span class="text-2xl font-extrabold" style="color:#adc6ff;font-family:\'Outfit\',sans-serif;">' + formatRupiah(calc.totalPrice) + '</span></div>' +
+    '<div class="flex justify-between items-center text-[11px] text-[#8c909f]"><span>Harga Normal:</span><span style="text-decoration:line-through;">' + formatRupiah(calc.estimatedOriginal) + '</span></div>' +
+    '<div class="text-[11px] font-semibold p-1.5 rounded text-center mt-1" style="color:#ec6a06;background:rgba(236,106,6,0.1);border:1px solid rgba(236,106,6,0.2);">Hemat ' + formatRupiah(calc.savings) + ' dengan paket bundling!</div>' +
+  '</div>';
 
-  pageEls.forEach(el => {
-    el.addEventListener('click', () => {
-      pageEls.forEach(p => p.classList.remove('active'));
-      el.classList.add('active');
-      selectedPage = el;
-      recalc();
-    });
-  });
-  featEls.forEach(el => {
-    el.addEventListener('click', () => {
-      el.classList.toggle('active');
-      if(el.classList.contains('active')){ selectedFeatures.push(el); }
-      else { selectedFeatures = selectedFeatures.filter(f => f !== el); }
-      recalc();
-    });
-  });
-  updateWA();
+  document.getElementById('calc-summary-lines').innerHTML = lines;
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-item').forEach(item => {
-    const q = item.querySelector('.faq-q');
-    const a = item.querySelector('.faq-a');
-    q.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(o => {
-        o.classList.remove('open');
-        o.querySelector('.faq-a').style.maxHeight = null;
-      });
-      if(!isOpen){
-        item.classList.add('open');
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
+  var addonNames = state.addonIds.map(function (id) {
+    var a = SERVICE_ADDONS.filter(function (x) { return x.id === id; })[0];
+    return a ? a.name : null;
+  }).filter(Boolean).join('\n- ');
+
+  var message = 'Halo imm.creates! Saya sudah menghitung perkiraan biaya website di website Anda:\n\n' +
+    '📦 *Paket Utama:* ' + calc.pkg.name + ' (' + formatRupiah(calc.pkg.price) + ')\n' +
+    '⚡ *Kecepatan Pengerjaan:* ' + (state.urgency === 'express' ? 'Prioritas Express (48 Jam)' : calc.pkg.duration) + '\n' +
+    (addonNames ? '🧩 *Add-on Tambahan:*\n- ' + addonNames + '\n' : '🧩 *Add-on Tambahan:* Tidak ada\n') +
+    '\n💰 *Total Estimasi Biaya:* ' + formatRupiah(calc.totalPrice) + '\n\n' +
+    'Bisa dibantu konsultasi dan mulai proses brief-nya? Terima kasih!';
+
+  document.getElementById('calc-whatsapp-btn').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(message);
+}
+
+function renderAll() {
+  renderPackageGrid();
+  renderCalcPackages();
+  renderCalcAddons();
+  renderUrgency();
+  renderSummary();
+  if (window.lucide) lucide.createIcons();
+}
+
+window.selectPackage = function (id) {
+  state.packageId = id;
+  renderAll();
+  document.getElementById('interactive-calculator').scrollIntoView({ behavior: 'smooth' });
+};
+window.toggleAddon = function (id) {
+  var idx = state.addonIds.indexOf(id);
+  if (idx === -1) state.addonIds.push(id); else state.addonIds.splice(idx, 1);
+  renderAll();
+};
+document.getElementById('urgency-standard').addEventListener('click', function () { state.urgency = 'standard'; renderAll(); });
+document.getElementById('urgency-express').addEventListener('click', function () { state.urgency = 'express'; renderAll(); });
+
+renderAll();
 </script>
 </body>
 </html>
