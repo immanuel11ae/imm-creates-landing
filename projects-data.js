@@ -23,6 +23,18 @@ var PORTFOLIO_PROJECTS = [
     process: 'Multi-halaman + copywriting cerita brand.',
     result: 'Live, siap dipakai jualan.',
     caseStudy: 'Brand kopi lokal butuh lebih dari 1 halaman buat cerita brand + produk. Disusun jadi beberapa halaman dengan alur navigasi yang gak bikin bingung pengunjung.'
+  },
+  {
+    id: 'siakad-cakrawala-bangsa',
+    title: 'SIAKAD Cakrawala Bangsa',
+    category: 'Sistem Informasi Akademik',
+    tagline: 'Portal digital sekolah untuk nilai, jadwal, dan perkembangan siswa.',
+    image: 'siakad-cakrawala-bangsa-hero.webp',
+    liveUrl: 'https://immanuel11ae.github.io/siakad-cakrawala-bangsa/',
+    brief: 'Butuh 1 portal terpusat buat siswa & wali murid pantau nilai/jadwal.',
+    process: 'Custom web app + dashboard ringkasan real-time.',
+    result: 'Live, siap dipakai sekolah.',
+    caseStudy: 'Sekolah butuh 1 portal yang menyatukan akses nilai, jadwal pelajaran, dan info ekstrakurikuler buat siswa & wali murid, tanpa perlu tanya manual ke pihak sekolah.'
   }
 ];
 
