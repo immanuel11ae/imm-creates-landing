@@ -241,6 +241,12 @@ function loadUgcSource(v) {
     source.src = source.getAttribute('data-src');
     source.removeAttribute('data-src');
     v.preload = 'metadata';
+    v.addEventListener('loadedmetadata', function onMeta() {
+      v.removeEventListener('loadedmetadata', onMeta);
+      // Seeking a hair into the video forces the browser to decode & paint
+      // that frame as a visible thumbnail, without downloading/playing the rest.
+      try { v.currentTime = 0.1; } catch (e) {}
+    });
     v.load();
   }
 }
