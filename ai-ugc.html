@@ -213,7 +213,7 @@ grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
   return '<div class="glass-card rounded-2xl overflow-hidden group flex flex-col border border-white/10 shadow-xl">' +
     '<div class="relative bg-[#0a0e1a] overflow-hidden" style="aspect-ratio:9/14;">' +
       '<video class="w-full h-full object-cover" muted playsinline preload="none" loop id="ugc-video-' + i + '">' +
-        '<source src="assets/videos/' + v.file + '" type="video/mp4">' +
+        '<source data-src="assets/videos/' + v.file + '" type="video/mp4">' +
       '</video>' +
       '<div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.35));pointer-events:none;"></div>' +
       '<div class="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px]">' +
@@ -235,8 +235,19 @@ grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
   '</div>';
 }).join('');
 
+function loadUgcSource(v) {
+  var source = v.querySelector('source[data-src]');
+  if (source) {
+    source.src = source.getAttribute('data-src');
+    source.removeAttribute('data-src');
+    v.preload = 'metadata';
+    v.load();
+  }
+}
+
 function toggleUgcVideo(i, btn) {
   var v = document.getElementById('ugc-video-' + i);
+  loadUgcSource(v);
   if (v.paused) {
     // Pause & unmute every other video first, so only one plays with sound at a time
     document.querySelectorAll('#video-grid video').forEach(function (other) {
@@ -280,6 +291,20 @@ if ('IntersectionObserver' in window) {
     });
   }, { threshold: 0.25 });
   document.querySelectorAll('#video-grid video').forEach(function (v) { ugcObserver.observe(v); });
+
+  // Lazily load metadata/thumbnail for each video only as it nears the viewport
+  var ugcLazyLoadObserver = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        loadUgcSource(entry.target);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '300px 0px' });
+  document.querySelectorAll('#video-grid video').forEach(function (v) { ugcLazyLoadObserver.observe(v); });
+} else {
+  // Fallback for very old browsers without IntersectionObserver: just load all normally
+  document.querySelectorAll('#video-grid video').forEach(function (v) { loadUgcSource(v); });
 }
 </script>
 </body>
