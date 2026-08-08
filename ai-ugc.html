@@ -212,7 +212,7 @@ grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
   var waMsg = encodeURIComponent('Halo imm.creates! Saya mau order video AI-UGC mirip sampel "' + v.title + '" untuk produk saya.');
   return '<div class="glass-card rounded-2xl overflow-hidden group flex flex-col border border-white/10 shadow-xl">' +
     '<div class="relative bg-[#0a0e1a] overflow-hidden" style="aspect-ratio:9/14;">' +
-      '<video class="w-full h-full object-cover" muted playsinline preload="metadata" loop id="ugc-video-' + i + '">' +
+      '<video class="w-full h-full object-cover" muted playsinline preload="none" loop id="ugc-video-' + i + '">' +
         '<source src="assets/videos/' + v.file + '" type="video/mp4">' +
       '</video>' +
       '<div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.35));pointer-events:none;"></div>' +
@@ -262,6 +262,25 @@ function toggleUgcVideo(i, btn) {
 }
 
 if (window.lucide) lucide.createIcons();
+
+// Auto-pause a playing video once it's mostly scrolled out of view (saves CPU/decode on mobile)
+if ('IntersectionObserver' in window) {
+  var ugcObserver = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        var vid = entry.target;
+        if (!vid.paused) {
+          vid.pause();
+          var idx = vid.id.replace('ugc-video-', '');
+          var btn = document.querySelector('#video-grid button[onclick^="toggleUgcVideo(' + idx + ',"]');
+          if (btn) btn.innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
+          if (window.lucide) lucide.createIcons();
+        }
+      }
+    });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('#video-grid video').forEach(function (v) { ugcObserver.observe(v); });
+}
 </script>
 </body>
 </html>
