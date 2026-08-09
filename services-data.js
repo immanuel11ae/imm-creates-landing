@@ -16,7 +16,7 @@ var SERVICE_PACKAGES = [
       { text: 'Struktur Copywriting Persuasif & Hook Jualan', included: true, highlight: true },
       { text: 'Tombol 1-Click WhatsApp Booking / Order Otomatis', included: true, highlight: true },
       { text: 'Optimasi Speed Super Cepat (< 1.5 detik)', included: true },
-      { text: 'Gratis Domain .my.id / .com Setup & Hosting Panduan', included: true },
+      { text: 'Gratis Domain .my.id + SSL & Hosting 1 Tahun', included: true, highlight: true },
       { text: 'Integrasi Meta Pixel & Google Analytics', included: true },
       { text: 'Garansi Teknis & Maintenance 30 Hari', included: true },
       { text: 'Halaman Tambahan / Blog Multi-halaman', included: false },
@@ -36,6 +36,7 @@ var SERVICE_PACKAGES = [
       { text: 'Hingga 5 Halaman Custom (Home, About, Layanan, Portofolio, Kontak)', included: true, highlight: true },
       { text: 'Desain UI/UX Eksklusif sesuai Brand Identity', included: true, highlight: true },
       { text: 'Struktur SEO On-Page Lengkap untuk Google Rank', included: true, highlight: true },
+      { text: 'Gratis Domain .com (1 Tahun) + SSL & Hosting', included: true, highlight: true },
       { text: 'Katalog Layanan & Showcase Galeri Dinamis', included: true },
       { text: 'Formulir Kontak & Permintaan Penawaran Terhubung ke Email/WA', included: true },
       { text: 'Integrasi Google Maps, FAQ Interaktif, & Testimonial Slider', included: true },
@@ -57,6 +58,7 @@ var SERVICE_PACKAGES = [
       { text: 'Katalog Produk Multi-Kategori (Hingga 50 Produk Awal Diinputkan)', included: true, highlight: true },
       { text: 'Filter Produk (Harga, Varian Ukuran, Warna, Kategori)', included: true, highlight: true },
       { text: 'Sistem Keranjang Belanja & Checkout WhatsApp Otomatis', included: true, highlight: true },
+      { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true },
       { text: 'Opsi Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: true },
       { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: true },
       { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true },
@@ -69,12 +71,13 @@ var SERVICE_PACKAGES = [
     name: 'Custom Web Application',
     tagline: 'Solusi sistem & aplikasi kustom untuk alur kerja unik',
     badge: 'Enterprise / Custom',
-    price: 4500000,
-    originalPrice: 6500000,
+    price: 6000000,
+    originalPrice: 8500000,
     duration: '10 - 18 Hari Kerja',
     popular: false,
     features: [
       { text: 'Fullstack Custom Development (React/Next.js + Node/Database)', included: true, highlight: true },
+      { text: 'Gratis Domain .com + SSL & Hosting Cloud/VPS 1 Tahun', included: true, highlight: true },
       { text: 'Sistem Autentikasi Pengguna & Role Based Access', included: true },
       { text: 'Integrasi Database Cloud Real-time & API Eksternal', included: true, highlight: true },
       { text: 'Dasbor Analitik & Laporan Interaktif', included: true },
@@ -87,10 +90,16 @@ var SERVICE_PACKAGES = [
 
 var SERVICE_ADDONS = [
   {
-    id: 'addon-domain-hosting',
-    name: 'Paket Domain .COM + Cloud Hosting SSD 1 Tahun',
-    price: 450000,
-    description: 'Pendaftaran domain .com nama bisnis Anda dan hosting NVMe ultra-cepat termasuk sertifikat SSL HTTPS gratis.'
+    id: 'addon-hosting-upgrade',
+    name: 'Upgrade Hosting Cloud SSD NVMe Premium (per Tahun)',
+    price: 1800000,
+    description: 'Server dedicated resource + SSD NVMe untuk traffic tinggi & toko online aktif. Biaya ini berlaku per tahun mengikuti biaya hosting cloud, bukan biaya sekali bayar.'
+  },
+  {
+    id: 'addon-domain-upgrade',
+    name: 'Ganti Ekstensi Domain ke .ID / .CO.ID (per Tahun)',
+    price: 380000,
+    description: 'Upgrade dari domain default ke ekstensi lokal .ID atau .CO.ID yang lebih premium & terpercaya untuk badan usaha resmi. Biaya ini berlaku per tahun mengikuti biaya perpanjangan domain, bukan biaya sekali bayar.'
   },
   {
     id: 'addon-copywriting',
