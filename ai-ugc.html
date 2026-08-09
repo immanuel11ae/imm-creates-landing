@@ -198,32 +198,30 @@
 document.getElementById('footer-year').textContent = new Date().getFullYear();
 
 var UGC_VIDEOS = [
-  { file: 'jersey-ugc-campaign.mp4', tag: 'UGC', title: 'Jersey UGC Campaign', desc: 'Video UGC produk jersey — dari konsep sampai hasil siap posting.' },
-  { file: 'hotel-review-ugc-lombok.mp4', tag: 'Travel', title: 'Hotel Review UGC — Lombok', desc: 'Video review UGC untuk properti hospitality di Lombok.' },
-  { file: 'ugc-parfum.mp4', tag: 'Beauty', title: 'UGC Parfum', desc: 'Video UGC produk parfum dengan pendekatan visual elegan.' },
-  { file: 'ugc-sepatu-nike.mp4', tag: 'Fashion', title: 'UGC Sepatu Nike', desc: 'Showcase produk sepatu Nike melalui video UGC dinamis.' },
-  { file: 'ugc-kahf.mp4', tag: 'Beauty', title: 'Kahf', desc: 'Konten UGC untuk produk perawatan pria Kahf.' },
-  { file: 'ugc-brewday-coffee.mp4', tag: 'Coffee', title: 'Brewday Coffee', desc: 'Visual storytelling untuk produk Brewday Coffee.' },
-  { file: 'ugc-versace-eros.mp4', tag: 'Beauty', title: 'Parfum Versace Eros', desc: 'Video UGC sinematik untuk parfum Versace Eros.' }
+  { youtubeId: 'WfEJZ0F_-50', tag: 'UGC', title: 'Jersey UGC Campaign', desc: 'Video UGC produk jersey — dari konsep sampai hasil siap posting.' },
+  { youtubeId: 'Y_F6kWEvbBE', tag: 'Travel', title: 'Hotel Review UGC — Lombok', desc: 'Video review UGC untuk properti hospitality di Lombok.' },
+  { youtubeId: 'BSL0UNacwr8', tag: 'Beauty', title: 'UGC Parfum', desc: 'Video UGC produk parfum dengan pendekatan visual elegan.' },
+  { youtubeId: 'B2EzhptC0n0', tag: 'Fashion', title: 'UGC Sepatu Nike', desc: 'Showcase produk sepatu Nike melalui video UGC dinamis.' },
+  { youtubeId: 'lsbt1_MOKlk', tag: 'Beauty', title: 'Kahf', desc: 'Konten UGC untuk produk perawatan pria Kahf.' },
+  { youtubeId: 'BN2bM6_rOyY', tag: 'Coffee', title: 'Brewday Coffee', desc: 'Visual storytelling untuk produk Brewday Coffee.' },
+  { youtubeId: '73tJ_qRH3k4', tag: 'Beauty', title: 'Parfum Versace Eros', desc: 'Video UGC sinematik untuk parfum Versace Eros.' }
 ];
 
 var grid = document.getElementById('video-grid');
 grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
   var waMsg = encodeURIComponent('Halo imm.creates! Saya mau order video AI-UGC mirip sampel "' + v.title + '" untuk produk saya.');
   return '<div class="glass-card rounded-2xl overflow-hidden group flex flex-col border border-white/10 shadow-xl">' +
-    '<div class="relative bg-[#0a0e1a] overflow-hidden" style="aspect-ratio:9/14;">' +
-      '<video class="w-full h-full object-cover" muted playsinline preload="none" loop id="ugc-video-' + i + '">' +
-        '<source data-src="assets/videos/' + v.file + '" type="video/mp4">' +
-      '</video>' +
+    '<div class="relative bg-[#0a0e1a] overflow-hidden" style="aspect-ratio:9/14;" id="ugc-frame-' + i + '">' +
+      '<img src="https://i.ytimg.com/vi/' + v.youtubeId + '/hqdefault.jpg" alt="Thumbnail ' + v.title + '" loading="lazy" class="w-full h-full object-cover">' +
       '<div class="absolute inset-0" style="background:linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.35));pointer-events:none;"></div>' +
       '<div class="absolute top-3 left-3 right-3 flex items-center justify-between text-[10px]">' +
         '<span class="px-2 py-0.5 rounded text-white font-semibold" style="background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);">' + v.tag + '</span>' +
       '</div>' +
-      '<div class="absolute inset-0 flex items-center justify-center">' +
-        '<button onclick="toggleUgcVideo(' + i + ', this)" class="w-12 h-12 rounded-full text-white flex items-center justify-center shadow-lg transition-all" style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);" aria-label="Putar video contoh">' +
+      '<button onclick="playUgcVideo(' + i + ')" class="absolute inset-0 flex items-center justify-center" aria-label="Putar video contoh">' +
+        '<span class="w-12 h-12 rounded-full text-white flex items-center justify-center shadow-lg transition-all" style="background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);">' +
           '<i data-lucide="play" class="w-5 h-5"></i>' +
-        '</button>' +
-      '</div>' +
+        '</span>' +
+      '</button>' +
     '</div>' +
     '<div class="p-5 flex flex-col flex-grow gap-3">' +
       '<h4 class="text-sm font-bold text-white leading-snug" style="font-family:\'Outfit\',sans-serif;">' + v.title + '</h4>' +
@@ -235,83 +233,16 @@ grid.innerHTML = UGC_VIDEOS.map(function (v, i) {
   '</div>';
 }).join('');
 
-function loadUgcSource(v) {
-  var source = v.querySelector('source[data-src]');
-  if (source) {
-    source.src = source.getAttribute('data-src');
-    source.removeAttribute('data-src');
-    v.preload = 'metadata';
-    v.addEventListener('loadedmetadata', function onMeta() {
-      v.removeEventListener('loadedmetadata', onMeta);
-      // Seeking a hair into the video forces the browser to decode & paint
-      // that frame as a visible thumbnail, without downloading/playing the rest.
-      try { v.currentTime = 0.1; } catch (e) {}
-    });
-    v.load();
-  }
-}
-
-function toggleUgcVideo(i, btn) {
-  var v = document.getElementById('ugc-video-' + i);
-  loadUgcSource(v);
-  if (v.paused) {
-    // Pause & unmute every other video first, so only one plays with sound at a time
-    document.querySelectorAll('#video-grid video').forEach(function (other) {
-      if (other !== v) {
-        other.pause();
-        other.muted = true;
-        other.currentTime = 0;
-      }
-    });
-    document.querySelectorAll('#video-grid button[onclick^="toggleUgcVideo"]').forEach(function (otherBtn) {
-      if (otherBtn !== btn) otherBtn.innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
-    });
-
-    v.muted = false;
-    v.volume = 1;
-    v.play();
-    btn.innerHTML = '<i data-lucide="pause" class="w-5 h-5"></i>';
-  } else {
-    v.pause();
-    btn.innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
-  }
-  if (window.lucide) lucide.createIcons();
+function playUgcVideo(i) {
+  var frame = document.getElementById('ugc-frame-' + i);
+  var id = UGC_VIDEOS[i].youtubeId;
+  frame.innerHTML =
+    '<iframe class="w-full h-full" src="https://www.youtube.com/embed/' + id + '?autoplay=1&playsinline=1&rel=0" ' +
+    'title="' + UGC_VIDEOS[i].title + '" frameborder="0" ' +
+    'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 }
 
 if (window.lucide) lucide.createIcons();
-
-// Auto-pause a playing video once it's mostly scrolled out of view (saves CPU/decode on mobile)
-if ('IntersectionObserver' in window) {
-  var ugcObserver = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (!entry.isIntersecting) {
-        var vid = entry.target;
-        if (!vid.paused) {
-          vid.pause();
-          var idx = vid.id.replace('ugc-video-', '');
-          var btn = document.querySelector('#video-grid button[onclick^="toggleUgcVideo(' + idx + ',"]');
-          if (btn) btn.innerHTML = '<i data-lucide="play" class="w-5 h-5"></i>';
-          if (window.lucide) lucide.createIcons();
-        }
-      }
-    });
-  }, { threshold: 0.25 });
-  document.querySelectorAll('#video-grid video').forEach(function (v) { ugcObserver.observe(v); });
-
-  // Lazily load metadata/thumbnail for each video only as it nears the viewport
-  var ugcLazyLoadObserver = new IntersectionObserver(function (entries, obs) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        loadUgcSource(entry.target);
-        obs.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '300px 0px' });
-  document.querySelectorAll('#video-grid video').forEach(function (v) { ugcLazyLoadObserver.observe(v); });
-} else {
-  // Fallback for very old browsers without IntersectionObserver: just load all normally
-  document.querySelectorAll('#video-grid video').forEach(function (v) { loadUgcSource(v); });
-}
 </script>
 </body>
 </html>
