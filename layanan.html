@@ -30,6 +30,23 @@
     filter: saturate(0.6);
     transform: translateY(0) scale(0.98) !important;
   }
+  /* Tombol "Pilih Paket Ini": aktif oranye di kartu yang di-hover, non-aktif (abu) di kartu lainnya */
+  #package-grid .pkg-card:hover .btn-3d {
+    background-color: #ec6a06 !important;
+    background: #ec6a06 !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-bottom: 3px solid #a54602 !important;
+    box-shadow: 0 4px 20px rgba(236, 106, 6, 0.25) !important;
+  }
+  #package-grid:has(.pkg-card:hover) .pkg-card:not(:hover) .btn-3d {
+    background-color: rgba(255, 255, 255, 0.04) !important;
+    background: rgba(255, 255, 255, 0.04) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.25) !important;
+    color: #F8FAFC !important;
+    box-shadow: none !important;
+  }
 </style>
 </head>
 <body class="page-dark" data-page="layanan" style="background:#0f131f;">
@@ -351,7 +368,7 @@ function renderPackageGrid() {
     var features = pkg.features.map(function (feat) {
       var color = feat.included ? (feat.highlight ? 'color:#fff;font-weight:600;' : 'color:#c2c6d6;') : 'color:rgba(140,144,159,0.4);text-decoration:line-through;';
       var icon = feat.included
-        ? '<i data-lucide="check" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:' + (feat.highlight ? '#ec6a06' : '#adc6ff') + ';"></i>'
+        ? '<i data-lucide="check" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:#4d8eff;"></i>'
         : '<i data-lucide="x" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:rgba(140,144,159,0.4);"></i>';
       return '<li class="flex items-start gap-2 text-xs" style="' + color + '">' + icon + '<span>' + feat.text + '</span></li>';
     }).join('');
