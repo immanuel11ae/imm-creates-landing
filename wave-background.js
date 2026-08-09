@@ -1,5 +1,7 @@
 // imm.creates — wave + particle canvas background
-// Port of the React WaveBackground component to vanilla JS.
+// Optimized: fewer particles/wave layers, frame-rate capped, and exposes
+// window.pauseWaveBackground()/resumeWaveBackground() so heavy pages
+// (e.g. video playback) can free up CPU on lower-end devices.
 (function () {
   var canvas = document.getElementById('wave-canvas');
   if (!canvas) return;
@@ -7,8 +9,10 @@
   var ctx = canvas.getContext('2d', { alpha: false });
   if (!ctx) return;
 
-  var speedMultiplier = 1.0; // 'balanced' intensity
+  var speedMultiplier = 1.0;
   var width = 0, height = 0, dpr = 1;
+  var paused = false;
+  var rafId = null;
 
   var particleColors = [
     'rgba(77, 142, 255, ',
@@ -18,7 +22,7 @@
     'rgba(208, 188, 255, '
   ];
 
-  var particleCount = 45;
+  var particleCount = 24; // reduced from 45 — cuts O(n^2) connector-line cost roughly in half
   var particles = [];
 
   function initParticles(w, h) {
@@ -42,10 +46,11 @@
     var parent = canvas.parentElement;
     width = (parent && parent.clientWidth) || window.innerWidth;
     height = (parent && parent.clientHeight) || window.innerHeight;
-    dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.25); // capped lower for cheaper fill/gradient cost
 
     canvas.width = Math.floor(width * dpr);
     canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.scale(dpr, dpr);
 
     if (particles.length === 0) initParticles(width, height);
@@ -56,6 +61,8 @@
 
   var time = 0;
   var lastTimestamp = performance.now();
+  var lastFrameTime = 0;
+  var targetFrameInterval = 1000 / 30; // cap to ~30fps instead of full 60fps — halves per-second work
 
   function drawWaveLayer(baseYRatio, freq, amp, speed, phase, fillColors, strokeColor, strokeWidth, glowColor, harmonics) {
     if (harmonics === undefined) harmonics = true;
@@ -64,13 +71,12 @@
     ctx.beginPath();
     ctx.moveTo(0, height);
 
-    var step = Math.max(6, Math.floor(width / 180));
+    var step = Math.max(10, Math.floor(width / 110)); // coarser sampling — fewer points per wave
     var x, y;
     for (x = 0; x <= width + step; x += step) {
       y = yMid + Math.sin(x * freq + time * speed + phase) * amp;
       if (harmonics) {
         y += Math.cos(x * (freq * 0.5) - time * (speed * 0.7) + phase * 1.3) * (amp * 0.45);
-        y += Math.sin(x * (freq * 1.8) + time * (speed * 1.2) + phase * 0.5) * (amp * 0.18);
       }
       ctx.lineTo(x, y);
     }
@@ -90,14 +96,11 @@
       y = yMid + Math.sin(x * freq + time * speed + phase) * amp;
       if (harmonics) {
         y += Math.cos(x * (freq * 0.5) - time * (speed * 0.7) + phase * 1.3) * (amp * 0.45);
-        y += Math.sin(x * (freq * 1.8) + time * (speed * 1.2) + phase * 0.5) * (amp * 0.18);
       }
       if (x === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     }
 
-    ctx.shadowColor = glowColor;
-    ctx.shadowBlur = 18;
     ctx.strokeStyle = strokeColor;
     ctx.lineWidth = strokeWidth;
     ctx.stroke();
@@ -105,8 +108,13 @@
   }
 
   function render(now) {
+    if (paused) { rafId = null; return; }
+    rafId = requestAnimationFrame(render);
+
+    if (now - lastFrameTime < targetFrameInterval) return;
     var delta = Math.min((now - lastTimestamp) / 1000, 0.1);
     lastTimestamp = now;
+    lastFrameTime = now;
     time += delta * speedMultiplier;
 
     var bgGrad = ctx.createLinearGradient(0, 0, 0, height);
@@ -116,27 +124,10 @@
     ctx.fillStyle = bgGrad;
     ctx.fillRect(0, 0, width, height);
 
-    var blueGlow = ctx.createRadialGradient(width * 0.75, height * 0.25, 10, width * 0.75, height * 0.25, width * 0.6);
-    blueGlow.addColorStop(0, 'rgba(77, 142, 255, 0.10)');
-    blueGlow.addColorStop(0.5, 'rgba(87, 27, 193, 0.05)');
-    blueGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = blueGlow;
-    ctx.fillRect(0, 0, width, height);
-
-    var orangeGlow = ctx.createRadialGradient(width * 0.2, height * 0.75, 10, width * 0.2, height * 0.75, width * 0.5);
-    orangeGlow.addColorStop(0, 'rgba(236, 106, 6, 0.08)');
-    orangeGlow.addColorStop(0.6, 'rgba(236, 106, 6, 0.01)');
-    orangeGlow.addColorStop(1, 'rgba(0, 0, 0, 0)');
-    ctx.fillStyle = orangeGlow;
-    ctx.fillRect(0, 0, width, height);
-
+    // Reduced to 3 wave layers (from 5) — still reads as a full scene, notably cheaper per frame
     drawWaveLayer(0.58, 0.0018, height * 0.09, 0.45, 0.0,
       ['rgba(87, 27, 193, 0.22)', 'rgba(87, 27, 193, 0.04)'],
       'rgba(168, 85, 247, 0.65)', 2.5, 'rgba(168, 85, 247, 0.5)');
-
-    drawWaveLayer(0.65, 0.0022, height * 0.07, 0.55, 2.8,
-      ['rgba(236, 106, 6, 0.14)', 'rgba(236, 106, 6, 0.02)'],
-      'rgba(255, 182, 144, 0.75)', 2.0, 'rgba(236, 106, 6, 0.6)');
 
     drawWaveLayer(0.46, 0.0026, height * 0.085, 0.65, 1.2,
       ['rgba(56, 189, 248, 0.18)', 'rgba(56, 189, 248, 0.02)'],
@@ -145,10 +136,6 @@
     drawWaveLayer(0.52, 0.0031, height * 0.075, 0.50, 4.1,
       ['rgba(77, 142, 255, 0.20)', 'rgba(77, 142, 255, 0.03)'],
       'rgba(173, 198, 255, 0.90)', 3.5, 'rgba(77, 142, 255, 0.8)');
-
-    drawWaveLayer(0.38, 0.0036, height * 0.045, 0.80, 3.4,
-      ['rgba(208, 188, 255, 0.08)', 'rgba(208, 188, 255, 0.0)'],
-      'rgba(208, 188, 255, 0.65)', 1.5, 'rgba(208, 188, 255, 0.5)', false);
 
     var particleDistanceThreshold = 85;
     for (var i = 0; i < particles.length; i++) {
@@ -166,8 +153,6 @@
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
       ctx.fillStyle = p.color + currentAlpha + ')';
-      ctx.shadowColor = p.color + '0.8)';
-      ctx.shadowBlur = 8;
       ctx.fill();
 
       for (var j = i + 1; j < particles.length; j++) {
@@ -182,14 +167,23 @@
           ctx.lineTo(p2.x, p2.y);
           ctx.strokeStyle = 'rgba(173, 198, 255, ' + lineAlpha + ')';
           ctx.lineWidth = 0.8;
-          ctx.shadowBlur = 0;
           ctx.stroke();
         }
       }
     }
-
-    requestAnimationFrame(render);
   }
 
-  requestAnimationFrame(render);
+  rafId = requestAnimationFrame(render);
+
+  // Exposed so heavy pages (e.g. video playback) can free up CPU/GPU on lower-end devices
+  window.pauseWaveBackground = function () {
+    paused = true;
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  };
+  window.resumeWaveBackground = function () {
+    if (!paused) return;
+    paused = false;
+    lastTimestamp = performance.now();
+    rafId = requestAnimationFrame(render);
+  };
 })();
