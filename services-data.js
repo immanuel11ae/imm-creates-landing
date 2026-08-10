@@ -18,7 +18,6 @@ var SERVICE_PACKAGES = [
       { text: 'Optimasi Speed Super Cepat (< 1.5 detik)', included: true },
       { text: 'Gratis Domain .my.id + SSL & Hosting 1 Tahun', included: true, highlight: true },
       { text: 'Integrasi Meta Pixel & Google Analytics', included: true },
-      { text: 'Garansi Teknis & Maintenance 30 Hari', included: true },
       { text: 'Halaman Tambahan / Blog Multi-halaman', included: false },
       { text: 'Sistem Pembayaran Payment Gateway Otomatis', included: false }
     ]
@@ -40,9 +39,7 @@ var SERVICE_PACKAGES = [
       { text: 'Katalog Layanan & Showcase Galeri Dinamis', included: true },
       { text: 'Formulir Kontak & Permintaan Penawaran Terhubung ke Email/WA', included: true },
       { text: 'Integrasi Google Maps, FAQ Interaktif, & Testimonial Slider', included: true },
-      { text: 'Gratis Email Bisnis (nama@perusahaan.com)', included: true },
-      { text: 'Training & Panduan Update Konten Mandiri', included: true },
-      { text: 'Garansi Teknis & Backup Data 60 Hari', included: true, highlight: true }
+      { text: 'Gratis Email Bisnis (nama@perusahaan.com)', included: true }
     ]
   },
   {
@@ -61,9 +58,7 @@ var SERVICE_PACKAGES = [
       { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true },
       { text: 'Opsi Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: true },
       { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: true },
-      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true },
-      { text: 'Integrasi TikTok Pixel, Meta Pixel, & Google Tag Manager', included: true },
-      { text: 'Garansi Teknis & Pendampingan 90 Hari', included: true, highlight: true }
+      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true }
     ]
   },
   {
@@ -81,9 +76,7 @@ var SERVICE_PACKAGES = [
       { text: 'Sistem Autentikasi Pengguna & Role Based Access', included: true },
       { text: 'Integrasi Database Cloud Real-time & API Eksternal', included: true, highlight: true },
       { text: 'Dasbor Analitik & Laporan Interaktif', included: true },
-      { text: 'Arsitektur Scalable & Keamanan Data Enkripsi', included: true },
-      { text: 'Dokumentasi Teknis & Source Code Kepemilikan 100%', included: true, highlight: true },
-      { text: 'Support & Maintenance Prioritas 6 Bulan', included: true }
+      { text: 'Arsitektur Scalable & Keamanan Data Enkripsi', included: true }
     ]
   }
 ];
