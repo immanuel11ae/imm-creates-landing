@@ -45,20 +45,21 @@ var SERVICE_PACKAGES = [
   {
     id: 'ecommerce-catalog',
     name: 'E-Commerce & Katalog Digital',
-    tagline: 'Katalog produk modern dengan alur belanja anti-ribet',
+    tagline: 'Katalog produk modern dengan alur belanja anti-ribet, dibangun di atas sistem teruji',
     badge: 'Fitur Paling Lengkap',
-    price: 2950000,
-    originalPrice: 4200000,
-    duration: '7 - 10 Hari Kerja',
+    price: 4000000,
+    originalPrice: 10000000,
+    duration: '6 - 9 Hari Kerja',
     popular: false,
     features: [
-      { text: 'Katalog Produk Multi-Kategori (Hingga 50 Produk Awal Diinputkan)', included: true, highlight: true },
-      { text: 'Filter Produk (Harga, Varian Ukuran, Warna, Kategori)', included: true, highlight: true },
+      { text: 'Input & Setup Katalog Produk (Hingga 50 Produk Awal Diinputkan)', included: true, highlight: true },
+      { text: 'Reskin Tampilan Sesuai Warna, Logo & Brand Identity', included: true, highlight: true },
       { text: 'Sistem Keranjang Belanja & Checkout WhatsApp Otomatis', included: true, highlight: true },
       { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true },
-      { text: 'Opsi Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: true },
+      { text: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: true },
       { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: true },
-      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true }
+      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true },
+      { text: 'Testing Alur Belanja End-to-End & Go-Live', included: true }
     ]
   },
   {
@@ -66,9 +67,8 @@ var SERVICE_PACKAGES = [
     name: 'Custom Web Application',
     tagline: 'Solusi sistem & aplikasi kustom untuk alur kerja unik',
     badge: 'Enterprise / Custom',
-    price: 6000000,
-    originalPrice: 8500000,
-    duration: '10 - 18 Hari Kerja',
+    contactOnly: true,
+    duration: 'Estimasi Disesuaikan Brief & Kompleksitas',
     popular: false,
     features: [
       { text: 'Fullstack Custom Development (React/Next.js + Node/Database)', included: true, highlight: true },

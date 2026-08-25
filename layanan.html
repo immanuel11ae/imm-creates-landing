@@ -48,6 +48,35 @@
     box-shadow: none !important;
   }
 </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://immcreates.my.id/#business",
+  "name": "imm.creates",
+  "image": "https://immcreates.my.id/logo-navbar-fixed.webp",
+  "url": "https://immcreates.my.id/",
+  "telephone": "+6287888865680",
+  "priceRange": "Rp999.000 - Rp10.000.000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Surabaya",
+    "addressRegion": "Jawa Timur",
+    "addressCountry": "ID"
+  },
+  "areaServed": "Indonesia",
+  "sameAs": [
+    "https://www.instagram.com/imm.creates/",
+    "https://www.linkedin.com/in/immcreates/"
+  ],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page Sales Turbo" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Company Profile Bisnis PRO" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "E-Commerce & Katalog Digital" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Web Application" } }
+  ]
+}
+</script>
 </head>
 <body class="page-dark" data-page="layanan" style="background:#0f131f;">
 
@@ -372,8 +401,27 @@ function renderPackageGrid() {
         : '<i data-lucide="x" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:rgba(140,144,159,0.4);"></i>';
       return '<li class="flex items-start gap-2 text-xs" style="' + color + '">' + icon + '<span>' + feat.text + '</span></li>';
     }).join('');
-    var waMsg = encodeURIComponent('Halo imm.creates! Saya tertarik dengan paket website: *' + pkg.name + '* (' + formatRupiah(pkg.price) + '). Bisa konsultasi langkah selanjutnya?');
+    var waMsg = pkg.contactOnly
+      ? encodeURIComponent('Halo imm.creates! Saya tertarik dengan layanan *' + pkg.name + '*. Bisa dibantu jelaskan detail kebutuhan & estimasi biayanya?')
+      : encodeURIComponent('Halo imm.creates! Saya tertarik dengan paket website: *' + pkg.name + '* (' + formatRupiah(pkg.price) + '). Bisa konsultasi langkah selanjutnya?');
     var btnClass = pkg.popular ? 'btn-primary-3d' : 'btn-secondary-3d';
+
+    var priceBlock = pkg.contactOnly
+      ? '<span class="text-xl sm:text-2xl font-extrabold text-white" style="font-family:\'Outfit\',sans-serif;">Konsultasi Gratis</span>' +
+        '<span class="text-xs text-[#8c909f]">Harga menyesuaikan brief & tingkat kesulitan</span>' +
+        '<div class="flex items-center gap-1 text-[11px] mt-1 font-medium" style="color:#adc6ff;"><i data-lucide="clock" class="w-3 h-3"></i><span>' + pkg.duration + '</span></div>'
+      : '<span class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:\'Outfit\',sans-serif;">' + formatRupiah(pkg.price) + '</span>' +
+        '<span class="text-xs text-[#8c909f]" style="text-decoration:line-through;">Normal ' + formatRupiah(pkg.originalPrice) + '</span>' +
+        '<div class="flex items-center gap-1 text-[11px] mt-1 font-medium" style="color:#adc6ff;"><i data-lucide="clock" class="w-3 h-3"></i><span>Waktu: ' + pkg.duration + '</span></div>';
+
+    var ctaBlock = pkg.contactOnly
+      ? '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
+          '<i data-lucide="message-circle" class="w-4 h-4"></i><span>More Info</span>' +
+        '</a>'
+      : '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
+          '<i data-lucide="message-circle" class="w-4 h-4"></i><span>Pilih Paket Ini</span>' +
+        '</a>' +
+        '<button onclick="event.stopPropagation(); selectPackage(\'' + pkg.id + '\')" class="text-[11px] hover:underline text-center py-1" style="color:#adc6ff;">Sesuaikan di Kalkulator ↓</button>';
 
     return '<div class="glass-card pkg-card rounded-2xl p-6 flex flex-col justify-between relative cursor-pointer' + (pkg.popular ? ' lg:-translate-y-2 shadow-2xl' : '') + '" style="border:1px solid rgba(255,255,255,0.1);' + (pkg.popular ? 'background:linear-gradient(180deg,#1b1f2c,#0f131f);' : '') + '" onclick="selectPackage(\'' + pkg.id + '\')">' +
       ribbon +
@@ -382,22 +430,13 @@ function renderPackageGrid() {
           '<h3 class="text-xl font-bold text-white" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h3>' +
           '<p class="text-xs text-[#94A3B8] min-h-[32px]">' + pkg.tagline + '</p>' +
         '</div>' +
-        '<div class="py-4 border-y border-white/10 flex flex-col gap-1">' +
-          '<span class="text-2xl sm:text-3xl font-extrabold text-white" style="font-family:\'Outfit\',sans-serif;">' + formatRupiah(pkg.price) + '</span>' +
-          '<span class="text-xs text-[#8c909f]" style="text-decoration:line-through;">Normal ' + formatRupiah(pkg.originalPrice) + '</span>' +
-          '<div class="flex items-center gap-1 text-[11px] mt-1 font-medium" style="color:#adc6ff;"><i data-lucide="clock" class="w-3 h-3"></i><span>Waktu: ' + pkg.duration + '</span></div>' +
-        '</div>' +
+        '<div class="py-4 border-y border-white/10 flex flex-col gap-1">' + priceBlock + '</div>' +
         '<div class="py-4 flex flex-col gap-2.5">' +
           '<span class="text-[11px] font-bold text-[#c2c6d6] uppercase tracking-wider">Termasuk:</span>' +
           '<ul class="flex flex-col gap-2">' + features + '</ul>' +
         '</div>' +
       '</div>' +
-      '<div class="pt-4 border-t border-white/10 mt-6 flex flex-col gap-2">' +
-        '<a href="https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waMsg + '" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation();" class="btn-3d ' + btnClass + ' w-full py-3 rounded-xl text-xs font-bold text-center flex items-center justify-center gap-1.5">' +
-          '<i data-lucide="message-circle" class="w-4 h-4"></i><span>Pilih Paket Ini</span>' +
-        '</a>' +
-        '<button onclick="event.stopPropagation(); selectPackage(\'' + pkg.id + '\')" class="text-[11px] hover:underline text-center py-1" style="color:#adc6ff;">Sesuaikan di Kalkulator ↓</button>' +
-      '</div>' +
+      '<div class="pt-4 border-t border-white/10 mt-6 flex flex-col gap-2">' + ctaBlock + '</div>' +
     '</div>';
   }).join('');
 }
@@ -412,12 +451,15 @@ function renderCalcPackages() {
     var dot = isSelected
       ? '<div class="w-4 h-4 rounded-full flex items-center justify-center" style="border:1px solid #4d8eff;background:#4d8eff;"><i data-lucide="check" class="w-2.5 h-2.5 text-white"></i></div>'
       : '<div class="w-4 h-4 rounded-full" style="border:1px solid rgba(255,255,255,0.3);"></div>';
+    var priceLine = pkg.contactOnly
+      ? '<div class="text-xs font-bold mt-1" style="color:#adc6ff;">Hubungi Kami</div>'
+      : '<div class="text-xs font-bold mt-1" style="color:#adc6ff;">' + formatRupiah(pkg.price) + '</div>';
     return '<div onclick="selectPackage(\'' + pkg.id + '\')" class="p-4 rounded-xl border cursor-pointer transition-all" style="' + style + '">' +
       '<div class="flex items-center justify-between">' +
         '<h4 class="text-sm font-bold" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h4>' + dot +
       '</div>' +
-      '<div class="text-xs font-bold mt-1" style="color:#adc6ff;">' + formatRupiah(pkg.price) + '</div>' +
-      '<div class="text-[11px] text-[#8c909f] mt-1">Estimasi ' + pkg.duration + '</div>' +
+      priceLine +
+      '<div class="text-[11px] text-[#8c909f] mt-1">' + (pkg.contactOnly ? pkg.duration : 'Estimasi ' + pkg.duration) + '</div>' +
     '</div>';
   }).join('');
 }
@@ -510,6 +552,12 @@ function renderAll() {
 }
 
 window.selectPackage = function (id) {
+  var pkg = getPackage(id);
+  if (pkg.contactOnly) {
+    var msg = encodeURIComponent('Halo imm.creates! Saya tertarik dengan layanan *' + pkg.name + '*. Bisa dibantu jelaskan detail kebutuhan & estimasi biayanya?');
+    window.open('https://wa.me/' + WHATSAPP_NUMBER + '?text=' + msg, '_blank', 'noopener,noreferrer');
+    return;
+  }
   state.packageId = id;
   renderAll();
   document.getElementById('interactive-calculator').scrollIntoView({ behavior: 'smooth' });
