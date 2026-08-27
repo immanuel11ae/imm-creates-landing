@@ -56,10 +56,10 @@ var SERVICE_PACKAGES = [
       { text: 'Reskin Tampilan Sesuai Warna, Logo & Brand Identity', included: true, highlight: true },
       { text: 'Sistem Keranjang Belanja & Checkout WhatsApp Otomatis', included: true, highlight: true },
       { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true },
-      { text: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: true },
-      { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: true },
-      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: true },
-      { text: 'Testing Alur Belanja End-to-End & Go-Live', included: true }
+      { text: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: false },
+      { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: false },
+      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: false },
+      { text: 'Testing Alur Belanja End-to-End & Go-Live', included: false }
     ]
   },
   {
@@ -82,6 +82,24 @@ var SERVICE_PACKAGES = [
 ];
 
 var SERVICE_ADDONS = [
+  {
+    id: 'addon-payment-gateway',
+    name: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)',
+    price: 2200000,
+    description: 'Setup akun merchant, integrasi Midtrans/Xendit Snap API, sinkronisasi status pembayaran otomatis ke sistem pesanan, plus testing skenario sukses/gagal/pending. Biaya transaksi per pembayaran (± Rp1.500 - 1,5% tergantung provider) ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.'
+  },
+  {
+    id: 'addon-shipping-calculator',
+    name: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)',
+    price: 1200000,
+    description: 'Integrasi API pengiriman (RajaOngkir/Komerce), hitung ongkir real-time berdasarkan kota tujuan & berat produk. Biaya langganan API bulanan ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.'
+  },
+  {
+    id: 'addon-admin-dashboard',
+    name: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan',
+    price: 2500000,
+    description: 'Sistem login admin, kelola stok produk, update status pesanan, dan database pesanan real-time. Sudah termasuk testing alur belanja end-to-end sebelum go-live.'
+  },
   {
     id: 'addon-hosting-upgrade',
     name: 'Upgrade Hosting Cloud SSD NVMe Premium (per Tahun)',
