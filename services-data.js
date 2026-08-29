@@ -10,6 +10,8 @@ var SERVICE_PACKAGES = [
     price: 999000,
     originalPrice: 1500000,
     duration: '3 - 4 Hari Kerja',
+    minDays: 3,
+    maxDays: 4,
     popular: false,
     features: [
       { text: '1 Halaman Responsif Custom (Desktop & Mobile)', included: true, highlight: true },
@@ -30,6 +32,8 @@ var SERVICE_PACKAGES = [
     price: 1850000,
     originalPrice: 2800000,
     duration: '5 - 7 Hari Kerja',
+    minDays: 5,
+    maxDays: 7,
     popular: true,
     features: [
       { text: 'Hingga 5 Halaman Custom (Home, About, Layanan, Portofolio, Kontak)', included: true, highlight: true },
@@ -50,17 +54,16 @@ var SERVICE_PACKAGES = [
     price: 4000000,
     originalPrice: 10000000,
     duration: '6 - 9 Hari Kerja',
+    minDays: 6,
+    maxDays: 9,
     popular: false,
     features: [
       { text: 'Input & Setup Katalog Produk (Hingga 50 Produk Awal Diinputkan)', included: true, highlight: true },
       { text: 'Reskin Tampilan Sesuai Warna, Logo & Brand Identity', included: true, highlight: true },
       { text: 'Sistem Keranjang Belanja & Checkout WhatsApp Otomatis', included: true, highlight: true },
-      { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true },
-      { text: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)', included: false },
-      { text: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)', included: false },
-      { text: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan', included: false },
-      { text: 'Testing Alur Belanja End-to-End & Go-Live', included: false }
-    ]
+      { text: 'Gratis Domain .com + SSL & Hosting Server Aktif 1 Tahun', included: true, highlight: true }
+    ],
+    note: 'Butuh pembayaran otomatis (QRIS/VA/E-Wallet) atau panel admin kelola stok? Tambah sesuai kebutuhanmu di kalkulator di bawah — masih jauh lebih hemat dari harga pasar toko online serupa (Rp10–20jt).'
   },
   {
     id: 'custom-webapp',
@@ -86,54 +89,82 @@ var SERVICE_ADDONS = [
     id: 'addon-payment-gateway',
     name: 'Integrasi Payment Gateway (QRIS, VA Bank, E-Wallet)',
     price: 2200000,
-    description: 'Setup akun merchant, integrasi Midtrans/Xendit Snap API, sinkronisasi status pembayaran otomatis ke sistem pesanan, plus testing skenario sukses/gagal/pending. Biaya transaksi per pembayaran (± Rp1.500 - 1,5% tergantung provider) ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.'
+    description: 'Setup akun merchant, integrasi Midtrans/Xendit Snap API, sinkronisasi status pembayaran otomatis ke sistem pesanan, plus testing skenario sukses/gagal/pending. Biaya transaksi per pembayaran (± Rp1.500 - 1,5% tergantung provider) ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.',
+    minDays: 3,
+    maxDays: 5,
+    addsToTimeline: true,
+    timelineNote: 'Belum termasuk waktu approval akun merchant dari Midtrans/Xendit (biasanya 1-3 hari kerja tambahan, di luar kendali kami)'
   },
   {
     id: 'addon-shipping-calculator',
     name: 'Kalkulator Ongkos Kirim Otomatis (JNE, J&T, SiCepat)',
     price: 1200000,
-    description: 'Integrasi API pengiriman (RajaOngkir/Komerce), hitung ongkir real-time berdasarkan kota tujuan & berat produk. Biaya langganan API bulanan ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.'
+    description: 'Integrasi API pengiriman (RajaOngkir/Komerce), hitung ongkir real-time berdasarkan kota tujuan & berat produk. Biaya langganan API bulanan ditanggung terpisah oleh pemilik toko, di luar biaya jasa ini.',
+    minDays: 2,
+    maxDays: 3,
+    addsToTimeline: true
   },
   {
     id: 'addon-admin-dashboard',
     name: 'Panel Dashboard Admin untuk Kelola Stok & Pesanan',
     price: 2500000,
-    description: 'Sistem login admin, kelola stok produk, update status pesanan, dan database pesanan real-time. Sudah termasuk testing alur belanja end-to-end sebelum go-live.'
+    description: 'Sistem login admin, kelola stok produk, update status pesanan, dan database pesanan real-time. Sudah termasuk testing alur belanja end-to-end sebelum go-live.',
+    minDays: 3,
+    maxDays: 5,
+    addsToTimeline: true
   },
   {
     id: 'addon-hosting-upgrade',
     name: 'Upgrade Hosting Cloud SSD NVMe Premium (per Tahun)',
     price: 1800000,
-    description: 'Server dedicated resource + SSD NVMe untuk traffic tinggi & toko online aktif. Biaya ini berlaku per tahun mengikuti biaya hosting cloud, bukan biaya sekali bayar.'
+    description: 'Server dedicated resource + SSD NVMe untuk traffic tinggi & toko online aktif. Biaya ini berlaku per tahun mengikuti biaya hosting cloud, bukan biaya sekali bayar.',
+    minDays: 0,
+    maxDays: 1,
+    addsToTimeline: false
   },
   {
     id: 'addon-domain-upgrade',
     name: 'Ganti Ekstensi Domain ke .ID / .CO.ID (per Tahun)',
     price: 380000,
-    description: 'Upgrade dari domain default ke ekstensi lokal .ID atau .CO.ID yang lebih premium & terpercaya untuk badan usaha resmi. Biaya ini berlaku per tahun mengikuti biaya perpanjangan domain, bukan biaya sekali bayar.'
+    description: 'Upgrade dari domain default ke ekstensi lokal .ID atau .CO.ID yang lebih premium & terpercaya untuk badan usaha resmi. Biaya ini berlaku per tahun mengikuti biaya perpanjangan domain, bukan biaya sekali bayar.',
+    minDays: 0,
+    maxDays: 1,
+    addsToTimeline: false
   },
   {
     id: 'addon-copywriting',
     name: 'Copywriting Persuasif & Storytelling Brand',
     price: 350000,
-    description: 'Penulisan headline, deskripsi produk, benefit points, dan CTA persuasif oleh copywriter profesional.'
+    description: 'Penulisan headline, deskripsi produk, benefit points, dan CTA persuasif oleh copywriter profesional.',
+    minDays: 1,
+    maxDays: 2,
+    addsToTimeline: true
   },
   {
     id: 'addon-ai-ugc-pack',
     name: 'Paket 3 Video AI-UGC Ads Iklan TikTok/Reels',
     price: 600000,
-    description: '3 variasi video iklan pendek gaya UGC dengan AI avatar natural, hook jualan kuat, dan background musik trending.'
+    description: '3 variasi video iklan pendek gaya UGC dengan AI avatar natural, hook jualan kuat, dan background musik trending.',
+    minDays: 2,
+    maxDays: 3,
+    addsToTimeline: true
   },
   {
     id: 'addon-seo-pro',
     name: 'Paket SEO Pro & Google Search Console Setup',
     price: 400000,
-    description: 'Riset kata kunci lokal, metadata schema JSON-LD, sitemap indexing, dan setup Google Profil Bisnis.'
+    description: 'Riset kata kunci lokal, metadata schema JSON-LD, sitemap indexing, dan setup Google Profil Bisnis.',
+    minDays: 1,
+    maxDays: 2,
+    addsToTimeline: true
   },
   {
     id: 'addon-maintenance',
     name: 'Maintenance Bulanan & Update Konten (3 Bulan)',
     price: 450000,
-    description: 'Backup rutin mingguan, update plugin & keamanan, serta pergantian teks/foto banner hingga 4x per bulan.'
+    description: 'Backup rutin mingguan, update plugin & keamanan, serta pergantian teks/foto banner hingga 4x per bulan.',
+    minDays: 0,
+    maxDays: 0,
+    addsToTimeline: false
   }
 ];
