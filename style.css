@@ -1,5 +1,21 @@
 /* imm.creates — shared stylesheet, dark navy redesign */
 
+/* Font self-hosted (variable, latin) — menggantikan Google Fonts agar tidak memblokir render */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('outfit-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('inter-latin.woff2') format('woff2');
+}
+
 :root {
   --font-headline: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -38,13 +54,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary-3d {
-  background-color: #ec6a06;
+  background-color: #c04f00;
   color: #ffffff;
-  border-bottom-color: #a54602;
+  border-bottom-color: #823400;
   box-shadow: 0 4px 20px rgba(236, 106, 6, 0.25);
 }
 
 .btn-primary-3d:hover {
+  filter: brightness(0.94);
   box-shadow: 0 8px 25px rgba(236, 106, 6, 0.4);
 }
 

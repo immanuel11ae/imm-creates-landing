@@ -11,10 +11,10 @@
 <meta property="og:url" content="https://immcreates.my.id/layanan.html">
 <link rel="canonical" href="https://immcreates.my.id/layanan.html">
 <link rel="icon" href="logo-navbar-fixed.webp" type="image/webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preload" href="outfit-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tailwind.css">
 <style>
   #package-grid .pkg-card {
     transition: transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease, border-color 0.35s ease, opacity 0.35s ease, filter 0.35s ease;
@@ -32,11 +32,11 @@
   }
   /* Tombol "Pilih Paket Ini": aktif oranye di kartu yang di-hover, non-aktif (abu) di kartu lainnya */
   #package-grid .pkg-card:hover .btn-3d {
-    background-color: #ec6a06 !important;
-    background: #ec6a06 !important;
+    background-color: #c04f00 !important;
+    background: #c04f00 !important;
     color: #ffffff !important;
     border: none !important;
-    border-bottom: 3px solid #a54602 !important;
+    border-bottom: 3px solid #823400 !important;
     box-shadow: 0 4px 20px rgba(236, 106, 6, 0.25) !important;
   }
   #package-grid:has(.pkg-card:hover) .pkg-card:not(:hover) .btn-3d {
@@ -107,7 +107,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
 <body class="page-dark" data-page="layanan" style="background:#0f131f;">
 
 <!-- Wave background -->
-<div class="wave-bg-host">
+<div class="wave-bg-host" aria-hidden="true">
   <canvas id="wave-canvas"></canvas>
   <div class="wave-bg-vignette"></div>
 </div>
@@ -131,7 +131,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
       </a>
       <a href="ai-ugc.html" data-nav-link="ai-ugc" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5">
         <span>AI-UGC Ads</span>
-        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase animate-pulse" style="background:#ec6a06;color:white;">Baru</span>
+        <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase animate-pulse" style="background:#c04f00;color:white;">Baru</span>
       </a>
       <a href="tentang.html" data-nav-link="kontak" class="px-4 py-2 rounded-full text-xs font-semibold text-[#c2c6d6] hover:text-white hover:bg-white/5 transition-all">Tentang & Kontak</a>
     </nav>
@@ -283,7 +283,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
       <h2 class="text-2xl sm:text-3xl font-bold text-white" style="font-family:'Outfit',sans-serif;">Tabel Fitur & Komparasi Antar Paket</h2>
     </div>
 
-    <div class="glass-card rounded-2xl overflow-x-auto border border-white/10">
+    <div class="glass-card rounded-2xl overflow-x-auto border border-white/10" tabindex="0" role="region" aria-label="Tabel perbandingan fitur antar paket">
       <table class="w-full text-left text-xs text-[#c2c6d6]" style="min-width:640px;">
         <thead class="text-white uppercase text-[10px] font-bold border-b border-white/10" style="background:#171b28;">
           <tr>
@@ -368,7 +368,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
         </p>
       </div>
       <div class="flex flex-col gap-2 text-sm text-[#94A3B8]">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Navigasi</h4>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Navigasi</h3>
         <a href="/" class="hover:text-[#adc6ff] transition-colors w-fit">Home</a>
         <a href="portfolio.html" class="hover:text-[#adc6ff] transition-colors w-fit">Portfolio</a>
         <a href="layanan.html" class="hover:text-[#adc6ff] transition-colors w-fit">Layanan & Harga</a>
@@ -376,7 +376,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
         <a href="tentang.html" class="hover:text-[#adc6ff] transition-colors w-fit">Tentang & Kontak</a>
       </div>
       <div class="flex flex-col gap-2 text-xs text-[#94A3B8]">
-        <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Standar imm.creates</h4>
+        <h3 class="text-sm font-bold text-white uppercase tracking-wider mb-1" style="font-family:'Outfit',sans-serif;">Standar imm.creates</h3>
         <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>100% Desain Custom</span></div>
         <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>SEO &amp; Best Practices 100/100 di Google PageSpeed</span></div>
         <div class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4" style="color:#adc6ff;"></i><span>WhatsApp 1-Click Auto Order</span></div>
@@ -392,7 +392,7 @@ src="https://www.facebook.com/tr?id=1362691699361504&ev=PageView&noscript=1"
   </div>
 </footer>
 
-<script src="https://unpkg.com/lucide@latest"></script>
+<script src="icons.js"></script>
 <script src="wave-background.js"></script>
 <script src="nav.js"></script>
 <script src="services-data.js"></script>
@@ -421,7 +421,7 @@ function renderPackageGrid() {
       : '';
 
     var features = pkg.features.map(function (feat) {
-      var color = feat.included ? (feat.highlight ? 'color:#fff;font-weight:600;' : 'color:#c2c6d6;') : 'color:rgba(140,144,159,0.4);text-decoration:line-through;';
+      var color = feat.included ? (feat.highlight ? 'color:#fff;font-weight:600;' : 'color:#c2c6d6;') : 'color:#8c909f;text-decoration:line-through;';
       var icon = feat.included
         ? '<i data-lucide="check" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:#4d8eff;"></i>'
         : '<i data-lucide="x" class="w-3.5 h-3.5 shrink-0 mt-0.5" style="color:rgba(140,144,159,0.4);"></i>';
@@ -453,7 +453,7 @@ function renderPackageGrid() {
       ribbon +
       '<div>' +
         '<div class="flex flex-col gap-1 mb-4">' +
-          '<h3 class="text-xl font-bold text-white" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h3>' +
+          '<h2 class="text-xl font-bold text-white" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h2>' +
           '<p class="text-xs text-[#94A3B8] min-h-[32px]">' + pkg.tagline + '</p>' +
         '</div>' +
         '<div class="py-4 border-y border-white/10 flex flex-col gap-1">' + priceBlock + '</div>' +
@@ -483,7 +483,7 @@ function renderCalcPackages() {
       : '<div class="text-xs font-bold mt-1" style="color:#adc6ff;">' + formatRupiah(pkg.price) + '</div>';
     return '<div onclick="selectPackage(\'' + pkg.id + '\')" class="p-4 rounded-xl border cursor-pointer transition-all" style="' + style + '">' +
       '<div class="flex items-center justify-between">' +
-        '<h4 class="text-sm font-bold" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h4>' + dot +
+        '<h3 class="text-sm font-bold" style="font-family:\'Outfit\',sans-serif;">' + pkg.name + '</h3>' + dot +
       '</div>' +
       priceLine +
       '<div class="text-[11px] text-[#8c909f] mt-1">' + (pkg.contactOnly ? pkg.duration : 'Estimasi ' + pkg.duration) + '</div>' +
