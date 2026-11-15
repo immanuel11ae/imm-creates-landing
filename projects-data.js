@@ -9,8 +9,8 @@ var PORTFOLIO_PROJECTS = [
     liveUrl: 'https://immanuel11ae.github.io/cruzo-rental/',
     brief: 'Butuh 1 halaman buat iklan Instagram.',
     process: 'Struktur + copywriting fokus CTA.',
-    result: 'Live, terhubung langsung ke WhatsApp.',
-    caseStudy: 'Brief awal cuma "butuh halaman buat iklan Instagram". Disusun jadi 1 halaman dengan hierarki jelas: hero, keunggulan, dan CTA WhatsApp yang selalu terlihat.'
+    result: 'Demo live, tombol terhubung langsung ke WhatsApp.',
+    caseStudy: 'Skenario demo: brief awal cuma "butuh halaman buat iklan Instagram". Disusun jadi 1 halaman dengan hierarki jelas: hero, keunggulan, dan CTA WhatsApp yang selalu terlihat.'
   },
   {
     id: 'kopi-ranting',
@@ -21,8 +21,8 @@ var PORTFOLIO_PROJECTS = [
     liveUrl: 'https://immanuel11ae.github.io/kopi-ranting/index.html',
     brief: 'Butuh profil brand yang lengkap.',
     process: 'Multi-halaman + copywriting cerita brand.',
-    result: 'Live, siap dipakai jualan.',
-    caseStudy: 'Brand kopi lokal butuh lebih dari 1 halaman buat cerita brand + produk. Disusun jadi beberapa halaman dengan alur navigasi yang gak bikin bingung pengunjung.'
+    result: 'Demo live dengan struktur multi-halaman.',
+    caseStudy: 'Skenario demo: brand kopi lokal fiktif butuh lebih dari 1 halaman buat cerita brand + produk. Disusun jadi beberapa halaman dengan alur navigasi yang gak bikin bingung pengunjung.'
   },
   {
     id: 'siakad-cakrawala-bangsa',
@@ -33,8 +33,8 @@ var PORTFOLIO_PROJECTS = [
     liveUrl: 'https://immanuel11ae.github.io/siakad-cakrawala-bangsa/',
     brief: 'Butuh 1 portal terpusat buat siswa & wali murid pantau nilai/jadwal.',
     process: 'Custom web app + dashboard ringkasan real-time.',
-    result: 'Live, siap dipakai sekolah.',
-    caseStudy: 'Sekolah butuh 1 portal yang menyatukan akses nilai, jadwal pelajaran, dan info ekstrakurikuler buat siswa & wali murid, tanpa perlu tanya manual ke pihak sekolah.'
+    result: 'Demo live dengan dashboard ringkasan.',
+    caseStudy: 'Skenario demo: sekolah butuh 1 portal yang menyatukan akses nilai, jadwal pelajaran, dan info ekstrakurikuler buat siswa & wali murid, tanpa perlu tanya manual ke pihak sekolah.'
   }
 ];
 
@@ -52,9 +52,9 @@ function openProjectModal(id) {
         '<p class="text-xs text-[#94A3B8] mt-1">' + project.tagline + '</p>' +
       '</div>' +
       '<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">' +
-        '<div class="p-3 rounded-xl border border-white/10" style="background:#171b28;"><span class="font-bold text-white block mb-1">Brief</span><span class="text-[#94A3B8]">' + project.brief + '</span></div>' +
+        '<div class="p-3 rounded-xl border border-white/10" style="background:#171b28;"><span class="font-bold text-white block mb-1">Skenario</span><span class="text-[#94A3B8]">' + project.brief + '</span></div>' +
         '<div class="p-3 rounded-xl border border-white/10" style="background:#171b28;"><span class="font-bold text-white block mb-1">Proses</span><span class="text-[#94A3B8]">' + project.process + '</span></div>' +
-        '<div class="p-3 rounded-xl border border-white/10" style="background:#171b28;"><span class="font-bold text-white block mb-1">Hasil</span><span class="text-[#94A3B8]">' + project.result + '</span></div>' +
+        '<div class="p-3 rounded-xl border border-white/10" style="background:#171b28;"><span class="font-bold text-white block mb-1">Output</span><span class="text-[#94A3B8]">' + project.result + '</span></div>' +
       '</div>' +
       '<p class="text-xs text-[#94A3B8] leading-relaxed">' + project.caseStudy + '</p>' +
       '<p class="text-[10px] text-[#8c909f] italic">*Project ini adalah demo/showcase untuk menunjukkan kualitas kerja, bukan project klien berbayar.</p>' +

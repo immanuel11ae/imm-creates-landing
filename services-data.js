@@ -17,7 +17,7 @@ var SERVICE_PACKAGES = [
       { text: '1 Halaman Responsif Custom (Desktop & Mobile)', included: true, highlight: true },
       { text: 'Struktur Copywriting Persuasif & Hook Jualan', included: true, highlight: true },
       { text: 'Tombol 1-Click WhatsApp Booking / Order Otomatis', included: true, highlight: true },
-      { text: 'Optimasi Speed Super Cepat (< 1.5 detik)', included: true },
+      { text: 'Optimasi Gambar (WebP) & Kode Ringan', included: true },
       { text: 'Gratis Domain .my.id + SSL & Hosting 1 Tahun', included: true, highlight: true },
       { text: 'Integrasi Meta Pixel & Google Analytics', included: true },
       { text: 'Halaman Tambahan / Blog Multi-halaman', included: false },
