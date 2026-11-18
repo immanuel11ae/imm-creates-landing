@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Toko Online Niagaku | Showcase E-Commerce imm.creates</title>
+  <meta name="description" content="Coba langsung demo marketplace Niagaku: katalog produk, flash sale, wishlist, dan keranjang. Contoh website toko online buatan imm.creates.">
+  <link rel="canonical" href="https://immcreates.my.id/demo-niagaku.html">
+  <link rel="icon" href="logo-navbar-fixed.webp">
+  <meta property="og:title" content="Demo Toko Online Niagaku | imm.creates">
+  <meta property="og:description" content="Coba langsung demo marketplace Niagaku buatan imm.creates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://immcreates.my.id/demo-niagaku.html">
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6YB92Y76H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S6YB92Y76H');
+  </script>
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1362691699361504');
+    fbq('track', 'PageView');
+  </script>
+
+  <style>
+    :root {
+      --bg: #070e24;
+      --panel: #0f1b3d;
+      --line: rgba(255,255,255,.10);
+      --text: #eef1fb;
+      --muted: #a9b3d1;
+      --accent: #6f7cff;
+      --accent-2: #ff6a3d;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 16px clamp(16px, 4vw, 48px);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar a.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; }
+    .topbar img { height: 32px; width: auto; }
+    .topbar a.back { color: var(--muted); text-decoration: none; font-size: .95rem; }
+    .topbar a.back:hover { color: var(--text); }
+
+    main { max-width: 1120px; margin: 0 auto; padding: clamp(28px, 5vw, 64px) clamp(16px, 4vw, 32px) 80px; }
+
+    h1 { font-size: clamp(1.9rem, 4.6vw, 3.1rem); line-height: 1.15; margin: 0 0 14px; max-width: 18ch; }
+    .lead { color: var(--muted); max-width: 62ch; margin: 0 0 28px; font-size: 1.05rem; }
+
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 36px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 22px; border-radius: 12px; font-weight: 600; font-size: .98rem;
+      text-decoration: none; border: 1px solid var(--line); cursor: pointer;
+      background: transparent; color: var(--text); font-family: inherit;
+      transition: transform .15s ease, background .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); background: rgba(255,255,255,.06); }
+    .btn-primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn-primary:hover { background: #8591ff; }
+
+    /* Bingkai browser */
+    .stage { display: flex; justify-content: center; }
+    .browser {
+      width: 100%; max-width: 100%;
+      background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+      overflow: hidden; transition: width .35s ease;
+      box-shadow: 0 30px 80px rgba(0,0,0,.45);
+    }
+    .browser.mobile { width: 390px; }
+    .browser-bar {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.03);
+    }
+    .dots { display: flex; gap: 6px; }
+    .dots i { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,.22); display: block; }
+    .url {
+      flex: 1; min-width: 0; font-size: .82rem; color: var(--muted);
+      background: rgba(0,0,0,.28); border-radius: 8px; padding: 6px 12px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .toggle { display: flex; gap: 4px; }
+    .toggle button {
+      font: inherit; font-size: .8rem; color: var(--muted); background: transparent;
+      border: 1px solid var(--line); border-radius: 8px; padding: 5px 10px; cursor: pointer;
+    }
+    .toggle button[aria-pressed="true"] { color: #fff; background: var(--accent); border-color: var(--accent); }
+
+    .viewport { position: relative; background: #f7f4ef; height: min(78vh, 760px); }
+    .viewport iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .loading {
+      position: absolute; inset: 0; display: grid; place-items: center;
+      color: #3a4466; font-size: .95rem; pointer-events: none;
+    }
+
+    .note { color: var(--muted); font-size: .9rem; margin: 18px 0 0; text-align: center; }
+
+    .cta {
+      margin-top: 64px; padding: clamp(24px, 4vw, 40px);
+      border: 1px solid var(--line); border-radius: 18px;
+      background: linear-gradient(135deg, rgba(111,124,255,.14), rgba(255,106,61,.08));
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .cta h2 { margin: 0 0 6px; font-size: 1.5rem; }
+    .cta p { margin: 0; color: var(--muted); max-width: 52ch; }
+
+    footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 28px 16px 40px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 640px) {
+      .toggle { display: none; }
+      .viewport { height: 70vh; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <img src="logo-navbar-fixed.webp" alt="" width="32" height="32">
+      <span>imm.creates</span>
+    </a>
+    <a class="back" href="portfolio.html">&larr; Kembali ke Portfolio</a>
+  </header>
+
+  <main>
+    <h1>Coba langsung toko online Niagaku</h1>
+    <p class="lead">
+      Niagaku adalah demo marketplace buatan imm.creates: ada flash sale, wishlist, chat penjual, dan keranjang belanja.
+      Ini proyek showcase, bukan toko sungguhan. Silakan klik-klik seperti pembeli biasa.
+    </p>
+
+    <div class="actions">
+      <a class="btn btn-primary" id="openDemo"
+         href="https://immanuel11ae.github.io/niagaku-ecommerce/"
+         target="_blank" rel="noopener">Buka demo di tab baru</a>
+      <a class="btn" href="layanan.html">Lihat paket website toko online</a>
+    </div>
+
+    <div class="stage">
+      <div class="browser" id="browser">
+        <div class="browser-bar">
+          <div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="url">immanuel11ae.github.io/niagaku-ecommerce/</div>
+          <div class="toggle" role="group" aria-label="Ukuran tampilan">
+            <button type="button" id="btnDesktop" aria-pressed="true">Desktop</button>
+            <button type="button" id="btnMobile" aria-pressed="false">HP</button>
+          </div>
+        </div>
+        <div class="viewport">
+          <div class="loading" id="loading">Memuat demo&hellip;</div>
+          <iframe
+            id="demoFrame"
+            src="https://immanuel11ae.github.io/niagaku-ecommerce/"
+            title="Demo toko online Niagaku"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+        </div>
+      </div>
+    </div>
+    <p class="note">Di HP, demo lebih nyaman dibuka lewat tombol &ldquo;Buka demo di tab baru&rdquo;.</p>
+
+    <section class="cta" aria-labelledby="cta-title">
+      <div>
+        <h2 id="cta-title">Mau toko online seperti ini?</h2>
+        <p>Ceritakan produk dan kebutuhan Anda. Kita bahas fitur yang pas, dari katalog sederhana sampai pembayaran otomatis.</p>
+      </div>
+      <a class="btn btn-primary" id="waBtn"
+         href="https://wa.me/6287888865680?text=Halo%20imm.creates%2C%20saya%20tertarik%20dengan%20demo%20toko%20online%20Niagaku.%20Bisa%20diskusi%20kebutuhan%20toko%20online%20saya%3F"
+         target="_blank" rel="noopener">Diskusi via WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>&copy; 2026 imm.creates &middot; Surabaya</footer>
+
+  <script>
+    (function () {
+      var browser = document.getElementById('browser');
+      var btnD = document.getElementById('btnDesktop');
+      var btnM = document.getElementById('btnMobile');
+      var frame = document.getElementById('demoFrame');
+      var loading = document.getElementById('loading');
+
+      function setMode(mobile) {
+        browser.classList.toggle('mobile', mobile);
+        btnD.setAttribute('aria-pressed', String(!mobile));
+        btnM.setAttribute('aria-pressed', String(mobile));
+      }
+      btnD.addEventListener('click', function () { setMode(false); });
+      btnM.addEventListener('click', function () { setMode(true); });
+
+      frame.addEventListener('load', function () { loading.style.display = 'none'; });
+
+      // Pelacakan klik (GA4 + Meta Pixel), aman jika script tracking diblokir
+      document.getElementById('openDemo').addEventListener('click', function () {
+        try { gtag('event', 'click_demo_niagaku'); } catch (e) {}
+        try { fbq('trackCustom', 'ClickDemoNiagaku'); } catch (e) {}
+      });
+      document.getElementById('waBtn').addEventListener('click', function () {
+        try { gtag('event', 'click_whatsapp_demo_niagaku'); } catch (e) {}
+        try { fbq('track', 'Contact'); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>
